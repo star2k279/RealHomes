@@ -369,6 +369,7 @@
     <Content Include="Views\Partials\SiteLayout\_TopNavigation.cshtml" />
     <Content Include="Views\Partials\SiteLayout\_PropertiesList.cshtml" />
     <Content Include="Views\Partials\SiteLayout\_Contentbanner.cshtml" />
+    <Content Include="Views\Partials\SiteLayout\_TopNavigations.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
