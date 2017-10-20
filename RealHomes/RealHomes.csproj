@@ -372,6 +372,10 @@
     <Content Include="Views\Partials\SiteLayout\_TopNavigations.cshtml" />
     <Content Include="Views\Partials\SiteLayout\_ContactUs.cshtml" />
     <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Partials\Content\_FeaturedProperties.cshtml" />
+    <Content Include="Views\Partials\Content\_Services.cshtml" />
+    <Content Include="Views\Partials\Content\_ProjectGallery.cshtml" />
+    <Content Include="Views\Partials\Content\_testimonials.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
