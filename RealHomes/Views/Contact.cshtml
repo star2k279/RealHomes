@@ -1,5 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Contact>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
 }
@@ -11,55 +10,15 @@
 
         @{Html.RenderPartial("SiteLayout/_Contentbanner");
         }
-
-       <!-- <div class="navigation">
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li><a href="buy.html">Buy</a></li>
-                        <li><a href="about.html">Rent Us</a></li>
-                        <li><a href="blog.html">Sell</a></li>
-                        <li><a href="terms.html">Landlord</a></li>
-                        <li><a href="privacy.html">PropertyManagement</a></li>
-                        <li><a href="contact.html">Off plan</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="clearfix"> </div>
-
-        <div class="clearfix"> </div>
-        <!--initiate accordion
-        <script type="text/javascript">
-			$(function() {
-			    var menu_ul = $('.menu > li > ul'),
-			           menu_a  = $('.menu > li > a');
-			    menu_ul.hide();
-			    menu_a.click(function(e) {
-			        e.preventDefault();
-			        if(!$(this).hasClass('active')) {
-			            menu_a.removeClass('active');
-			            menu_ul.filter(':visible').slideUp('normal');
-			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-			        } else {
-			            $(this).removeClass('active');
-			            $(this).next().stop(true,true).slideUp('normal');
-			        }
-			    });
-
-			});
-        </script>
-
-            -->
-
+        
     </div>
 </div>
-<!--Small Banner-->
+<!--Content Pages Banner-->
 
 <!--Contact-->
-<div class="contact">
+<div class="contact-top">
     <div class="container">
-        <h3>Contact Us</h3>
+       <!-- <h3>Contact Us</h3>-->
         <div class="contact-top">
             <div class="col-md-6 contact-top1">
                 <h4> Info</h4>
@@ -67,37 +26,43 @@
                 <div class="contact-address">
                     <div class="col-md-6 contact-address1">
                         <h5>Address</h5>
-                        <p><b>The Company Name</b></p>
+                        <p><b>Real homes</b></p>
                         <p>25478 charms of pleasur</p>
                         <p>On the other hand, we denounce</p>
                     </div>
                     <div class="col-md-6 contact-address1">
                         <h5>Email Address </h5>
-                        <p>General :<a href="malito:mail@demolink.org"> info(at)Lorem.com</a></p>
-                        <p>Office :<a href="malito:mail@demolink.org"> info(at)Lorem.com</a></p>
+                        <p>General :<a href="malito:customercare@bhomes.com"> customercare@bhomes.com</a></p>
+                        <p>Office :<a href="malito:customercare@bhomes.com"> customercare@bhomes.com</a></p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="contact-address">
                     <div class="col-md-6 contact-address1">
                         <h5>Phone </h5>
-                        <p>Landline : 254-8974-5847</p>
-                        <p>Mobile : +174 1478 74755</p>
+                        <p>Landline : +971 600 52 2233</p>
+                        <p>Mobile : +971 600 52 2233</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-md-6 contact-right">
 
-                <form>
-                    <input type="text" placeholder="Name" required="">
-                    <input type="text" placeholder="Email" required="">
-                    <input type="text" placeholder="Subject" required="">
-                    <textarea placeholder="Message" requried=""></textarea>
-                    <label class="hvr-sweep-to-right">
-                        <input type="submit" value="Submit">
-                    </label>
-                </form>
+                <!-- Render the Contact from Contact Prtial View -->
+                @if (TempData["ContactSuccess"] != null && (bool)TempData["ContactSuccess"])
+                {
+                    <div class="contact-address1">
+                    <h4> Thank you</h4>
+                        <p class="text-contact">Your email was sent successfully. We will get back to you soon.</p>
+                        <p class="text-contact">Continue to <a href="~/">Home</a>.</p>
+                    </div>
+                }
+                else
+                {
+                    //Html.RenderPartial("_Contactus");
+                    Html.RenderAction("RenderForm", "ContactSurface");
+                }
+               
             </div>
             <div class="clearfix"> </div>
         </div>

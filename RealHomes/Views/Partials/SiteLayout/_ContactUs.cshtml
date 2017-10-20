@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.ContactModel>
+@{//model RealHomes.Models.ContactModel }
+}
+
+
+@using (Html.BeginUmbracoForm<RealHomes.Controllers.ContactSurfaceController>("SubmitForm", "ContactSurface", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+  
+        @Html.LabelFor(m => m.txtName, "Name")
+        @Html.TextBoxFor(m => m.txtName)
+
+        @Html.LabelFor(m => m.txtEmail, "Email Address")
+        @Html.TextBoxFor(m => m.txtEmail)
+
+        @Html.LabelFor(m => m.txtSubject, "Subject")
+        @Html.TextBoxFor(m => m.txtSubject)
+
+        @Html.LabelFor(m => m.txtMessage, "Message")
+        @Html.TextAreaFor(m => m.txtMessage)
+
+
+        <label class="hvr-sweep-to-right">
+            <input type="submit" value="Submit">
+
+        </label>
+    
+}
+
+
+
+
+
