@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "5963469ee042230f")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3fee77ed34b3e663")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -42,7 +42,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("home")]
-	public partial class Home : PublishedContentModel
+	public partial class Home : PublishedContentModel, IGenericTypes
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "home";
@@ -63,6 +63,33 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Main Heading: Main heading of the Page
+		///</summary>
+		[ImplementPropertyType("mainHeading")]
+		public string MainHeading
+		{
+			get { return Umbraco.Web.PublishedContentModels.GenericTypes.GetMainHeading(this); }
+		}
+
+		///<summary>
+		/// Page Title: Main heading of the page. When left empty, default page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.GenericTypes.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Sub Heading: description about the page.
+		///</summary>
+		[ImplementPropertyType("subTitle")]
+		public string SubTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.GenericTypes.GetSubTitle(this); }
 		}
 	}
 
@@ -142,6 +169,82 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+	}
+
+	// Mixin content Type 1071 with alias "genericTypes"
+	/// <summary>Generic Types</summary>
+	public partial interface IGenericTypes : IPublishedContent
+	{
+		/// <summary>Main Heading</summary>
+		string MainHeading { get; }
+
+		/// <summary>Page Title</summary>
+		string PageTitle { get; }
+
+		/// <summary>Sub Heading</summary>
+		string SubTitle { get; }
+	}
+
+	/// <summary>Generic Types</summary>
+	[PublishedContentModel("genericTypes")]
+	public partial class GenericTypes : PublishedContentModel, IGenericTypes
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "genericTypes";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GenericTypes(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GenericTypes, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Main Heading: Main heading of the Page
+		///</summary>
+		[ImplementPropertyType("mainHeading")]
+		public string MainHeading
+		{
+			get { return GetMainHeading(this); }
+		}
+
+		/// <summary>Static getter for Main Heading</summary>
+		public static string GetMainHeading(IGenericTypes that) { return that.GetPropertyValue<string>("mainHeading"); }
+
+		///<summary>
+		/// Page Title: Main heading of the page. When left empty, default page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return GetPageTitle(this); }
+		}
+
+		/// <summary>Static getter for Page Title</summary>
+		public static string GetPageTitle(IGenericTypes that) { return that.GetPropertyValue<string>("pageTitle"); }
+
+		///<summary>
+		/// Sub Heading: description about the page.
+		///</summary>
+		[ImplementPropertyType("subTitle")]
+		public string SubTitle
+		{
+			get { return GetSubTitle(this); }
+		}
+
+		/// <summary>Static getter for Sub Heading</summary>
+		public static string GetSubTitle(IGenericTypes that) { return that.GetPropertyValue<string>("subTitle"); }
 	}
 
 	/// <summary>Folder</summary>
