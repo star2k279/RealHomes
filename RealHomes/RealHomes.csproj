@@ -580,8 +580,11 @@
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
-    <Compile Include="Models\Facility.cs" />
+    <Compile Include="Models\FacilityModel.cs" />
+    <Compile Include="Models\FixtureModel.cs" />
     <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\MetroStationModel.cs" />
+    <Compile Include="Models\NearestMetroStationModel.cs" />
     <Compile Include="Models\PropertyModel.cs" />
     <Compile Include="Models\PropertyType.Context.cs">
       <AutoGen>True</AutoGen>

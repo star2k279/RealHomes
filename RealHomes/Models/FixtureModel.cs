@@ -5,9 +5,11 @@ using System.Web;
 
 namespace RealHomes.Models
 {
-    public class Facility
+    public class FixtureModel
     {
-        public long Id { get; set; }
+
+        public long id { get; set; }
         public string Name { get; set; }
+
     }
 }
