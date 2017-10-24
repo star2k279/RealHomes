@@ -29,34 +29,34 @@ namespace RealHomes.Models
         public Int64 PropertyCategory { get; set; }
 
         [Column("Type")]
-        public Int64 PropertyType { get; set; }
+        public long PropertyType { get; set; }
 
         [Column("MainFeature")]
         public string MainFeature { get; set; }
 
         [Column("Location")]
-        public Int64 Location { get; set; }
+        public long Location { get; set; }
 
         [Column("TotalSize")]
-        public Int64 TotalSize { get; set; }
+        public long TotalSize { get; set; }
 
         [Column("BuildUpArea")]
-        public Int64 BuildUpArea { get; set; }
+        public long BuildUpArea { get; set; }
 
         [Column("ReraPermitNo")]
-        public Int64 ReraPermitNo { get; set; }
+        public long ReraPermitNo { get; set; }
 
         [Column("SellPrice")]
         public decimal SellPrice	 { get; set; }
 
         [Column("carparking")]
-        public int carparking { get; set; }
+        public short carparking { get; set; }
 
         [Column("bedrooms")]
-        public int bedrooms { get; set; }
+        public short bedrooms { get; set; }
 
         [Column("baths")]
-        public int baths { get; set; }
+        public short baths { get; set; }
 
         [Column("AvailabilityStatus")]
         public string AvailabilityStatus { get; set; }
@@ -69,7 +69,9 @@ namespace RealHomes.Models
 
         [Column("PropDetailPageURL")]
         public  string PropertyDetailPageURL { get; set; }
-	
+
+        [Column("ImagePth")]
+        public string PropertyImagePath { get; set; }
 
     }
 }

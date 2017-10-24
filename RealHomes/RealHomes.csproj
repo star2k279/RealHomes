@@ -322,16 +322,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Errors.html" />
-    <Content Include="Models\PropertyType.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PropertyType.edmx</DependentUpon>
-      <LastGenOutput>PropertyType.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PropertyType.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PropertyType.edmx</DependentUpon>
-      <LastGenOutput>PropertyType.cs</LastGenOutput>
-    </Content>
     <Content Include="packages.config" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
@@ -339,13 +329,6 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\PropertyType.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PropertyType.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\PropertyType.edmx.diagram">
-      <DependentUpon>PropertyType.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -585,61 +568,15 @@
     <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\MetroStationModel.cs" />
     <Compile Include="Models\NearestMetroStationModel.cs" />
+    <Compile Include="Models\NearestSchoolModel.cs" />
     <Compile Include="Models\PropertyModel.cs" />
-    <Compile Include="Models\PropertyType.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyType.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PropertyType.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PropertyType.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyType.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHCategory.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHFacility.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHFixture.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHLocation.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHMetroStation.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHNearestMetroStation.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHNearestSchool.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHRegion.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHSchool.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHUnitFacility.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHUnitFixture.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHUnitView.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RHView.cs">
-      <DependentUpon>PropertyType.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\PropertyTypeModel.cs" />
+    <Compile Include="Models\RegionModel.cs" />
+    <Compile Include="Models\SchoolModel.cs" />
+    <Compile Include="Models\UnitFacilityModel.cs" />
+    <Compile Include="Models\UnitFixtureModel.cs" />
+    <Compile Include="Models\UnitViewsModel.cs" />
+    <Compile Include="Models\ViewsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringConstants.Designer.cs">
       <AutoGen>True</AutoGen>
