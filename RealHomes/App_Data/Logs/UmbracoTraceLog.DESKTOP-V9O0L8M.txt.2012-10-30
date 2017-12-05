@@ -1,0 +1,397 @@
+﻿ 2012-10-30 10:21:08,452 [P10276/D3/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:21:08,483 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:21:08,502 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 19ms)
+ 2012-10-30 10:21:08,585 [P10276/D3/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:21:08,587 [P10276/D3/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:21:08,590 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:21:08,940 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 350ms)
+ 2012-10-30 10:21:08,941 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:21:08,947 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 6ms)
+ 2012-10-30 10:21:08,972 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:21:08,973 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:21:08,973 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:21:08,978 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 5ms)
+ 2012-10-30 10:21:08,979 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:21:08,979 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:21:08,980 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:21:08,986 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 6ms)
+ 2012-10-30 10:21:09,004 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:21:09,004 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:21:09,005 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:21:09,010 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 5ms)
+ 2012-10-30 10:21:09,011 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:21:09,011 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:21:09,011 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:21:09,017 [P10276/D3/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 5ms)
+ 2012-10-30 10:21:11,228 [P10276/D3/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:21:11,565 [P10276/D3/T1] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-RealHomes-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.Mvc.AreaRegistrationExtensions.RouteControllerPlugin(AreaRegistration area, String controllerName, Type controllerType, RouteCollection routes, String controllerSuffixName, String defaultAction, Object defaultId, String umbracoTokenValue, String routeTokens, Boolean isMvc, String areaPathPrefix)
+   at Umbraco.Web.Mvc.PluginControllerArea.MapRouteApiControllers(RouteCollection routes, IEnumerable`1 apiControllers)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:21:22,255 [P10276/D3/T5] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:21:22,268 [P10276/D3/T5] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:21:52,347 [P10276/D3/T29] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:25:47,871 [P10276/D4/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:25:47,903 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:25:47,951 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 47ms)
+ 2012-10-30 10:25:48,025 [P10276/D4/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:25:48,027 [P10276/D4/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:25:48,030 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:25:48,353 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 323ms)
+ 2012-10-30 10:25:48,354 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:25:48,361 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 6ms)
+ 2012-10-30 10:25:48,385 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:25:48,386 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:25:48,386 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:25:48,391 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 5ms)
+ 2012-10-30 10:25:48,392 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:25:48,392 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:25:48,393 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:25:48,400 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 6ms)
+ 2012-10-30 10:25:48,417 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:25:48,418 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:25:48,418 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:25:48,424 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 6ms)
+ 2012-10-30 10:25:48,424 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:25:48,425 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:25:48,425 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:25:48,430 [P10276/D4/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 5ms)
+ 2012-10-30 10:25:50,278 [P10276/D4/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:25:50,607 [P10276/D4/T1] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-RHApi-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.Mvc.AreaRegistrationExtensions.RouteControllerPlugin(AreaRegistration area, String controllerName, Type controllerType, RouteCollection routes, String controllerSuffixName, String defaultAction, Object defaultId, String umbracoTokenValue, String routeTokens, Boolean isMvc, String areaPathPrefix)
+   at Umbraco.Web.Mvc.PluginControllerArea.MapRouteApiControllers(RouteCollection routes, IEnumerable`1 apiControllers)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:26:00,632 [P10276/D4/T20] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:26:00,634 [P10276/D4/T20] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:26:30,919 [P10276/D4/T17] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:36:16,309 [P10276/D5/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:36:16,337 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:36:16,348 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 11ms)
+ 2012-10-30 10:36:16,425 [P10276/D5/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:36:16,428 [P10276/D5/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:36:16,432 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:36:16,750 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 318ms)
+ 2012-10-30 10:36:16,750 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:36:16,758 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 7ms)
+ 2012-10-30 10:36:16,781 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:36:16,782 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:36:16,782 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:36:16,788 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 5ms)
+ 2012-10-30 10:36:16,789 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:36:16,789 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:36:16,789 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:36:16,797 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 7ms)
+ 2012-10-30 10:36:16,814 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:36:16,814 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:36:16,815 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:36:16,821 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 6ms)
+ 2012-10-30 10:36:16,821 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:36:16,822 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:36:16,822 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:36:16,828 [P10276/D5/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 6ms)
+ 2012-10-30 10:36:18,634 [P10276/D5/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:36:18,889 [P10276/D5/T1] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-RHApi-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.Mvc.AreaRegistrationExtensions.RouteControllerPlugin(AreaRegistration area, String controllerName, Type controllerType, RouteCollection routes, String controllerSuffixName, String defaultAction, Object defaultId, String umbracoTokenValue, String routeTokens, Boolean isMvc, String areaPathPrefix)
+   at Umbraco.Web.Mvc.PluginControllerArea.MapRouteApiControllers(RouteCollection routes, IEnumerable`1 apiControllers)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:36:28,925 [P10276/D5/T53] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:36:28,926 [P10276/D5/T53] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:36:59,193 [P10276/D5/T49] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:44:12,205 [P10276/D6/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:44:12,233 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:44:12,246 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 13ms)
+ 2012-10-30 10:44:12,324 [P10276/D6/T1] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:44:12,326 [P10276/D6/T1] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:44:12,329 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:44:12,648 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 318ms)
+ 2012-10-30 10:44:12,648 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:44:12,655 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 7ms)
+ 2012-10-30 10:44:12,679 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:44:12,680 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:44:12,680 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:44:12,686 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 5ms)
+ 2012-10-30 10:44:12,687 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:44:12,687 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:44:12,687 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:44:12,694 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 6ms)
+ 2012-10-30 10:44:12,712 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:44:12,712 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:44:12,713 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:44:12,718 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 5ms)
+ 2012-10-30 10:44:12,719 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:44:12,719 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:44:12,719 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:44:12,727 [P10276/D6/T1] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 7ms)
+ 2012-10-30 10:44:14,484 [P10276/D6/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:44:14,717 [P10276/D6/T1] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String url, Object defaults, String[] namespaces)
+   at Umbraco.Web.WebBootManager.RouteLocalApiController(Type controller, String umbracoPath)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:44:24,747 [P10276/D6/T62] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:44:24,749 [P10276/D6/T62] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:44:54,976 [P10276/D6/T62] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+Change Notification for critical directories.
+App_Code dir change or directory rename
+Change Notification for critical directories.
+App_Code dir change or directory rename
+Change Notification for critical directories.
+App_Code dir change or directory rename
+Change Notification for critical directories.
+App_Code dir change or directory rename
+Change Notification for critical directories.
+App_Code dir change or directory rename
+Change Notification for critical directories.
+App_Code dir change or directory rename
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:45:36,287 [P10276/D7/T25] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:45:36,315 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:45:36,326 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Hash determined (took 10ms)
+ 2012-10-30 10:45:36,400 [P10276/D7/T25] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:45:36,402 [P10276/D7/T25] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:45:36,405 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:45:36,723 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 317ms)
+ 2012-10-30 10:45:36,723 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:45:36,730 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 7ms)
+ 2012-10-30 10:45:36,754 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:45:36,755 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:45:36,755 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:45:36,761 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 5ms)
+ 2012-10-30 10:45:36,762 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:45:36,762 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:45:36,762 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:45:36,769 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 7ms)
+ 2012-10-30 10:45:36,786 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:45:36,787 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:45:36,787 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:45:36,793 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 5ms)
+ 2012-10-30 10:45:36,793 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:45:36,793 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:45:36,794 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:45:36,800 [P10276/D7/T25] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 6ms)
+ 2012-10-30 10:45:38,601 [P10276/D7/T25] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:45:38,833 [P10276/D7/T25] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String url, Object defaults, String[] namespaces)
+   at Umbraco.Web.WebBootManager.RouteLocalApiController(Type controller, String umbracoPath)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:45:48,853 [P10276/D7/T58] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:45:48,854 [P10276/D7/T58] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:46:19,116 [P10276/D7/T56] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:50:00,247 [P10276/D8/T20] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:50:00,275 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:50:00,285 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Hash determined (took 10ms)
+ 2012-10-30 10:50:00,349 [P10276/D8/T20] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:50:00,351 [P10276/D8/T20] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:50:00,354 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:00,427 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 72ms)
+ 2012-10-30 10:50:00,427 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:50:00,428 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 1ms)
+ 2012-10-30 10:50:00,459 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:00,460 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:00,460 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:50:00,460 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 0ms)
+ 2012-10-30 10:50:00,461 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:00,461 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:00,461 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:50:00,463 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 1ms)
+ 2012-10-30 10:50:00,480 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:00,480 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:00,480 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:50:00,481 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 0ms)
+ 2012-10-30 10:50:00,481 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:00,481 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:00,481 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:50:00,482 [P10276/D8/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 0ms)
+ 2012-10-30 10:50:02,248 [P10276/D8/T20] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:50:02,484 [P10276/D8/T20] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String url, Object defaults, String[] namespaces)
+   at Umbraco.Web.WebBootManager.RouteLocalApiController(Type controller, String umbracoPath)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:50:12,693 [P10276/D8/T18] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:50:12,693 [P10276/D8/T18] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:50:14,223 [P10276/D9/T20] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.7.2 application starting on DESKTOP-V9O0L8M
+ 2012-10-30 10:50:14,250 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2012-10-30 10:50:14,261 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Hash determined (took 10ms)
+ 2012-10-30 10:50:14,321 [P10276/D9/T20] INFO  Umbraco.Core.MainDom - Acquiring MainDom...
+ 2012-10-30 10:50:14,323 [P10276/D9/T20] INFO  Umbraco.Core.MainDom - Acquired MainDom.
+ 2012-10-30 10:50:14,326 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:14,380 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 53ms)
+ 2012-10-30 10:50:14,380 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IApplicationStartupHandler
+ 2012-10-30 10:50:14,381 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IApplicationStartupHandler (took 1ms)
+ 2012-10-30 10:50:14,411 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:14,412 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:14,412 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2012-10-30 10:50:14,412 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter (took 0ms)
+ 2012-10-30 10:50:14,413 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:14,413 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:14,413 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2012-10-30 10:50:14,415 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Core.PropertyEditors.IPropertyValueConverter (took 1ms)
+ 2012-10-30 10:50:14,432 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:14,432 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:14,432 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.Mvc.SurfaceController
+ 2012-10-30 10:50:14,433 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.Mvc.SurfaceController (took 0ms)
+ 2012-10-30 10:50:14,433 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving umbraco.interfaces.IDiscoverable
+ 2012-10-30 10:50:14,433 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved umbraco.interfaces.IDiscoverable (took 0ms)
+ 2012-10-30 10:50:14,434 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolving Umbraco.Web.WebApi.UmbracoApiController
+ 2012-10-30 10:50:14,434 [P10276/D9/T20] INFO  Umbraco.Core.PluginManager - Resolved Umbraco.Web.WebApi.UmbracoApiController (took 0ms)
+ 2012-10-30 10:50:16,233 [P10276/D9/T20] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2012-10-30 10:50:16,469 [P10276/D9/T20] ERROR Umbraco.Core.UmbracoApplicationBase - An unhandled exception occurred
+System.ArgumentException: A route named 'umbraco-api-SearchWidgetApi' is already in the route collection. Route names must be unique.
+Parameter name: name
+   at System.Web.Routing.RouteCollection.Add(String name, RouteBase item)
+   at System.Web.Http.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String routeTemplate, Object defaults, Object constraints, HttpMessageHandler handler)
+   at Umbraco.Web.RouteCollectionExtensions.MapHttpRoute(RouteCollection routes, String name, String url, Object defaults, String[] namespaces)
+   at Umbraco.Web.WebBootManager.RouteLocalApiController(Type controller, String umbracoPath)
+   at Umbraco.Web.WebBootManager.RoutePluginControllers()
+   at Umbraco.Web.WebBootManager.Complete(Action`1 afterComplete)
+   at Umbraco.Core.UmbracoApplicationBase.StartApplication(Object sender, EventArgs e)
+ 2012-10-30 10:50:26,499 [P10276/D9/T44] INFO  Umbraco.Core.MainDom - Stopping...
+ 2012-10-30 10:50:26,500 [P10276/D9/T44] INFO  Umbraco.Core.MainDom - Released MainDom.
+ 2012-10-30 10:50:42,806 [P10276/D8/T16] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()
+ 2012-10-30 10:50:56,769 [P10276/D9/T36] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: InitializationError
+
+_shutDownMessage=Initialization Error
+HostingEnvironment initiated shutdown
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.AppDomainShutdownTimerCallback(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.TimerQueueTimer.CallCallback()
+   at System.Threading.TimerQueueTimer.Fire()
+   at System.Threading.TimerQueue.FireNextTimers()

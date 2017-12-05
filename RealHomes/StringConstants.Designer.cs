@@ -61,6 +61,15 @@ namespace RealHomes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CMS.
+        /// </summary>
+        public static string APP_MODE {
+            get {
+                return ResourceManager.GetString("APP_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to najm_us_sahar@nanosofttek.com.
         /// </summary>
         public static string COMPANY_EMAIL {
@@ -70,11 +79,110 @@ namespace RealHomes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~/Views/Partials/SiteLayout/.
+        ///   Looks up a localized string similar to ar-AE.
+        /// </summary>
+        public static string CURRENCY_CULTURE {
+            get {
+                return ResourceManager.GetString("CURRENCY_CULTURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AED.
+        /// </summary>
+        public static string CURRENCY_SYMBOL {
+            get {
+                return ResourceManager.GetString("CURRENCY_SYMBOL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentUser.
+        /// </summary>
+        public static string CURRENT_USER {
+            get {
+                return ResourceManager.GetString("CURRENT_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentUserName.
+        /// </summary>
+        public static string CURRENT_USER_NAME {
+            get {
+                return ResourceManager.GetString("CURRENT_USER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RHSearchSearcher.
+        /// </summary>
+        public static string EXMINE_SEARCHER_NAME {
+            get {
+                return ResourceManager.GetString("EXMINE_SEARCHER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to gallery/.
+        /// </summary>
+        public static string GALLERY_FOLDER_NAME {
+            get {
+                return ResourceManager.GetString("GALLERY_FOLDER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/RHomes.
+        /// </summary>
+        public static string HOME_ADDRESS_UAE {
+            get {
+                return ResourceManager.GetString("HOME_ADDRESS_UAE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Images/.
+        /// </summary>
+        public static string IMAGE_PATH {
+            get {
+                return ResourceManager.GetString("IMAGE_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 500000000.
+        /// </summary>
+        public static string MAXSELLPRICE {
+            get {
+                return ResourceManager.GetString("MAXSELLPRICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.
+        /// </summary>
+        public static string PAGE_SIZE {
+            get {
+                return ResourceManager.GetString("PAGE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Views/Partials/.
         /// </summary>
         public static string PARTIAL_VIEW_PATH {
             get {
                 return ResourceManager.GetString("PARTIAL_VIEW_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to thumbnails/.
+        /// </summary>
+        public static string THUMBNAIL_FOLDER_NAME {
+            get {
+                return ResourceManager.GetString("THUMBNAIL_FOLDER_NAME", resourceCulture);
             }
         }
     }

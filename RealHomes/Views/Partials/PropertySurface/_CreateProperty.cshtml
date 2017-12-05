@@ -1,0 +1,313 @@
+﻿@using Umbraco.Core.Models
+@using Umbraco.Web.Models
+ 
+@inherits UmbracoViewPage<RealHomes.Models.PropertyViewModel>
+
+@using (Html.BeginUmbracoForm<RealHomes.Controllers.PropertySurfaceController>("SaveProperty", "PropertySurface", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="align-content:center">
+        <h2 style="text-align:center">Add New Property</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*Html.LabelFor(model => model.PropertyTitle, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Property Title
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PropertyTitle, new {id="txtTitle", htmlAttributes = new {style="width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PropertyTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Category
+            </label>
+            <div class="col-md-10">
+                
+                @Html.DropDownListFor(model => model.CategoryId,(IEnumerable<SelectListItem>)(ViewBag.Categories), htmlAttributes: new {id="ddlCategory", style = "width:300px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*Html.LabelFor(model => model.TypeId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Property Type
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.TypeId, (IEnumerable<SelectListItem>)(ViewBag.Types), htmlAttributes: new {id="ddlType", style = "width:300px", onchange = "OnTypeChange(this)", @class = "form-control" })
+                @*@Html.EditorFor(model => model.TypeId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @*Html.Label("City ", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                City
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownList("ddlCity", (IEnumerable<SelectListItem>)(ViewBag.Cities), htmlAttributes: new {id="ddlCity", style = "width:300px", @class = "form-control" })
+                
+            </div>
+        </div>
+        <div class="form-group">
+            @*Html.LabelFor(model => model.LocationId, "LocationId", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Location
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.LocationId, (IEnumerable<SelectListItem>)(ViewBag.Locations), htmlAttributes: new {id="ddlLocation", style = "width:300px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Address
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { id = "txtAddress", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*Html.LabelFor(model => model.ServiceId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2" style="text-align:left">
+                Service Required
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ServiceId, (IEnumerable<SelectListItem>)(ViewBag.Services), htmlAttributes: new {id="ddlService", style = "width:300px", @class = "form-control" })
+                @*@Html.EditorFor(model => model.ServiceId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.ServiceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+             
+            <label class="control-label col-md-2" style="text-align:left">
+                Refernce Number
+            </label>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReferenceNo, new { htmlAttributes = new { id="txtReferenceNo", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReferenceNo, "", new { @class = "text-danger" })
+            </div>
+            </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Main Feature 
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MainFeature, new { htmlAttributes = new {id="txtMainfeature", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MainFeature, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Total Area 
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TotalSize, new { htmlAttributes = new { id = "txtTotalArea", style = "width:300px", @class = "form-control" } })  sq.ft.
+                @Html.ValidationMessageFor(model => model.TotalSize, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                BuiltUp Area
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BuildUpArea, new { htmlAttributes = new { id = "txtBuildUpArea", style = "width:300px", @class = "form-control" } }) sq.ft.
+                @Html.ValidationMessageFor(model => model.BuildUpArea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                RERA Permit No.
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReraPermitNo, new { htmlAttributes = new { id = "txtReraNo", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReraPermitNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Sell Price
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SellPrice, new { htmlAttributes = new { id = "txtSellPrice", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SellPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Car Parkings
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.carparking, new { htmlAttributes = new { id = "txtcarprking", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.carparking, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Bedrooms
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bedrooms, new { htmlAttributes = new { id = "txtbedrooms", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.bedrooms, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Bathrooms
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.baths, new { htmlAttributes = new { id = "txtbaths", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.baths, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Availability Status
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AvailabilityStatus, (IEnumerable<SelectListItem>)(ViewBag.Status), htmlAttributes: new {id="ddlPropertyStatus", style = "width:300px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AvailabilityStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Development Hold
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DevelopmentStatus, (IEnumerable<SelectListItem>)(ViewBag.DevHold), htmlAttributes: new {id="ddldevHold", style = "width:300px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DevelopmentStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Detail Page Name
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PropertyDetailPageID, new { htmlAttributes = new { id = "txtPageID", style = "width:300px", @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.PropertyDetailPageID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Image Folder Name
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PropertyImagePath, new { htmlAttributes = new { id = "txtImagefolder", enabled ="false", style = "width:300px", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PropertyImagePath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Proper Owner Id
+            </label>
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.PropertyOwnerId, new { htmlAttributes = new { id = "txtOwnerId", style="width:300px",@class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.PropertyOwnerId, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            <label class="control-label col-md-2" style="text-align:left">
+                Listed By
+            </label>
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.UserId, new { htmlAttributes = new {id="txtUserID", style="width:300px",@class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })*@
+            </div>
+        </div>-->
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="button" value="Cancel" class="btn btn-default" />
+                <input type="button" value="Home" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @*Html.ActionLink("Back to List", "Index")*@
+</div>
+
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //setting all dynamically populated lists to their first item.
+        jQuery('#ddlCategory option:eq(0)').prop('selected', true);
+        jQuery('#ddlCity option:eq(0)').prop('selected', true);
+        jQuery('#ddlLocation option:eq(0)').prop('selected', true);
+        jQuery('#ddlType option:eq(0)').prop('selected', true);
+        jQuery('#ddlService option:eq(0)').prop('selected', true);
+        jQuery('#ddlPropertyStatus option:eq(0)').prop('selected', true);
+        jQuery('#ddldevHold option:eq(0)').prop('selected', true);
+
+        //set reference no and image forlder and page ID initial code according to Property Type
+        var str = $("#ddlType option:selected").prop("text");
+        var typecode = str.substr(str.indexOf('-')+2 , 2 );
+            
+        //set the reference number  
+        $("#txtReferenceNo").val(typecode);
+        $("#txtPageID").val(typecode);
+        $("#txtImagefolder").val(typecode);
+        
+
+
+
+    });
+    function OnTypeChange(obj)
+    {
+        var str = $("#ddlType option:selected").prop("text");
+
+        var typecode = str.substr(str.indexOf('-') + 2, 2);
+        //str.substring(str.indexOf('-'), 2);
+        //set the reference number  
+        $("#txtReferenceNo").val(typecode);
+        $("#txtPageID").val(typecode);
+        $("#txtImagefolder").val(typecode);
+    }
+
+
+</script>

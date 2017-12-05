@@ -1,10 +1,14 @@
-﻿
+﻿@using Umbraco.Core.Models
+@using Umbraco.Web.Models
+@using System.Collections.Generic
+
 @inherits UmbracoViewPage
 
 
 
 <!--/banner/-->
 <div class="header-right">
+    <!-- Slider banner-->
     <div class="banner">
         <div class="slider">
             <div class="callbacks_container">
@@ -13,7 +17,7 @@
                         <div class="banner1">
                             <div class="caption">
                                 <h3><span>@Umbraco.Field("mainHeading", casing: RenderFieldCaseType.Upper)</span></h3>
-                                <p>@Umbraco.Field("subTitle")</p>
+                                <p>@Umbraco.Field("editor")</p>
                             </div>
                         </div>
                     </li>
@@ -37,73 +41,101 @@
             </div>
         </div>
     </div>
+
+    
+
+     @*{Html.RenderPartial("SiteLayout/_SearchWidget"); }*@
+
 </div>
 <!--banner end-->
 <!--header-bottom-->
+ @{ IEnumerable<RelatedLink> menuLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("menuLinks");
+
+
+     if (menuLinks != null && (int)menuLinks.Count() > 0)
+     {
+
+
 <div class="banner-bottom-top">
     <div class="container">
         <div class="bottom-header">
 
             <div class="header-bottom">
-                <div class=" bottom-head">
-                    <a href="buy.html">
+                @*i used to get the corresponding Icon of each menu item by cocatenating it in the names of menuicon properties*@
+                @{
+                    int i = 1;
+                    string sIcon = ""; ;
+                    foreach (RelatedLink link in @menuLinks)
+                    {
+                        <div class="bottom-head">
+                            <a href="@link.Link">
+                                <div class="buy-media">
+                                     @{sIcon = "m" + i.ToString() + "Icon";}
+                                    <i class="@Umbraco.AssignedContentItem.GetPropertyValue(@sIcon)"> </i>
+                                    <h6>@link.Caption</h6>
+                                    @{i = i + 1;}
+                                </div>
+                            </a>
+                        </div>
+                        }
+                    }
+                <!--@*
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m2Link")">
                         <div class="buy-media">
-                            <i class="buy"> </i>
-                            <h6>Buy</h6>
+                            <i class="@Umbraco.Field("m2Icon")"> </i>
+                            <h6>@Umbraco.Field("m2Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="buy.html">
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m3Link")">
                         <div class="buy-media">
-                            <i class="rent"> </i>
-                            <h6>Rent</h6>
+                            <i class="@Umbraco.Field("m3Icon")"> </i>
+                            <h6>@Umbraco.Field("m3Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="buy.html">
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m4Link")">
                         <div class="buy-media">
-                            <i class="sell"> </i>
-                            <h6>Sell</h6>
+                            <i class="@Umbraco.Field("m4Icon")"> </i>
+                            <h6>@Umbraco.Field("m4Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="buy.html">
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m5Link")">
                         <div class="buy-media">
-                            <i class="deal"> </i>
-                            <h6>Landlords</h6>
+                            <i class="@Umbraco.Field("m5Icon")"> </i>
+                            <h6>@Umbraco.Field("m5Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="loan.html">
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m6Link")">
                         <div class="buy-media">
-                            <i class="loan"> </i>
-                            <h6>Property Management</h6>
+                            <i class="@Umbraco.Field("m6Icon")"> </i>
+                            <h6>@Umbraco.Field("m6Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="buy.html">
+                <div class="bottom-head">
+                    <a href="@Umbraco.Field("m7Link")">
                         <div class="buy-media">
-                            <i class="apart"> </i>
-                            <h6>Holiday Homes</h6>
+                            <i class="@Umbraco.Field("m7Icon")"> </i>
+                            <h6>@Umbraco.Field("m7Name")</h6>
                         </div>
                     </a>
                 </div>
-                <div class=" bottom-head">
-                    <a href="dealers.html">
-                        <div class="buy-media">
-                            <i class="map"> </i>
-                            <h6>Off Plans</h6>
-                        </div>
-                    </a>
-                </div>
+                *@
+                -->
                 <div class="clearfix"> </div>
             </div>
         </div>
     </div>
 </div>
+
+         }
+     }
 <!--//header-bottom-->

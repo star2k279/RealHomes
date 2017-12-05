@@ -5,8 +5,8 @@
 <div class="services">
     <div class="container">
         <div class="service-top">
-            <h3>Services</h3>
-            <p>We serve others as we would like to be treated.</p>
+            @Umbraco.Field("serviceMainTitle", insertBefore: "<h3>", insertAfter: "</h3>", casing: RenderFieldCaseType.Upper)
+            @Umbraco.Field("serviceSubTitle", insertBefore: "<p>", insertAfter: "</p>")
         </div>
         <div class="services-grid">
             <div class="col-md-6 service-top1">
@@ -14,10 +14,9 @@
                     <a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-user"> </a>
                 </div>
                 <div class="ser-top">
-                    <h4>Commercial</h4>
+                    <h4>@Umbraco.Field("serviceTitle1")</h4>
                     <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                        It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum
+                        @Umbraco.Field("serviceDescription1")
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -27,10 +26,9 @@
                     <a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-leaf"> </a>
                 </div>
                 <div class="ser-top">
-                    <h4>Residential</h4>
+                    <h4>@Umbraco.Field("serviceTitle2")</h4>
                     <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                        It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum
+                        @Umbraco.Field("serviceDescription")
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -43,10 +41,9 @@
                     <a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-cog"> </a>
                 </div>
                 <div class="ser-top">
-                    <h4>Property Management</h4>
+                    <h4>@Umbraco.Field("serviceTitle3")</h4>
                     <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                        It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum
+                        @Umbraco.Field("serviceDescription3")
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -56,10 +53,9 @@
                     <a href="#" class="hi-icon hi-icon-archive glyphicon glyphicon-file"> </a>
                 </div>
                 <div class="ser-top">
-                    <h4>Off plan Projects</h4>
+                    <h4>@Umbraco.Field("serviceTitle4")</h4>
                     <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                        It has roots in a piece of classical .Contrary to popular belief, Lorem Ipsum
+                        @Umbraco.Field("serviceDescription4")
                     </p>
                 </div>
                 <div class="clearfix"> </div>

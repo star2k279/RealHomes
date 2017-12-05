@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    
+    Layout = "Master.cshtml";
+
+
+}
+
+<div>
+    <!--//Search Area Started-->
+    <div class="container">
+        
+            <input type="hidden" id="searchcriteria" />
+
+           @{ 
+               if (Request.QueryString["PropId"] != null)
+               {
+                   var propNodeId = Request.QueryString["PropId"].ToString();
+                   Html.RenderAction("Showdetail", "PropertyCMS", new { PropId = propNodeId });
+
+                   //Html.RenderPartial("Propertysurface/_Details");
+               }
+               else
+               {
+                   Response.Redirect("~/404");
+               }
+           }
+
+        </div>
+</div>

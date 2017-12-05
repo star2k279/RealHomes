@@ -1,0 +1,4 @@
+﻿ 2017-12-01 07:10:08,248 [P12312/D2/T769] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-11-30 07:10:08
+ 2012-12-01 11:10:07,285 [P12312/D2/T740] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2012-11-30 11:10:07
+ 2012-12-01 15:10:07,302 [P12312/D2/T730] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2012-11-30 15:10:07
+ 2012-12-01 19:10:07,363 [P12312/D2/T350] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2012-11-30 19:10:07

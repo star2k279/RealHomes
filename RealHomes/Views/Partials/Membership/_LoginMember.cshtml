@@ -1,0 +1,76 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.MembershipCMSModel>
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+@using RealHomes;
+@using RealHomes.Models;
+@{
+    //var registerModel = Members.CreateRegistrationModel();
+
+    var success = TempData["LoginResult"] == null ? "" : TempData["LoginResult"].ToString();
+}
+<script src="~/Scripts/MiscElements.js"></script>
+
+@* NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed
+    expect 'success' and 'failed' in TempData["RegisterResult"] *@
+
+@if (success != "" && success.ToLower() == "success")
+{
+    @* Login successful, store the result in the session data and reload the page and menu *@
+    @{ 
+        MembershipCMSModel user = (MembershipCMSModel)TempData[StringConstants.CURRENT_USER];
+
+        Session[StringConstants.CURRENT_USER] = user;
+        Session[StringConstants.CURRENT_USER_NAME] = user.DisplayName;
+
+        if (TempData["returnURL"].ToString() == "")
+        {
+            Response.Redirect(StringConstants.HOME_ADDRESS);
+        }
+        else
+        {
+            Response.Redirect(TempData["returnURL"].ToString());
+        }
+
+    }
+
+
+}
+
+<!--contact-->
+<div class="login-right">
+    <div class="container">
+        <h3>Login</h3>
+        <div class="login-top">
+            <ul class="login-icons">
+                <li><a href="#"><i class="facebook"> </i><span>Facebook</span></a></li>
+                <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
+                <li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
+                <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
+                <div class="clearfix"> </div>
+            </ul>
+            <div class="form-info">
+                @{using (Html.BeginUmbracoForm<RealHomes.Controllers.MembershipCMSController>("LoginMember", "MembershipCMS", new { @id = "LoginForm", @class = "form-horizontal", role = "form" }, FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <input type="text" id="txtUserName" class="text" name="name" placeholder="User name/Email Address" required="true">
+
+                    <input type="password" id="txtPassword" name = "pwd" placeholder="Password" required="">
+
+
+                    <label class="hvr-sweep-to-right">
+                        <input type="submit" value="Submit">
+                    </label>
+                        }
+                    }
+            </div>
+            <div class="create">
+                <h4>New To Real Home?</h4>
+                <a class="hvr-sweep-to-right" href="register.html">Create an Account</a>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//contact-->

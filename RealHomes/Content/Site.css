@@ -13,6 +13,13 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 600px;
 }
 
+.field-validation-error
+{
+    background-image: url('~/Content/error.png');
+    background-repeat: no-repeat;
+    color: Transparent;
+    background-size: 16px 16px;
+}

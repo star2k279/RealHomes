@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
+using Umbraco.Core.Persistence;
+using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace RealHomes.Models
 {
+    [TableName("RHCategory")]
+    [PrimaryKey("CatId", autoIncrement = true)]
     public class CategoryModel
     {
-        public long CatId { get; set; }
-        public string Name { get; set; }
-        public string CatCode { get; set; }
+
+        [Column("CatId")]
+        [System.ComponentModel.DataAnnotations.KeyAttribute]
+        public long CategoryId { get; set; }
+
+
+        [Column("Name")]
+        public string CategoryName { get; set; }
+
     }
 }

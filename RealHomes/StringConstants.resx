@@ -117,10 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="APP_MODE" xml:space="preserve">
+    <value>CMS</value>
+    <comment>CMS, CUSTOMDB</comment>
+  </data>
   <data name="COMPANY_EMAIL" xml:space="preserve">
     <value>najm_us_sahar@nanosofttek.com</value>
   </data>
+  <data name="CURRENCY_CULTURE" xml:space="preserve">
+    <value>ar-AE</value>
+  </data>
+  <data name="CURRENCY_SYMBOL" xml:space="preserve">
+    <value>AED</value>
+  </data>
+  <data name="CURRENT_USER" xml:space="preserve">
+    <value>CurrentUser</value>
+  </data>
+  <data name="CURRENT_USER_NAME" xml:space="preserve">
+    <value>CurrentUserName</value>
+  </data>
+  <data name="EXMINE_SEARCHER_NAME" xml:space="preserve">
+    <value>RHSearchSearcher</value>
+  </data>
+  <data name="GALLERY_FOLDER_NAME" xml:space="preserve">
+    <value>gallery/</value>
+  </data>
+  <data name="HOME_ADDRESS_UAE" xml:space="preserve">
+    <value>~/RHomes</value>
+  </data>
+  <data name="IMAGE_PATH" xml:space="preserve">
+    <value>~/Images/</value>
+  </data>
+  <data name="MAXSELLPRICE" xml:space="preserve">
+    <value>500000000</value>
+    <comment>500 million</comment>
+  </data>
+  <data name="PAGE_SIZE" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="PARTIAL_VIEW_PATH" xml:space="preserve">
-    <value>~/Views/Partials/SiteLayout/</value>
+    <value>~/Views/Partials/</value>
+  </data>
+  <data name="THUMBNAIL_FOLDER_NAME" xml:space="preserve">
+    <value>thumbnails/</value>
   </data>
 </root>

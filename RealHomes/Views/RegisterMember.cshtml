@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+
+
+
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("~/Scripts/jquery.min.js");
+    Html.RequiresJs("~/Scripts/jquery.validate.min.js");
+    Html.RequiresJs("~/Scripts/jquery.validate.unobtrusive.min.js");
+
+    @Html.RenderJsHere()
+
+    Html.RenderAction("MemberRegister", "MembershipCMS");
+
+    
+}
+

@@ -1,17 +1,27 @@
-﻿
+﻿@using Umbraco.Core.Models
+@using Umbraco.Web.Models
+
 @inherits UmbracoViewPage
 
-<link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+
 <div class="navigation">
     <div class="container-fluid">
         <nav class="pull">
             <ul>
-                <li><a href="/RHomes/">Home</a></li>
-                <li><a href="/RHomes/contact-us">About Us</a></li>
-                <li><a href="/RHomes/contact-us">Blog</a></li>
-                <li><a href="/RHomes/contact-us">Terms</a></li>
-                <li><a href="/RHomes/contact">Privacy</a></li>
-                <li><a href="~/contact">Contact</a></li>
+               
+                @{ 
+                    IEnumerable<RelatedLink> topMenuLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("topMenuLinks", true);
+
+                    if (topMenuLinks != null && topMenuLinks.Count() > 0)
+                    {
+                        foreach (RelatedLink mLink in topMenuLinks)
+                        {
+                      <li><a href="@mLink.Link">@mLink.Caption</a></li>
+                        }
+                    }
+                    }
+
             </ul>
         </nav>
     </div>
@@ -21,22 +31,41 @@
     <div class="container">
         <!--logo   style="position:fixed;"-->
         <div class="logo">
-            <h1><a href="#">@Umbraco.Field("mainHeading", casing: RenderFieldCaseType.Upper)</a></h1>
+            <h1><a href="~/">@Umbraco.Field("mainHeading", recursive: true)</a></h1>
         </div>
         <!--//logo-->
         <div class="top-nav">
             <ul class="right-icons">
-                <li><span><i class="glyphicon glyphicon-phone"> </i>+971 600 52 2233</span></li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-user"> </i>Login</a></li>
-                <li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a></li>
+                <li><span><i class="glyphicon glyphicon-phone"> </i>@Umbraco.Field("contactNumber")</span></li>
+                       @{
+                        IEnumerable<RelatedLink> searchLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("searchLink", true);
+                        if (searchLinks != null && searchLinks.Count() > 0)
+                        {
+                            foreach (RelatedLink sLink in searchLinks)
+                            {
+                                //var sLink = searchLinks.FirstOrDefault();
+                                var sIcon = @sLink.Caption.ToLower() + "Icon";
+                                //<i class="@Umbraco.AssignedContentItem.GetPropertyValue(@sIcon)"> </i>
+                                <li><a href=@sLink.Link><i class="@Umbraco.AssignedContentItem.GetPropertyValue(@sIcon)"> </i>@sLink.Caption </a></li>
+                                }
+                            }
+                        }
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">UAE<span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
-                        <li><a href=".">UAE</a></li>
-                        <li><a href=".">Qatar</a></li>
-                        <li><a href=".">Oman</a></li>
-                        <li><a href=".">Jordan</a></li>
+                        @{
+                            IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks",true);
+
+                            if (regionLinks != null && regionLinks.Count() > 0)
+                            {
+                                foreach (RelatedLink mLink in regionLinks)
+                                {
+                                <li><a href="@mLink.Link">@mLink.Caption</a></li>
+                                    }
+                                }
+                            }
+
                     </ul>
 
                 </li>
@@ -55,60 +84,13 @@
             <div class="clearfix"> </div>
             <!---pop-up-box---->
 
-            <link href="~/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-            <script src="~/scripts/jquery.magnific-popup.js" type="text/javascript"></script>
+           
             <!---//pop-up-box---->
-            <div id="small-dialog" class="mfp-hide">
-                <!----- tabs-box ---->
-                <div class="sap_tabs">
-                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                        <ul class="resp-tabs-list">
-                            <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
-                            <div class="clearfix"></div>
-                        </ul>
-                        <div class="resp-tabs-container">
-                            <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
-                                <div class="facts">
-                                    <div class="login">
-                                        <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                        <input type="submit" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                                <div class="facts">
-                                    <div class="login">
-                                        <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                        <input type="submit" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-                                <div class="facts">
-                                    <div class="login">
-                                        <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                        <input type="submit" value="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script src="~/scripts/easyResponsiveTabs.js" type="text/javascript"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#horizontalTab').easyResponsiveTabs({
-                                type: 'default', //Types: default, vertical, accordion
-                                width: 'auto', //auto or any width like 600px
-                                fit: true   // 100% fit in a container
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
+     
+             <link href="~/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+          <!--<script src="~/Scripts/jquery.magnific-popup.js" type="text/javascript"></script>-->
             <script>
-                $(document).ready(function () {
+                /*$(document).ready(function () {
                     $('.popup-with-zoom-anim').magnificPopup({
                         type: 'inline',
                         fixedContentPos: false,
@@ -121,11 +103,70 @@
                         mainClass: 'my-mfp-zoom-in'
                     });
 
-                });
+                });*/
             </script>
 
 
         </div>
         <div class="clearfix"> </div>
+
+      
     </div>
+   
+    <!--
+    <div id="small-dialog">
+        <!-- class="mfp-hide">
+        <!----- tabs-box --
+        <div class="sap_tabs">
+            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                <ul class="resp-tabs-list">
+                    <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
+                    <div class="clearfix"></div>
+                </ul>
+                <div class="resp-tabs-container">
+                    <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+                        <div class="facts">
+                            <div class="login">
+                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
+                                <input type="submit" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                        <div class="facts">
+                            <div class="login">
+                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
+                                <input type="submit" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                        <div class="facts">
+                            <div class="login">
+                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
+                                <input type="submit" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
+            <script type="text/javascript">
+
+                /*$(document).ready(function () {
+                    jQuery.noConflict();
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });*/
+            </script>
+        </div>
+    </div>
+    -->
+
 </div>

@@ -1,7 +1,27 @@
 ﻿{
     //array of files we want to inject into the application on app_start
+	//,'~/App_Plugins/ModelsBuilder/location.resource.js',
+	//	'~/App_Plugins/ModelsBuilder/locationpicker.controller.resource.js'
+	 //you can define multiple editors   
+
+    propertyEditors: [      
+        {
+            /*this must be a unique alias*/ 
+            alias: "RealHomes.Locations",
+            /*the name*/
+            name: "Property Locations",
+            /*the html file we will load for the location drop down*/
+            editor: {
+                view: "~/App_Plugins/ModelsBuilder/locations.html"
+					}
+        }
+  ],
+     
     javascript: [
         '~/App_Plugins/ModelsBuilder/modelsbuilder.controller.js',
-		'~/App_Plugins/ModelsBuilder/modelsbuilder.resource.js'
+		'~/App_Plugins/ModelsBuilder/modelsbuilder.resource.js',
+		'~/App_Plugins/MarkDownEditor/locations.controller.js'
+		
     ]
 }
+

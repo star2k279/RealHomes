@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+	Layout = "Master.cshtml";
+}
+
+<div>
+    <!--//Search Area Started-->
+    <div class="container">
+        
+        <!--Property List Started-->
+        <div id="divProperty" class="top-grid">
+            @if (TempData["PropertySavedSuccess"] != null && (bool)TempData["PropertySavedSuccess"])
+            {
+                <div class="contact-address1">
+                    <h4> Property has been saved successfully with Reference No. @TempData["ReferenceNo"]</h4>
+                    <p class="text-contact">An email will be sent to you with related information soon.</p>
+                    <p class="text-contact">Continue to <a href="~/">Home</a>.</p>
+                    <p class="text-contact">Add another <a href="~/create-property"}">Property</a>.</p>
+                </div>
+            }
+            else
+            {
+                //Html.RenderPartial("_Contactus");
+                Html.RenderAction("Create", "PropertySurface");
+            }
+            
+            <!--Result List-->
+        </div>
+    </div>
+
+</div>

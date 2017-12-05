@@ -1,0 +1,228 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.PagedPropertyViews>
+@using System.IO;
+@using System.Globalization;
+@using RealHomes;
+@*using (Ajax.BeginForm("GetProperties", "PropertySurface", new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "ResultContainer",
+        InsertionMode = InsertionMode.Replace}))*@
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "ResultContainer",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+
+    <div id="ResultContainer" class="container">
+
+        <div id="divHeading" class="container" style="background-color:cornflowerblue;color:white">
+            <div class="col-md-4">
+                <h5><b> @Model.TotalRecords properties found</b></h5>
+            </div>
+
+        </div>
+        <div id="divsortinglink" class="container" style="background-color:bisque">
+            <div class="col-md-4 ">
+                <span>Sort By: </span>
+                <a href="#">Highest Price</a>
+                <span> | </span>
+                <a href="#">Lowest Price</a>
+
+
+            </div>
+
+        </div>
+        <hr />
+
+        <div id="detailResult" class="container">
+
+            @{
+
+                if (@Model.TotalRecords > 0)
+                {
+                    foreach (var item in Model.PropertyModels)
+                    {
+
+                        <div class="container">
+
+                            <div class="col-md-4">
+
+                                <a href="@Umbraco.Content(1095).url" class="mask">
+
+                                    @{ var imgUrl = item.PropertyImagePath;
+
+                                        try
+                                        {
+
+                                            if (StringConstants.APP_MODE == "CUSTOMDB")
+                                            {
+                                                var thumbfiles = Directory.GetFiles(Server.MapPath(imgUrl));
+
+                                                //Directory.EnumerateFiles(Server.MapPath("~/Content/images/thumbs"));
+                                                if (thumbfiles.Length > 0)
+                                                {
+                                                    var imgsrc = thumbfiles.FirstOrDefault().ToString();
+                                                    imgUrl = imgUrl + "/" + Path.GetFileName(imgsrc);
+
+                                                    <img class="img-responsive zoom-img" src="@Url.Content(imgUrl)" alt="">
+                                                }
+                                            }
+                                            else
+                                            {
+                                                //Display Images from CMS content Media library
+                                                /*
+                                                if (item.Images.Count() > 0)
+                                                {   //Here Imge slider has to be implemented
+                                                    //foreach (var img in item.Images)
+                                                    //{
+                                                    var img = item.Images.FirstOrDefault();
+                                                    <img class="img-responsive zoom-img" src="@img.Url" alt="">
+
+                                                    //}value.ToString("C",CultureInfo.CreateSpecificCulture("en-IN"))
+                                                }*/
+                                            }
+                                        }
+                                        catch (Exception ex) { }
+                                    }
+                                    @{  NumberFormatInfo nfi = new CultureInfo(StringConstants.CURRENCY_CULTURE, false).NumberFormat;
+                                        nfi.CurrencySymbol = StringConstants.CURRENCY_SYMBOL;
+                                        nfi.CurrencyDecimalDigits = 0;
+
+                                        var sSellPrice = item.SellPrice.ToString("C", nfi);
+                                        <span class="four">@sSellPrice @*Html.DisplayFor(modelItem => item.SellPrice)*@</span>
+                                    }
+                                </a>
+                                <!--<div class="most-1">
+                                    <p><a href="#">@*Html.DisplayFor(modelItem => item.PropertyTitle)</a>
+                                                       <p>@Html.DisplayFor(modelItem => item.PropertyTitle) </p></p>*@
+                                    <p></p
+                                </div>>-->
+                            </div>
+
+                            <div class="col-md-4">
+                                <p><b>@Html.DisplayFor(modelItem => item.PropertyTitle)b><</b></p>
+                                <p>@Html.DisplayFor(modelItem => item.Address) </p>
+                                <p><b>Location</b> @Html.DisplayFor(modelItem => item.PropertyLocation.LocationName)</p>
+                                <p><b>Approx.size</b> @Html.DisplayFor(modelItem => item.TotalSize)  sq.ft.</p>
+                                <p><b>Build Up Area</b> @Html.DisplayFor(modelItem => item.BuildUpArea) sq.ft.</p>
+                                <p><b>Ref No.</b> @Html.DisplayFor(modelItem => item.ReferenceNo)</p>
+                                <p><b>RERA Permit No.</b> @Html.DisplayFor(modelItem => item.ReraPermitNo)</p>
+
+                                @{ if (item.AvailabilityStatus == 1)
+                                    {<p><b>Status</b> Ready Now </p>}
+                                    else
+                                    {<p><b>Status</b> In Process </p>}
+                                }
+
+                                <p>
+                                    <b>Car Parking</b> @Html.DisplayFor(modelItem => item.carparking)
+                                    @{ if (item.bedrooms > 0)
+                                        {<b> Bed Rooms</b> @Html.DisplayFor(modelItem => item.bedrooms)}
+
+                                        if (item.baths > 0)
+                                        {<b> Bath Rooms</b> @Html.DisplayFor(modelItem => item.baths)}
+                                    }
+                                </p>
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <p style="glyph-orientation-horizontal"> Save & Rate</p>
+                                <p>******</p>
+                                <p> </p>
+                                <p>Property Listed By</p>
+                                <p>@Html.DisplayFor(modelItem => item.UserName)</p>
+                                <p> </p>
+                                @{
+                                    ViewBag.DetailPageId = item.PropertyDetailPageID;
+
+                                    var pg = Umbraco.Content("1253");
+
+                                    if (pg == null)
+                                    {
+                                        <p><a href="#">Property Detail</a></p>
+                                    }
+                                    else
+                                    {
+                                        string url = pg.Url;
+                                        url = url.Substring(0, url.Length - 1) + "?PropId=" + @item.PropertyId;
+                                        <p><a href="@url">Property Detail</a></p>
+                                    }
+                                }
+                                <p> </p>
+
+                                <p><a href="#">Arrange for Viewing</a></p>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <p><hr /></p>
+
+                        </div>
+
+
+                                        }
+                                    }
+
+            }
+        </div>
+
+        <!--Pager Control
+
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class=""> <a class="page-number" href="javascript:void();" onclick="NextPage(parseInt($(this).html()));">@i</a></li>
+            }
+
+        </ul>-->
+
+        <div>
+            @if (Model.TotalPages > 1)
+            {
+            <ul class="pagination">
+@if (Model.CurrentPage > 1)
+{
+                    <li>
+                        <a href="javascript:void();" onclick="NextPage(1);">First</a>
+                    </li>
+                        <li>
+                            <a onclick="NextPage(@Model.CurrentPage - 1);">Previous</a>
+                        </li>
+}
+
+@for (var page = Model.StartPage; page <= Model.EndPage; page++)
+{
+    <li class="@(page == Model.CurrentPage ? "active" : "")">
+        <a onclick="NextPage(@page);">@page</a>
+    </li>}
+
+@if (Model.CurrentPage < Model.TotalPages)
+{
+    <li>
+        <a onclick="NextPage(@Model.CurrentPage + 1);">Next</a>
+    </li>
+                        <li>
+                            <a onclick="NextPage(@Model.TotalPages);">Last</a>
+                        </li>
+}
+</ul>
+            }
+
+</div>
+
+</div>
+
+                                    }
+<script>
+
+
+
+</script>

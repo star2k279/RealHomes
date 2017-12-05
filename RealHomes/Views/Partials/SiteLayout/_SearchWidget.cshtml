@@ -1,0 +1,218 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.SearchWidgetModel>
+
+@using Umbraco;
+    <!--//header-->
+    <div class="container">
+
+        <!--price-->
+        <div class="price">
+            <!--First row-->
+            <div class="price-grid">
+               
+              <div id="txt_container" class="col-sm-6 price-top ">
+                   <!--  <div ng-controller="RHApi.SearchWidgetApiController">
+                        <ul>
+                            <li ng-repeat="location in Locations">
+                                <a href="" ng-click="model.value = location.LocationName">@*{{location.LocationName}}*@</a>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
+                    
+                    <input type="hidden" id="txtKeyword" value="Enter Location" name="bh" />
+                    <input type="text" id="txtKeywordLocation" spellcheck="false" maxlength="100" size="45" value="Enter location" class="new-srch-input input-lg" name="bhl" autocorrect="off" autocapitalize="off" onfocus="autoHide(this);" onblur="autoHide(this);" />
+
+                    <input type="hidden" id="txtAgentId" value="Enter Agent" name="bh" />
+                    <input type="text" id="txtKeywordAgent"  spellcheck="false" maxlength="100"  size="45" value="Search By Agent e.g. Paul Smith" class="new-srch-input input-lg"  name="bha"  autocapitalize="off" autocorrect="off" onfocus="autoHideAgent(this);"onblur="autoHideAgent(this);" style="display: none"  />
+                                        
+                    <input type="text" id="txtKeywordRefNo" class="new-srch-input input-lg" value="Unit Ref# e.g. HA2543" name="bhr" onfocus="autoHideRefNo(this);" onblur="autoHideRefNo(this); " style="display: none"/> 
+                    <input type="hidden" id="txtRefNo" />  
+                    
+                </div>
+              <div id="btnSearch" class="col-sm-6 price-top">
+
+                    <div id="btn_sale">
+                        <a onclick='SearchProperties("1");' id="btnSearchSales" title="For Sale" Value="1">For Sale</a>
+                        
+                    </div>
+                    <div id="btn_rent" >
+
+                        <a onclick='SearchProperties("2");' id="btnSearchRent" title="For Rent" Value="2" >For Rent</a>
+
+                    </div>
+
+
+                    <div id="btn_str" >
+
+                        <a onclick="SearchProperties(this);" id="btnShortStay" title="Short Stays" Value="3" >Short Stays</a>
+
+                        </div>
+                    <div class="clearfix"> </div>
+                </div>
+              
+                <div id="txt_container" class="col-sm-6 price-top">
+                                        
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!--Second Row-->
+            <div class="price-grid">
+                <div class="col-sm-4 price-top">
+                        @*Umbraco.Field("locationdd")*@
+                    <select id="ddlCategory" name="" class="in-drop">
+                        <option selected="selected" value="0">Service Category</option>
+                        @{ foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.CategoryId">@category.CategoryName</option>
+                            }
+
+
+                            }
+                    </select>
+                    
+                </div>
+                
+                <div class="col-sm-4 price-top">
+                    <select id="ddlPropertyType" class="in-drop">
+                        <option>Property Type</option>
+                        @{ foreach (var type in Model.PropertyTypes)
+                            {
+                                <option value="@type.TypeId">@type.TypeName</option>
+                            }
+                        }
+                        
+                    </select>
+                </div>
+                
+                <div class="col-sm-4 price-top">
+                    @*//{Html.DropDownList("ddlFacilities", Model.Facilities,"Please Select..");}*@
+                    <select id="ddlSearchBy" class="in-drop">
+                        
+                        <option selected="selected" value="1">Search By Location</option>
+                        <option value="2" disabled="disabled">Search By Ref#</option>
+                        <option value="3" disabled="disabled">Search By Agent</option>
+                    </select>
+                </div>
+                
+                <div class="clearfix"> </div>
+            </div>
+            <!--Third Row-->
+
+            <div class="price-grid">
+                <div class="col-sm-4 price-top">
+                    
+                    <select id="ddlFixtures" multiple="multiple">
+                        @{ foreach (var feature in Model.FixturesAndFeatures)
+                            {
+                                <option value="@feature.FeatureId">@feature.FeatureName</option>
+                            }
+
+
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-4 price-top">
+                    <select id="ddlViews" multiple="multiple" >
+                        @{ foreach (var view in Model.Views)
+                            {
+                                <option value="@view.ViewId">@view.ViewName</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-4 price-top">
+                    <select id="ddldevelopmentLoad" class="in-drop"> <!--name="" class="in-drop"-->
+                    
+                        @*Html.EnumDropDownListFor(RealHomes.Controllers.Enums.DevelopmentLoad);*@
+                        <option value="0">Development Hold</option>
+                        <option value="1">Free Hold</option>
+                        <option value="2">Lease Hold</option>
+                    </select>
+                </div>
+                
+                <div class="clearfix"> </div>
+            </div>
+
+
+            <!--Fourth row-->
+            <div class="price-grid">
+                <div class="col-sm-6 price-top1">
+                    <ul>
+                        <li>
+                            <select id="ddlminPrice" class="in-drop">  
+                                <option value="0">Min Price</option>
+                                <option value="20000">20k</option>
+                                <option value="40000">40k</option>
+                                <option value="60000">60k</option>
+                                <option value="80000">80k</option>
+                                <option value="100000">100k</option>
+                                <option value="200000">200k</option>
+                                <option value="400000">400k</option>
+                                <option value="600000">600k</option>
+                                
+                            </select>
+                        </li>
+                        <span>-</span>
+                        <li>
+                            <select id="ddlmaxPrice" class="in-drop">
+                                <option value="0">Max Price</option>
+                                <option value="20000">20k</option>
+                                <option value="40000">40k</option>
+                                <option value="60000">60k</option>
+                                <option value="80000">80k</option>
+                                <option value="100000">100k</option>
+                                <option value="200000">200k</option>
+                                <option value="400000">400k</option>
+                                <option value="600000">600k</option>
+
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 price-top1">
+                    <ul>
+                        <li>
+                            <select id="ddlminBeds" class="in-drop">
+                                <option value="0">Min Beds</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">9+</option>
+                            </select>
+                        </li>
+                        <span>-</span>
+                        <li>
+                            <select id="ddlmaxBeds" class="in-drop">
+                                <option value="0">Max Beds</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">9+</option>
+
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <!---->
+       
+    </div>
+    
+
+

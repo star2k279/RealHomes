@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Umbraco.Web.Mvc;
 using System.Web.Mvc;
 using RealHomes.Models;
 using System.Net.Mail;
-using System.Configuration;
+
+using Umbraco.Web.Mvc;
 
 namespace RealHomes.Controllers
 {
     public class ContactSurfaceController:SurfaceController
     {
         
-        private const string PARTIAL_VIEW_NAME = "_ContactUs.cshtml";
+        private const string PARTIAL_VIEW_NAME = "/SiteLayout/_ContactUs.cshtml";
 
         public ActionResult RenderForm()
         {
+          
+           // var dbcon= new UmbracoDatabase("umbracoDbDSN");
+           
             return PartialView(StringConstants.PARTIAL_VIEW_PATH + PARTIAL_VIEW_NAME);
             
         }

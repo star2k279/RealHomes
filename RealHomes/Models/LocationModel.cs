@@ -4,19 +4,27 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+using Umbraco.Core.Persistence;
+using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace RealHomes.Models
 {
+    [TableName("RHLocation")]
+    [PrimaryKey("LocationID", autoIncrement = true)]
     public class LocationModel
     {
+        [Column("LocationId")]
+        [KeyAttribute]
+        public long LocationID { get; set; }
 
-        public Int64 iLocationID { get; }
+        [Column("CityId")]
+        public long CityId { get; set; }
 
+        [Column("Name")]
+        public string LocationName { get; set; }
 
-        public Int64 iCityId { get; set; }
-
-        public string sLocationName { get; set; }
-
+        [Column("Description")]
+        public string Description { get; set; }
 
 
     }

@@ -1,0 +1,59 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+@{
+	Layout = "Master.cshtml";
+}
+<!-- Include Twitter Bootstrap and jQuery: -->
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="~/Scripts/header-redesign-inputvalidator0099.js"></script>
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+<!-- Include the plugin's CSS and JS: -->
+<link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
+
+<script src="~/Scripts/SearchElements.js"></script>
+
+<div>
+    <!--//Search Area Started-->
+    <div class="container">
+        <div id="searchWidget">
+            <input type="hidden" id="searchcriteria" />
+
+            @*{Html.RenderPartial("SiteLayout/_SearchWidget");}*@
+            @{
+                
+                Html.RenderAction("GetAllValues", "SearchWidget");
+            }
+
+        </div>
+    <!--Search Area Ended-->
+        
+    <!--Property List Started-->        
+        <div id="ResultContainer" class="container">
+
+            @{//Render Proerties List
+
+                //Html.RenderAction("GetProperties", "PropertySurface",new { iPageno = 1, sSortName = "", sCritria =""});
+                    <!--Result List-->
+            }
+            
+        </div>
+
+    </div>
+    
+</div>
+

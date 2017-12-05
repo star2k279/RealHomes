@@ -1,0 +1,16 @@
+﻿.field-validation-error
+{
+    background-image: url('~/Content/error.png');
+    background-repeat: no-repeat;
+    color: Transparent;
+    background-size: 16px 16px;
+}
+
+#breadcrumbs a {
+    padding: 0.5em;
+    border-right: 5px solid green;
+}
+
+#breadcrumbs a:last-child {
+    border-right: none;
+}​

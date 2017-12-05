@@ -1,0 +1,125 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.MembershipCMSModel>
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+@{
+    //var registerModel = Members.CreateRegistrationModel();
+
+    var success = TempData["RegisterResult"] == null? "" :TempData["RegisterResult"].ToString();
+}
+<script src="~/Scripts/MiscElements.js"></script>
+
+@* NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed
+    expect 'success' and 'failed' in TempData["RegisterResult"] *@
+
+@if (success != "" && success.ToLower() == "success")
+{
+    @* This message will show if RedirectOnSucces is set to false (default) *@
+        
+           <div class="container"> 
+                <p>Registration Successful. <a href="~/login">Login</a></p> 
+                <p>To search more properties <a href="~/advancesearch">Click here</a></p>
+               <p>Back to <a href="~/">home</a></p>
+           </div>
+	    
+}
+else
+{ <!--contact-->
+            <div class="login-right ">
+                @if (success != "" && success.ToLower() != "success")
+                {
+                    <div class="container">
+                        <p>Registration result:  @success </p>
+                  
+                    </div>
+                }
+            <div class="container">
+                <h3>Register User</h3>
+                <div class="login-top">
+                    <!--<ul class="login-icons">
+                        <li><a href="#"><i class="facebook"> </i><span>Facebook</span></a></li>
+                        <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
+                        <li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
+                        <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
+                        <div class="clearfix"> </div>
+                    </ul>-->
+                    <div class="form-info">
+                        @{using (Html.BeginUmbracoForm<RealHomes.Controllers.MembershipCMSController>("RegisterMember", "MembershipCMS", new { @id = "registerForm", @class = "form-horizontal", role = "form" }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                //HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+
+                               
+                                    @Html.ValidationSummary("registerModel", true)
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" style="text-align:left; width:300px">Name </label>
+                                        @Html.TextBoxFor(m => Model.UserName, new { id = "txtUserName",  htmlAttributes = new { style = "width:300px", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => Model.UserName, "", new { @class = "text-danger" })
+                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" style="text-align:left; width:300px">Email </label>
+                                        @Html.TextBoxFor(m => Model.UserEmail, new { id = "txtEmail", Placeholder = "abc@xyz.com",  htmlAttributes = new { style = "width:300px", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(m => Model.UserEmail, "", new { @class = "text-danger" })
+                                       </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" style="text-align:left; width:300px">Password </label>
+                                        @Html.PasswordFor(m => Model.Password, new { id = "txtPassword", @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => Model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" style="text-align:left; width:300px">Confirm Password </label>
+                                            <input type="password" class="form-control" id="txtConfirmPassword" onchange="checkPassword();" />
+                                            <label id="lblPasswordError" hidden="hidden" value="Error" class="text-danger"></label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="lblUserError" hidden="hidden" value="Error" class="text-danger"></label>
+                                            <label id="lblEmailError" hidden="hidden" value="Error" class="text-danger"></label>
+                                            
+                                        </div>
+
+                                        @*
+    if (registerModel.MemberProperties != null)
+    {
+
+            It will only displays properties marked as "Member can edit" on the "Info" tab of the Member Type.
+
+    for (var i = 0; i < registerModel.MemberProperties.Count; i++)
+    {
+        @Html.LabelFor(m => registerModel.MemberProperties[i].Value, registerModel.MemberProperties[i].Name)
+        /*
+            By default this will render a textbox but if you want to change the editor template for this property you can
+            easily change it. For example, if you wanted to render a custom editor for this field called "MyEditor" you would
+            create a file at ~/Views/Shared/EditorTemplates/MyEditor.cshtml", then you will change the next line of code to
+            render your specific editor template like:
+            @Html.EditorFor(m => profileModel.MemberProperties[i].Value, "MyEditor")
+        */
+        @Html.EditorFor(m => registerModel.MemberProperties[i].Value)
+        @Html.HiddenFor(m => registerModel.MemberProperties[i].Alias)
+        <br />
+        }
+                                            onclick="return validate();"
+    }
+
+    @Html.HiddenFor(m => registerModel.MemberTypeAlias)
+    @Html.HiddenFor(m => registerModel.RedirectUrl)
+    @Html.HiddenFor(m => registerModel.UsernameIsEmail)*@
+
+                                        <button type="submit" onclick="return validate();">Register</button>
+
+                            }
+                        }
+                    </div>
+                    <div class="create">
+                        <h4>Already Registered?</h4>
+                        <a class="hvr-sweep-to-right" href="~/login">Login</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--//contact-->
+        }
+

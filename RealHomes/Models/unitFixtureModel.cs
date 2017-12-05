@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Umbraco.Core.Persistence;
 
 namespace RealHomes.Models
 {
     public class UnitFixtureModel
     {
-        public long FixId { get; set; }
-        public long PropId { get; set; }
+        [Column("FixId")]
+        public long FixtureId { get; set; }
+
+        [Column("PropId")]
+        public long UnitId { get; set; }
+
+        public FixturesAndFeaturesModel UnitFixtures;
+
+        public PropertyViewModel Unit;
+
     }
 }
