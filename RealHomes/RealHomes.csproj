@@ -766,6 +766,7 @@
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Fixtures\" />
     <Folder Include="Views\MakeAnOffer\" />
+    <Folder Include="Views\MembershipCMS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
