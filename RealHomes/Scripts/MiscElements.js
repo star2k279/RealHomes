@@ -45,7 +45,7 @@ function isEmailValid() {
    
     return $.ajax({
         url: '/RHomes/umbraco/surface/MembershipCMS/GetUserByEmail',
-        async: true,
+        async: false,
         type: "GET",
         data: {
             sEmail: $("#txtEmail").val()

@@ -16,7 +16,6 @@ namespace RealHomes.Models
 
 
         public string DISPLAYNAME_PROPERTY_NAME { get { return "name"; } }
-        [Required]
         public string DisplayName { get; set; }
 
 
