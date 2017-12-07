@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.MembershipLoginCMSModel>
+
+@using RealHomes.Models;
+@using Umbraco.Web
+
+@if (Members.IsLoggedIn())
+{
+    using (Html.BeginUmbracoForm<RealHomes.Controllers.MembershipCMSController>("Logout", "MemberhipCMS", new { id = "logout" }, System.Web.Mvc.FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        var myUser = System.Web.Security.Membership.GetUser();
+        
+       
+        if (myUser != null)
+        {
+            <p><strong>Logged in as </strong> <span>@Members.CurrentUserName</span></p>
+            <button name="login" type="submit"><span>logout</span> <i class="fa fa-arrow-right"></i></button>
+        }
+    }
+}

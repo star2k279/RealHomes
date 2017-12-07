@@ -97,20 +97,20 @@ namespace RealHomes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CurrentUser.
-        /// </summary>
-        public static string CURRENT_USER {
-            get {
-                return ResourceManager.GetString("CURRENT_USER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to CurrentUserName.
         /// </summary>
         public static string CURRENT_USER_NAME {
             get {
                 return ResourceManager.GetString("CURRENT_USER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentUser.
+        /// </summary>
+        public static string CURRENT_USER_OBJECT {
+            get {
+                return ResourceManager.GetString("CURRENT_USER_OBJECT", resourceCulture);
             }
         }
         
@@ -133,7 +133,7 @@ namespace RealHomes {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~/RHomes.
+        ///   Looks up a localized string similar to ~/.
         /// </summary>
         public static string HOME_ADDRESS_UAE {
             get {
@@ -147,6 +147,15 @@ namespace RealHomes {
         public static string IMAGE_PATH {
             get {
                 return ResourceManager.GetString("IMAGE_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid username or password..
+        /// </summary>
+        public static string LOGIN_FAILURE_MSG {
+            get {
+                return ResourceManager.GetString("LOGIN_FAILURE_MSG", resourceCulture);
             }
         }
         

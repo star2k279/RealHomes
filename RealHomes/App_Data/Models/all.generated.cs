@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "58318e53165addd1")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c5faf01bd0251207")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.7")]
 
 
 // FILE: models.generated.cs
@@ -126,6 +126,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string LoginIcon
 		{
 			get { return Umbraco.Web.PublishedContentModels.MainNavigationProperties.GetLoginIcon(this); }
+		}
+
+		///<summary>
+		/// logoutIcon
+		///</summary>
+		[ImplementPropertyType("logoutIcon")]
+		public string LogoutIcon
+		{
+			get { return Umbraco.Web.PublishedContentModels.MainNavigationProperties.GetLogoutIcon(this); }
 		}
 
 		///<summary>
@@ -720,6 +729,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// <summary>loginIcon</summary>
 		string LoginIcon { get; }
 
+		/// <summary>logoutIcon</summary>
+		string LogoutIcon { get; }
+
 		/// <summary>M1 Icon</summary>
 		string M1icon { get; }
 
@@ -793,6 +805,18 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for loginIcon</summary>
 		public static string GetLoginIcon(IMainNavigationProperties that) { return that.GetPropertyValue<string>("loginIcon"); }
+
+		///<summary>
+		/// logoutIcon
+		///</summary>
+		[ImplementPropertyType("logoutIcon")]
+		public string LogoutIcon
+		{
+			get { return GetLogoutIcon(this); }
+		}
+
+		/// <summary>Static getter for logoutIcon</summary>
+		public static string GetLogoutIcon(IMainNavigationProperties that) { return that.GetPropertyValue<string>("logoutIcon"); }
 
 		///<summary>
 		/// M1 Icon: Bootstrap icon
@@ -1116,15 +1140,15 @@ namespace Umbraco.Web.PublishedContentModels
 	}
 
 	/// <summary>PROPERTIES</summary>
-	[PublishedContentModel("dUBAI")]
-	public partial class DUbai : PublishedContentModel
+	[PublishedContentModel("pROPERTIES")]
+	public partial class PRoperties : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "dUBAI";
+		public new const string ModelTypeAlias = "pROPERTIES";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public DUbai(IPublishedContent content)
+		public PRoperties(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -1135,7 +1159,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<DUbai, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<PRoperties, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
@@ -1248,7 +1272,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// DetailPageID
+		/// DetailPageID: Detail Page Node Id
 		///</summary>
 		[ImplementPropertyType("detailPageID")]
 		public string DetailPageID
@@ -1290,6 +1314,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string MainFeature
 		{
 			get { return this.GetPropertyValue<string>("mainFeature"); }
+		}
+
+		///<summary>
+		/// OwnerID: Member Node Id
+		///</summary>
+		[ImplementPropertyType("ownerID")]
+		public string OwnerID
+		{
+			get { return this.GetPropertyValue<string>("ownerID"); }
 		}
 
 		///<summary>
@@ -1347,7 +1380,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Facilities And Amenities
+		/// FacilitiesAndAmenities
 		///</summary>
 		[ImplementPropertyType("facilitiesAndAmenities")]
 		public IEnumerable<string> FacilitiesAndAmenities
@@ -1356,7 +1389,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Fittings And Fixtures
+		/// FittingsAndFixtures
 		///</summary>
 		[ImplementPropertyType("fittingsAndFixtures")]
 		public IEnumerable<string> FittingsAndFixtures
@@ -1365,16 +1398,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Image Gallery
+		/// ImageGallery
 		///</summary>
-		[ImplementPropertyType("imageGallery")]
+		[ImplementPropertyType("ImageGallery")]
 		public IEnumerable<IPublishedContent> ImageGallery
 		{
 			get { return Umbraco.Web.PublishedContentModels.UnitDetailProperties.GetImageGallery(this); }
 		}
 
 		///<summary>
-		/// Nearest MetroStation
+		/// NearestMetroStation
 		///</summary>
 		[ImplementPropertyType("nearestMetroStation")]
 		public string NearestMetroStation
@@ -1383,7 +1416,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Nearest Schools
+		/// NearestSchools
 		///</summary>
 		[ImplementPropertyType("nearestSchools")]
 		public string NearestSchools
@@ -1392,25 +1425,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Owner ID
-		///</summary>
-		[ImplementPropertyType("ownerID")]
-		public string OwnerID
-		{
-			get { return Umbraco.Web.PublishedContentModels.UnitDetailProperties.GetOwnerID(this); }
-		}
-
-		///<summary>
 		/// Unit Overview
 		///</summary>
-		[ImplementPropertyType("unitOverview")]
+		[ImplementPropertyType("UnitOverview")]
 		public IHtmlString UnitOverview
 		{
 			get { return Umbraco.Web.PublishedContentModels.UnitDetailProperties.GetUnitOverview(this); }
 		}
 
 		///<summary>
-		/// Unit Views
+		/// UnitViews
 		///</summary>
 		[ImplementPropertyType("unitViews")]
 		public IEnumerable<string> UnitViews
@@ -1469,157 +1493,6 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
-	}
-
-	// Mixin content Type 1238 with alias "unitDetailProperties"
-	/// <summary>Unit Detail Properties</summary>
-	public partial interface IUnitDetailProperties : IPublishedContent
-	{
-		/// <summary>Facilities And Amenities</summary>
-		IEnumerable<string> FacilitiesAndAmenities { get; }
-
-		/// <summary>Fittings And Fixtures</summary>
-		IEnumerable<string> FittingsAndFixtures { get; }
-
-		/// <summary>Image Gallery</summary>
-		IEnumerable<IPublishedContent> ImageGallery { get; }
-
-		/// <summary>Nearest MetroStation</summary>
-		string NearestMetroStation { get; }
-
-		/// <summary>Nearest Schools</summary>
-		string NearestSchools { get; }
-
-		/// <summary>Owner ID</summary>
-		string OwnerID { get; }
-
-		/// <summary>Unit Overview</summary>
-		IHtmlString UnitOverview { get; }
-
-		/// <summary>Unit Views</summary>
-		IEnumerable<string> UnitViews { get; }
-	}
-
-	/// <summary>Unit Detail Properties</summary>
-	[PublishedContentModel("unitDetailProperties")]
-	public partial class UnitDetailProperties : PublishedContentModel, IUnitDetailProperties
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "unitDetailProperties";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public UnitDetailProperties(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UnitDetailProperties, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Facilities And Amenities
-		///</summary>
-		[ImplementPropertyType("facilitiesAndAmenities")]
-		public IEnumerable<string> FacilitiesAndAmenities
-		{
-			get { return GetFacilitiesAndAmenities(this); }
-		}
-
-		/// <summary>Static getter for Facilities And Amenities</summary>
-		public static IEnumerable<string> GetFacilitiesAndAmenities(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("facilitiesAndAmenities"); }
-
-		///<summary>
-		/// Fittings And Fixtures
-		///</summary>
-		[ImplementPropertyType("fittingsAndFixtures")]
-		public IEnumerable<string> FittingsAndFixtures
-		{
-			get { return GetFittingsAndFixtures(this); }
-		}
-
-		/// <summary>Static getter for Fittings And Fixtures</summary>
-		public static IEnumerable<string> GetFittingsAndFixtures(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("fittingsAndFixtures"); }
-
-		///<summary>
-		/// Image Gallery
-		///</summary>
-		[ImplementPropertyType("imageGallery")]
-		public IEnumerable<IPublishedContent> ImageGallery
-		{
-			get { return GetImageGallery(this); }
-		}
-
-		/// <summary>Static getter for Image Gallery</summary>
-		public static IEnumerable<IPublishedContent> GetImageGallery(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<IPublishedContent>>("imageGallery"); }
-
-		///<summary>
-		/// Nearest MetroStation
-		///</summary>
-		[ImplementPropertyType("nearestMetroStation")]
-		public string NearestMetroStation
-		{
-			get { return GetNearestMetroStation(this); }
-		}
-
-		/// <summary>Static getter for Nearest MetroStation</summary>
-		public static string GetNearestMetroStation(IUnitDetailProperties that) { return that.GetPropertyValue<string>("nearestMetroStation"); }
-
-		///<summary>
-		/// Nearest Schools
-		///</summary>
-		[ImplementPropertyType("nearestSchools")]
-		public string NearestSchools
-		{
-			get { return GetNearestSchools(this); }
-		}
-
-		/// <summary>Static getter for Nearest Schools</summary>
-		public static string GetNearestSchools(IUnitDetailProperties that) { return that.GetPropertyValue<string>("nearestSchools"); }
-
-		///<summary>
-		/// Owner ID
-		///</summary>
-		[ImplementPropertyType("ownerID")]
-		public string OwnerID
-		{
-			get { return GetOwnerID(this); }
-		}
-
-		/// <summary>Static getter for Owner ID</summary>
-		public static string GetOwnerID(IUnitDetailProperties that) { return that.GetPropertyValue<string>("ownerID"); }
-
-		///<summary>
-		/// Unit Overview
-		///</summary>
-		[ImplementPropertyType("unitOverview")]
-		public IHtmlString UnitOverview
-		{
-			get { return GetUnitOverview(this); }
-		}
-
-		/// <summary>Static getter for Unit Overview</summary>
-		public static IHtmlString GetUnitOverview(IUnitDetailProperties that) { return that.GetPropertyValue<IHtmlString>("unitOverview"); }
-
-		///<summary>
-		/// Unit Views
-		///</summary>
-		[ImplementPropertyType("unitViews")]
-		public IEnumerable<string> UnitViews
-		{
-			get { return GetUnitViews(this); }
-		}
-
-		/// <summary>Static getter for Unit Views</summary>
-		public static IEnumerable<string> GetUnitViews(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("unitViews"); }
 	}
 
 	/// <summary>ENQUIRIES</summary>
@@ -1848,6 +1721,362 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+	}
+
+	/// <summary>LogoutMember</summary>
+	[PublishedContentModel("logoutMember")]
+	public partial class LogoutMember : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "logoutMember";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public LogoutMember(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<LogoutMember, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>QATAR</summary>
+	[PublishedContentModel("qATAR")]
+	public partial class QAtar : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "qATAR";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public QAtar(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<QAtar, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>OMAN</summary>
+	[PublishedContentModel("oMAN")]
+	public partial class OMan : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "oMAN";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public OMan(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<OMan, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>JORDAN</summary>
+	[PublishedContentModel("jORDAN")]
+	public partial class JOrdan : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "jORDAN";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public JOrdan(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<JOrdan, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Agent Profile</summary>
+	[PublishedContentModel("agentProfile")]
+	public partial class AgentProfile : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "agentProfile";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public AgentProfile(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AgentProfile, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// City
+		///</summary>
+		[ImplementPropertyType("agentCity")]
+		public string AgentCity
+		{
+			get { return this.GetPropertyValue<string>("agentCity"); }
+		}
+
+		///<summary>
+		/// Code
+		///</summary>
+		[ImplementPropertyType("agentCode")]
+		public string AgentCode
+		{
+			get { return this.GetPropertyValue<string>("agentCode"); }
+		}
+
+		///<summary>
+		/// Contact No.
+		///</summary>
+		[ImplementPropertyType("agentContact")]
+		public string AgentContact
+		{
+			get { return this.GetPropertyValue<string>("agentContact"); }
+		}
+
+		///<summary>
+		/// Country
+		///</summary>
+		[ImplementPropertyType("agentCountry")]
+		public string AgentCountry
+		{
+			get { return this.GetPropertyValue<string>("agentCountry"); }
+		}
+
+		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("agentEmail")]
+		public string AgentEmail
+		{
+			get { return this.GetPropertyValue<string>("agentEmail"); }
+		}
+
+		///<summary>
+		/// Name
+		///</summary>
+		[ImplementPropertyType("agentName")]
+		public string AgentName
+		{
+			get { return this.GetPropertyValue<string>("agentName"); }
+		}
+
+		///<summary>
+		/// AgentServiceCategory
+		///</summary>
+		[ImplementPropertyType("agentServiceCategory")]
+		public string AgentServiceCategory
+		{
+			get { return this.GetPropertyValue<string>("agentServiceCategory"); }
+		}
+
+		///<summary>
+		/// AgentServiceDomain
+		///</summary>
+		[ImplementPropertyType("agentServiceDomain")]
+		public string AgentServiceDomain
+		{
+			get { return this.GetPropertyValue<string>("agentServiceDomain"); }
+		}
+
+		///<summary>
+		/// Username
+		///</summary>
+		[ImplementPropertyType("agentUserName")]
+		public string AgentUserName
+		{
+			get { return this.GetPropertyValue<string>("agentUserName"); }
+		}
+
+		///<summary>
+		/// Social Security No.
+		///</summary>
+		[ImplementPropertyType("socialSecurityNo")]
+		public string SocialSecurityNo
+		{
+			get { return this.GetPropertyValue<string>("socialSecurityNo"); }
+		}
+	}
+
+	// Mixin content Type 2364 with alias "unitDetailProperties"
+	/// <summary>Unit Detail Properties</summary>
+	public partial interface IUnitDetailProperties : IPublishedContent
+	{
+		/// <summary>FacilitiesAndAmenities</summary>
+		IEnumerable<string> FacilitiesAndAmenities { get; }
+
+		/// <summary>FittingsAndFixtures</summary>
+		IEnumerable<string> FittingsAndFixtures { get; }
+
+		/// <summary>ImageGallery</summary>
+		IEnumerable<IPublishedContent> ImageGallery { get; }
+
+		/// <summary>NearestMetroStation</summary>
+		string NearestMetroStation { get; }
+
+		/// <summary>NearestSchools</summary>
+		string NearestSchools { get; }
+
+		/// <summary>Unit Overview</summary>
+		IHtmlString UnitOverview { get; }
+
+		/// <summary>UnitViews</summary>
+		IEnumerable<string> UnitViews { get; }
+	}
+
+	/// <summary>Unit Detail Properties</summary>
+	[PublishedContentModel("unitDetailProperties")]
+	public partial class UnitDetailProperties : PublishedContentModel, IUnitDetailProperties
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "unitDetailProperties";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public UnitDetailProperties(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UnitDetailProperties, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// FacilitiesAndAmenities
+		///</summary>
+		[ImplementPropertyType("facilitiesAndAmenities")]
+		public IEnumerable<string> FacilitiesAndAmenities
+		{
+			get { return GetFacilitiesAndAmenities(this); }
+		}
+
+		/// <summary>Static getter for FacilitiesAndAmenities</summary>
+		public static IEnumerable<string> GetFacilitiesAndAmenities(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("facilitiesAndAmenities"); }
+
+		///<summary>
+		/// FittingsAndFixtures
+		///</summary>
+		[ImplementPropertyType("fittingsAndFixtures")]
+		public IEnumerable<string> FittingsAndFixtures
+		{
+			get { return GetFittingsAndFixtures(this); }
+		}
+
+		/// <summary>Static getter for FittingsAndFixtures</summary>
+		public static IEnumerable<string> GetFittingsAndFixtures(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("fittingsAndFixtures"); }
+
+		///<summary>
+		/// ImageGallery
+		///</summary>
+		[ImplementPropertyType("ImageGallery")]
+		public IEnumerable<IPublishedContent> ImageGallery
+		{
+			get { return GetImageGallery(this); }
+		}
+
+		/// <summary>Static getter for ImageGallery</summary>
+		public static IEnumerable<IPublishedContent> GetImageGallery(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<IPublishedContent>>("ImageGallery"); }
+
+		///<summary>
+		/// NearestMetroStation
+		///</summary>
+		[ImplementPropertyType("nearestMetroStation")]
+		public string NearestMetroStation
+		{
+			get { return GetNearestMetroStation(this); }
+		}
+
+		/// <summary>Static getter for NearestMetroStation</summary>
+		public static string GetNearestMetroStation(IUnitDetailProperties that) { return that.GetPropertyValue<string>("nearestMetroStation"); }
+
+		///<summary>
+		/// NearestSchools
+		///</summary>
+		[ImplementPropertyType("nearestSchools")]
+		public string NearestSchools
+		{
+			get { return GetNearestSchools(this); }
+		}
+
+		/// <summary>Static getter for NearestSchools</summary>
+		public static string GetNearestSchools(IUnitDetailProperties that) { return that.GetPropertyValue<string>("nearestSchools"); }
+
+		///<summary>
+		/// Unit Overview
+		///</summary>
+		[ImplementPropertyType("UnitOverview")]
+		public IHtmlString UnitOverview
+		{
+			get { return GetUnitOverview(this); }
+		}
+
+		/// <summary>Static getter for Unit Overview</summary>
+		public static IHtmlString GetUnitOverview(IUnitDetailProperties that) { return that.GetPropertyValue<IHtmlString>("UnitOverview"); }
+
+		///<summary>
+		/// UnitViews
+		///</summary>
+		[ImplementPropertyType("unitViews")]
+		public IEnumerable<string> UnitViews
+		{
+			get { return GetUnitViews(this); }
+		}
+
+		/// <summary>Static getter for UnitViews</summary>
+		public static IEnumerable<string> GetUnitViews(IUnitDetailProperties that) { return that.GetPropertyValue<IEnumerable<string>>("unitViews"); }
 	}
 
 	/// <summary>Folder</summary>

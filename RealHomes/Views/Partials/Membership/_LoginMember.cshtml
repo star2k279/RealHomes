@@ -1,76 +1,87 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.MembershipCMSModel>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.MembershipLoginCMSModel>
 @using Umbraco.Web
 @using Umbraco.Web.Models
 @using Umbraco.Web.Controllers
 @using RealHomes;
 @using RealHomes.Models;
 @{
-    //var registerModel = Members.CreateRegistrationModel();
+    //If sombody already logged in and this page was requested directly.
+    if (!Members.IsLoggedIn())
+    {
+        
+    <!--contact-->
+     <div class="login-right">
+        <div class="container">
+                <h3>Login</h3>
+                <div class="login-top">
+                    <!--<ul class="login-icons">
+                        <li><a href="#"><i class="facebook"> </i><span>Facebook</span></a></li>
+                        <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
+                        <li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
+                        <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
+                        <div class="clearfix"> </div>
+                    </ul>-->
+                    <div class="form-info">
+                        @{ var backURL = "";
+                            if (Request.QueryString["returnURL"] != null)
+                            {
+                                backURL = Request.QueryString["returnURL"].ToString();
+                            }
 
-    var success = TempData["LoginResult"] == null ? "" : TempData["LoginResult"].ToString();
-}
-<script src="~/Scripts/MiscElements.js"></script>
-
-@* NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed
-    expect 'success' and 'failed' in TempData["RegisterResult"] *@
-
-@if (success != "" && success.ToLower() == "success")
-{
-    @* Login successful, store the result in the session data and reload the page and menu *@
-    @{ 
-        MembershipCMSModel user = (MembershipCMSModel)TempData[StringConstants.CURRENT_USER];
-
-        Session[StringConstants.CURRENT_USER] = user;
-        Session[StringConstants.CURRENT_USER_NAME] = user.DisplayName;
-
-        if (TempData["returnURL"].ToString() == "")
-        {
-            Response.Redirect(StringConstants.HOME_ADDRESS);
-        }
-        else
-        {
-            Response.Redirect(TempData["returnURL"].ToString());
-        }
-
-    }
-
-
-}
-
-<!--contact-->
-<div class="login-right">
-    <div class="container">
-        <h3>Login</h3>
-        <div class="login-top">
-            <ul class="login-icons">
-                <li><a href="#"><i class="facebook"> </i><span>Facebook</span></a></li>
-                <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
-                <li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
-                <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
-                <div class="clearfix"> </div>
-            </ul>
-            <div class="form-info">
-                @{using (Html.BeginUmbracoForm<RealHomes.Controllers.MembershipCMSController>("LoginMember", "MembershipCMS", new { @id = "LoginForm", @class = "form-horizontal", role = "form" }, FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-
-                    <input type="text" id="txtUserName" class="text" name="name" placeholder="User name/Email Address" required="true">
-
-                    <input type="password" id="txtPassword" name = "pwd" placeholder="Password" required="">
-
-
-                    <label class="hvr-sweep-to-right">
-                        <input type="submit" value="Submit">
-                    </label>
                         }
-                    }
-            </div>
-            <div class="create">
-                <h4>New To Real Home?</h4>
-                <a class="hvr-sweep-to-right" href="register.html">Create an Account</a>
-                <div class="clearfix"> </div>
+                        @{using (Html.BeginUmbracoForm<RealHomes.Controllers.MembershipCMSController>("Login", new { returnURL = backURL }, new { @id = "LoginForm", @class = "form-vertical", role = "form" }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" style="text-align:left; width:300px">User Name </label>
+                                    @Html.TextBoxFor(m => Model.UserName, new { id = "txtUserName", htmlAttributes = new { style = "width:300px", @class = "form-control" } })
+                            
+                                </div>      
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" style="text-align:left; width:300px">Password </label>
+                                    @Html.PasswordFor(m => Model.Password, new { id = "txtPassword", @class = "form-control" })
+                                       
+                                </div>
+                                string sStyle = "";
+                                if (TempData.ContainsKey("LoginResult"))
+                                {
+
+                                    if (TempData["LoginResult"].ToString().ToLower() == StringConstants.LOGIN_FAILURE_MSG.ToLower())
+                                    {
+                                        sStyle = "display:block";
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    sStyle = "display:none";
+                                }
+                                <div id="errorDiv" style="@sStyle" class="form-group">
+                                    <label id="lblError" class="text-danger">@StringConstants.LOGIN_FAILURE_MSG </label>
+                                </div>
+                            <label class="hvr-sweep-to-right">
+                                <input type="submit" value="Login">
+                            </label>
+                            }
+                            }
+                    </div>
+                    <div class="create">
+                        <h4>New To Real Home?</h4>
+                        <a class="hvr-sweep-to-right" href="~/register">Create an Account</a>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    }
+    else
+    {
+        Html.RenderAction("RenderLogout", "MembershipCMS");
+        //Response.Redirect("~/Logout");
+    }
+}
+
 <!--//contact-->

@@ -1,6 +1,6 @@
 ﻿@using Umbraco.Core.Models
 @using Umbraco.Web.Models
-
+@using RealHomes;
 @inherits UmbracoViewPage
 
 
@@ -36,8 +36,19 @@
         <!--//logo-->
         <div class="top-nav">
             <ul class="right-icons">
-                <li><span><i class="glyphicon glyphicon-phone"> </i>@Umbraco.Field("contactNumber")</span></li>
-                       @{
+                <li><span><i class="glyphicon glyphicon-phone"> </i>@Umbraco.Field("contactNumber", recursive: true)</span></li>
+                  
+                    @{
+                        if (Members.IsLoggedIn())
+                        {
+                            <span> @Session[StringConstants.CURRENT_USER_NAME]  </span>
+                            <span><i class="glyphicon glyphicon-phone"> </i><a href="~/logout"> Logout</a></span>
+                        }
+                        else
+                        {
+                            <span><i class="glyphicon glyphicon-log-in"> </i><a href="~/logout"> Login</a></span>
+                        }
+                        /*
                         IEnumerable<RelatedLink> searchLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("searchLink", true);
                         if (searchLinks != null && searchLinks.Count() > 0)
                         {
@@ -49,7 +60,8 @@
                                 <li><a href=@sLink.Link><i class="@Umbraco.AssignedContentItem.GetPropertyValue(@sIcon)"> </i>@sLink.Caption </a></li>
                                 }
                             }
-                        }
+                        */
+                    }
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">UAE<span class="caret"></span></a>
 

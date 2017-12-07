@@ -166,13 +166,7 @@ namespace RealHomes.Models
         public string NEARESTSCHOOLS_PROPERTY_NAME { get { return "nearestSchools"; } }
         public string FITTING_PROPERTY_NAME { get { return "fittingsAndFixtures"; } }
 
-        public string VIEWS_PROPERTY_NAME
-        {
-            get
-            {
-                return "unitViews";
-            }
-        }
+        public string VIEWS_PROPERTY_NAME   { get { return "unitViews";  } }
 
         public string FACILITIES_PROPERTY_NAME
         {
@@ -182,7 +176,7 @@ namespace RealHomes.Models
             }
         }
 
-        public string OWNERID_PROPERTY_NAME { get { return "OwnerID"; } }
+        public string OWNERID_PROPERTY_NAME { get { return "ownerID"; } }
 
         public string DETAILPAGEID_PROPERTY_NAME { get { return "detailPageID"; } }
 

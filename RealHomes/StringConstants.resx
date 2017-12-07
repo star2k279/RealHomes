@@ -130,11 +130,11 @@
   <data name="CURRENCY_SYMBOL" xml:space="preserve">
     <value>AED</value>
   </data>
-  <data name="CURRENT_USER" xml:space="preserve">
-    <value>CurrentUser</value>
-  </data>
   <data name="CURRENT_USER_NAME" xml:space="preserve">
     <value>CurrentUserName</value>
+  </data>
+  <data name="CURRENT_USER_OBJECT" xml:space="preserve">
+    <value>CurrentUser</value>
   </data>
   <data name="EXMINE_SEARCHER_NAME" xml:space="preserve">
     <value>RHSearchSearcher</value>
@@ -143,10 +143,13 @@
     <value>gallery/</value>
   </data>
   <data name="HOME_ADDRESS_UAE" xml:space="preserve">
-    <value>~/RHomes</value>
+    <value>~/</value>
   </data>
   <data name="IMAGE_PATH" xml:space="preserve">
     <value>~/Images/</value>
+  </data>
+  <data name="LOGIN_FAILURE_MSG" xml:space="preserve">
+    <value>Invalid username or password.</value>
   </data>
   <data name="MAXSELLPRICE" xml:space="preserve">
     <value>500000000</value>

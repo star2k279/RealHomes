@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.Configuration;
 using RealHomes.Models;
 using Umbraco.Web.Models;
+using Umbraco.Core.Persistence.Mappers;
 
 namespace RealHomes.Controllers
 {
@@ -20,47 +21,71 @@ namespace RealHomes.Controllers
     {
         private const string REGISTER_VIEW_NAME = "Membership/_RegisterMember";
         private const string LOGIN_VIEW_NAME = "Membership/_LoginMember";
+        private const string LOGOUT_VIEW_NAME = "Membership/_LogoutMember";
 
 
-        [HttpGet]
-        public ActionResult MemberLogin()
+        public ActionResult RenderLogin()
         {
-            return PartialView(LOGIN_VIEW_NAME, new MembershipCMSModel());
+            return PartialView(LOGIN_VIEW_NAME, new MembershipLoginCMSModel());
         }
 
         [HttpPost]
-        public ActionResult MemberLogin(MembershipCMSModel model,string returnURL)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(MembershipLoginCMSModel model,string returnURL)
         {
             if (ModelState.IsValid)
             {
                 if (Members.Login(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.DisplayName, false);
-                    //Session[StringConstants.CURRENT_USER_OBJECT] = userObject;
+                   var LoggedInMember = Services.MemberService.GetByUsername(model.UserName);
+
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+
+                    Session[StringConstants.CURRENT_USER_OBJECT] = LoggedInMember;
+                    Session[StringConstants.CURRENT_USER_NAME] = LoggedInMember.Name;
+
                     UrlHelper myHelper = new UrlHelper(HttpContext.Request.RequestContext);
-                    if (myHelper.IsLocalUrl(returnURL))
+                    if (returnURL!="" && myHelper.IsLocalUrl(returnURL))
                     {
                         return Redirect(returnURL);
                     }
                     else
                     {
-                        return Redirect("~/login/");
+                        return Redirect(StringConstants.HOME_ADDRESS_UAE);
                     }
                 }
                 else
                 {
-                    TempData["LoginResult"] = "Login failed.";
+                    TempData["LoginResult"] = StringConstants.LOGIN_FAILURE_MSG;
 
                 }
                 return RedirectToCurrentUmbracoPage();
             }
             else
             {
+                TempData["LoginResult"] = StringConstants.LOGIN_FAILURE_MSG;
                 return CurrentUmbracoPage();
             }
         }
 
-        
+
+
+        public ActionResult RenderLogout()
+        {
+            return PartialView(LOGOUT_VIEW_NAME, new MembershipLoginCMSModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            Members.Logout();
+            TempData.Clear();
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            return RedirectToCurrentUmbracoPage();
+        }
+
         public ActionResult RenderRegisterForm()
         {
             return PartialView(REGISTER_VIEW_NAME, new MembershipCMSModel());
@@ -153,5 +178,41 @@ namespace RealHomes.Controllers
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary 
+        /// <param name="sName"></param>
+        /// <returns></returns>
+        public MembershipLoginCMSModel GetMember(string sName)
+        {
+            try
+            {
+               var user = Services.MemberService.GetByUsername(sName);
+
+                if (user != null)
+                {
+                    
+                    //Fill the local model
+                    MembershipLoginCMSModel loginModel = new MembershipLoginCMSModel();
+                    MembershipCMSModel model = new MembershipCMSModel();
+                    
+                    
+                    loginModel.DisplayName = user.Name;
+                    loginModel.UserName = user.Username;
+                    loginModel.Email = user.Email;
+                                                 
+                    return loginModel;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

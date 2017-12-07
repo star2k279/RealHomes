@@ -501,6 +501,8 @@
     <Content Include="Views\Partials\Membership\_RegisterMember.cshtml" />
     <Content Include="Views\LoginMember.cshtml" />
     <Content Include="Views\Partials\Membership\_LoginMember.cshtml" />
+    <Content Include="Views\Partials\Membership\_LogoutMember.cshtml" />
+    <Content Include="Views\LogoutMember.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -696,6 +698,7 @@
     <Compile Include="Models\ApplicationErrorModel.cs" />
     <Compile Include="Models\MakeAnOfferModel.cs" />
     <Compile Include="Models\MembershipCMSModel.cs" />
+    <Compile Include="Models\MembershipLoginCMSModel.cs" />
     <Compile Include="Models\PagedPropertyCMSView.cs" />
     <Compile Include="Models\PagedPropertyViews.cs" />
     <Compile Include="Models\PropertyCMSViewModel.cs" />
