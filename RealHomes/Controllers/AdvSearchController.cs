@@ -24,7 +24,7 @@ namespace RealHomes.Controllers
     {
        
         private const string PARTIAL_VIEW_SEARCH = "AdvancedUmbracoSearch/_AdvSearchControl.cshtml";
-        private RealHomesCMSEntitiesModel cmsModel = new RealHomesCMSEntitiesModel();
+        private RealHomesDataTypesCMSModel cmsModel = new RealHomesDataTypesCMSModel();
 
 
 

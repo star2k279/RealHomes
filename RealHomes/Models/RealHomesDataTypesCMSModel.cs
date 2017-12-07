@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RealHomes.Models
 {
-    public class RealHomesCMSEntitiesModel
+    public class RealHomesDataTypesCMSModel
     {
         public string CITY_SETTING_NAME { get { return "City"; } }
         public string LOCATION_SETTING_NAME { get { return "Location"; } }
@@ -22,6 +22,8 @@ namespace RealHomes.Models
         public string DEVHOLD_SETTING_NAME { get { return "DevelopmentHold"; } }
         public string STATUS_SETTING_NAME { get { return "AvailabilityStatus"; } }
         
+
+
 
     }
 }

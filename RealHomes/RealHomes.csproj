@@ -703,7 +703,7 @@
     <Compile Include="Models\PagedPropertyViews.cs" />
     <Compile Include="Models\PropertyCMSViewModel.cs" />
     <Compile Include="Models\PropertyDBModel.cs" />
-    <Compile Include="Models\RealHomesCMSEntitiesModel.cs" />
+    <Compile Include="Models\RealHomesDataTypesCMSModel.cs" />
     <Compile Include="Models\SearchWidgetModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
     <Compile Include="Models\VisitEnquiryCMSViewModel.cs" />

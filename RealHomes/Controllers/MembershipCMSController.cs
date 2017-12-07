@@ -83,7 +83,8 @@ namespace RealHomes.Controllers
             TempData.Clear();
             Session.Clear();
             FormsAuthentication.SignOut();
-            return RedirectToCurrentUmbracoPage();
+            //return RedirectToCurrentUmbracoPage();
+            return Redirect(StringConstants.HOME_ADDRESS_UAE);
         }
 
         public ActionResult RenderRegisterForm()
@@ -100,32 +101,41 @@ namespace RealHomes.Controllers
                 return CurrentUmbracoPage();
             }
 
-                if (model != null)
-                {
-                    MembershipCreateStatus result;
-                    RegisterModel newModel = Members.CreateRegistrationModel();
+            if (model != null)
+            {
+                MembershipCreateStatus result;
+                RegisterModel newModel = Members.CreateRegistrationModel();
 
-                    //Save the record
+                //Save the record
+                //By default alias will be 'Member'
+                newModel.Username = model.UserName;
+                newModel.UsernameIsEmail = false;
+                newModel.Name = model.UserName;
+                newModel.Password = model.Password;
+                newModel.Email = model.UserEmail;
 
-                    newModel.Username = model.UserName;
-                    newModel.UsernameIsEmail = false;
-                    newModel.Name = model.UserName;
-                    newModel.Password = model.Password;
-                    newModel.Email = model.UserEmail;
+                Members.RegisterMember(newModel, out result);
 
-                    Members.RegisterMember(newModel, out result);
+                var memberGroup = Services.MemberGroupService.GetByName(model.GROUP_ALIAS);
+                var member = Services.MemberService.GetByUsername(newModel.Username);
 
-                    TempData["RegisterResult"] = result.ToString();
+                /*member.SetValue("", model.type)
+                member.SetValue("", model.ContactNo);
+                member.SetValue("", model.countryValue);
+                member.SetValue("", model.cityValue);
+                Services.MemberService.Save(member);*/
 
-                    //if (result == MembershipCreateStatus.Success)
-                    //    return RedirectToCurrentUmbracoPage();
+                TempData["RegisterResult"] = result.ToString();
 
-                }
-                else
-                {
-                    TempData["RegisterResult"] = "Registration failed.";
-                    //Error should be logged properly
-                }
+                //if (result == MembershipCreateStatus.Success)
+                //    return RedirectToCurrentUmbracoPage();
+
+            }
+            else
+            {
+                TempData["RegisterResult"] = "Registration failed.";
+                //Error should be logged properly
+            }
 
                 return RedirectToCurrentUmbracoPage();
            
@@ -195,7 +205,7 @@ namespace RealHomes.Controllers
                     
                     //Fill the local model
                     MembershipLoginCMSModel loginModel = new MembershipLoginCMSModel();
-                    MembershipCMSModel model = new MembershipCMSModel();
+                    
                     
                     
                     loginModel.DisplayName = user.Name;

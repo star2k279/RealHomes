@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c5faf01bd0251207")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.7")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "333230b1acc4bf4f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -1184,6 +1184,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// AgentUserName
+		///</summary>
+		[ImplementPropertyType("agentUserName")]
+		public string AgentUserName
+		{
+			get { return this.GetPropertyValue<string>("agentUserName"); }
+		}
+
+		///<summary>
 		/// Availability Status
 		///</summary>
 		[ImplementPropertyType("availabilityStatus")]
@@ -1811,122 +1820,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Agent Profile</summary>
-	[PublishedContentModel("agentProfile")]
-	public partial class AgentProfile : PublishedContentModel
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "agentProfile";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public AgentProfile(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AgentProfile, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// City
-		///</summary>
-		[ImplementPropertyType("agentCity")]
-		public string AgentCity
-		{
-			get { return this.GetPropertyValue<string>("agentCity"); }
-		}
-
-		///<summary>
-		/// Code
-		///</summary>
-		[ImplementPropertyType("agentCode")]
-		public string AgentCode
-		{
-			get { return this.GetPropertyValue<string>("agentCode"); }
-		}
-
-		///<summary>
-		/// Contact No.
-		///</summary>
-		[ImplementPropertyType("agentContact")]
-		public string AgentContact
-		{
-			get { return this.GetPropertyValue<string>("agentContact"); }
-		}
-
-		///<summary>
-		/// Country
-		///</summary>
-		[ImplementPropertyType("agentCountry")]
-		public string AgentCountry
-		{
-			get { return this.GetPropertyValue<string>("agentCountry"); }
-		}
-
-		///<summary>
-		/// Email
-		///</summary>
-		[ImplementPropertyType("agentEmail")]
-		public string AgentEmail
-		{
-			get { return this.GetPropertyValue<string>("agentEmail"); }
-		}
-
-		///<summary>
-		/// Name
-		///</summary>
-		[ImplementPropertyType("agentName")]
-		public string AgentName
-		{
-			get { return this.GetPropertyValue<string>("agentName"); }
-		}
-
-		///<summary>
-		/// AgentServiceCategory
-		///</summary>
-		[ImplementPropertyType("agentServiceCategory")]
-		public string AgentServiceCategory
-		{
-			get { return this.GetPropertyValue<string>("agentServiceCategory"); }
-		}
-
-		///<summary>
-		/// AgentServiceDomain
-		///</summary>
-		[ImplementPropertyType("agentServiceDomain")]
-		public string AgentServiceDomain
-		{
-			get { return this.GetPropertyValue<string>("agentServiceDomain"); }
-		}
-
-		///<summary>
-		/// Username
-		///</summary>
-		[ImplementPropertyType("agentUserName")]
-		public string AgentUserName
-		{
-			get { return this.GetPropertyValue<string>("agentUserName"); }
-		}
-
-		///<summary>
-		/// Social Security No.
-		///</summary>
-		[ImplementPropertyType("socialSecurityNo")]
-		public string SocialSecurityNo
-		{
-			get { return this.GetPropertyValue<string>("socialSecurityNo"); }
-		}
-	}
-
 	// Mixin content Type 2364 with alias "unitDetailProperties"
 	/// <summary>Unit Detail Properties</summary>
 	public partial interface IUnitDetailProperties : IPublishedContent
@@ -2245,6 +2138,230 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Member, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Member City
+		///</summary>
+		[ImplementPropertyType("memberCity")]
+		public string MemberCity
+		{
+			get { return this.GetPropertyValue<string>("memberCity"); }
+		}
+
+		///<summary>
+		/// Member Contact No.
+		///</summary>
+		[ImplementPropertyType("memberContactNo")]
+		public string MemberContactNo
+		{
+			get { return this.GetPropertyValue<string>("memberContactNo"); }
+		}
+
+		///<summary>
+		/// Member Country
+		///</summary>
+		[ImplementPropertyType("memberCountry")]
+		public string MemberCountry
+		{
+			get { return this.GetPropertyValue<string>("memberCountry"); }
+		}
+
+		///<summary>
+		/// Member Type
+		///</summary>
+		[ImplementPropertyType("Type")]
+		public string Type
+		{
+			get { return this.GetPropertyValue<string>("Type"); }
+		}
+
+		///<summary>
+		/// Is Approved
+		///</summary>
+		[ImplementPropertyType("umbracoMemberApproved")]
+		public bool UmbracoMemberApproved
+		{
+			get { return this.GetPropertyValue<bool>("umbracoMemberApproved"); }
+		}
+
+		///<summary>
+		/// Comments
+		///</summary>
+		[ImplementPropertyType("umbracoMemberComments")]
+		public string UmbracoMemberComments
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberComments"); }
+		}
+
+		///<summary>
+		/// Failed Password Attempts
+		///</summary>
+		[ImplementPropertyType("umbracoMemberFailedPasswordAttempts")]
+		public string UmbracoMemberFailedPasswordAttempts
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberFailedPasswordAttempts"); }
+		}
+
+		///<summary>
+		/// Last Lockout Date
+		///</summary>
+		[ImplementPropertyType("umbracoMemberLastLockoutDate")]
+		public string UmbracoMemberLastLockoutDate
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberLastLockoutDate"); }
+		}
+
+		///<summary>
+		/// Last Login Date
+		///</summary>
+		[ImplementPropertyType("umbracoMemberLastLogin")]
+		public string UmbracoMemberLastLogin
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberLastLogin"); }
+		}
+
+		///<summary>
+		/// Last Password Change Date
+		///</summary>
+		[ImplementPropertyType("umbracoMemberLastPasswordChangeDate")]
+		public string UmbracoMemberLastPasswordChangeDate
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberLastPasswordChangeDate"); }
+		}
+
+		///<summary>
+		/// Is Locked Out
+		///</summary>
+		[ImplementPropertyType("umbracoMemberLockedOut")]
+		public bool UmbracoMemberLockedOut
+		{
+			get { return this.GetPropertyValue<bool>("umbracoMemberLockedOut"); }
+		}
+
+		///<summary>
+		/// Password Answer
+		///</summary>
+		[ImplementPropertyType("umbracoMemberPasswordRetrievalAnswer")]
+		public string UmbracoMemberPasswordRetrievalAnswer
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberPasswordRetrievalAnswer"); }
+		}
+
+		///<summary>
+		/// Password Question
+		///</summary>
+		[ImplementPropertyType("umbracoMemberPasswordRetrievalQuestion")]
+		public string UmbracoMemberPasswordRetrievalQuestion
+		{
+			get { return this.GetPropertyValue<string>("umbracoMemberPasswordRetrievalQuestion"); }
+		}
+	}
+
+	/// <summary>Agent</summary>
+	[PublishedContentModel("agent")]
+	public partial class Agent : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "agent";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Member;
+#pragma warning restore 0109
+
+		public Agent(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Agent, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// City
+		///</summary>
+		[ImplementPropertyType("agentCity")]
+		public string AgentCity
+		{
+			get { return this.GetPropertyValue<string>("agentCity"); }
+		}
+
+		///<summary>
+		/// AgentCode
+		///</summary>
+		[ImplementPropertyType("agentCode")]
+		public string AgentCode
+		{
+			get { return this.GetPropertyValue<string>("agentCode"); }
+		}
+
+		///<summary>
+		/// Country
+		///</summary>
+		[ImplementPropertyType("agentCountry")]
+		public string AgentCountry
+		{
+			get { return this.GetPropertyValue<string>("agentCountry"); }
+		}
+
+		///<summary>
+		/// AgentServiceCategory
+		///</summary>
+		[ImplementPropertyType("agentServiceCategory")]
+		public string AgentServiceCategory
+		{
+			get { return this.GetPropertyValue<string>("agentServiceCategory"); }
+		}
+
+		///<summary>
+		/// AgentServiceDomain
+		///</summary>
+		[ImplementPropertyType("agentServiceDomain")]
+		public string AgentServiceDomain
+		{
+			get { return this.GetPropertyValue<string>("agentServiceDomain"); }
+		}
+
+		///<summary>
+		/// CellNo1
+		///</summary>
+		[ImplementPropertyType("cellNo1")]
+		public string CellNo1
+		{
+			get { return this.GetPropertyValue<string>("cellNo1"); }
+		}
+
+		///<summary>
+		/// CellNo2
+		///</summary>
+		[ImplementPropertyType("cellNo2")]
+		public string CellNo2
+		{
+			get { return this.GetPropertyValue<string>("cellNo2"); }
+		}
+
+		///<summary>
+		/// SocialSecurityNo
+		///</summary>
+		[ImplementPropertyType("socialSecurityNo")]
+		public string SocialSecurityNo
+		{
+			get { return this.GetPropertyValue<string>("socialSecurityNo"); }
+		}
+
+		///<summary>
+		/// Type
+		///</summary>
+		[ImplementPropertyType("Type")]
+		public string Type
+		{
+			get { return this.GetPropertyValue<string>("Type"); }
 		}
 
 		///<summary>
