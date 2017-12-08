@@ -3,14 +3,37 @@
 @using RealHomes;
 @inherits UmbracoViewPage
 
+<!-- Include Twitter Bootstrap and jQuery: -->
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="~/Scripts/header-redesign-inputvalidator0099.js"></script>
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+<!-- Include the plugin's CSS and JS: -->
+<link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
+
+<script src="~/Scripts/AdvSearchElements.js">
+</script>
 
 
 <div class="navigation">
     <div class="container-fluid">
         <nav class="pull">
             <ul>
-               
-                @{ 
+
+                @{
                     IEnumerable<RelatedLink> topMenuLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("topMenuLinks", true);
 
                     if (topMenuLinks != null && topMenuLinks.Count() > 0)
@@ -26,6 +49,8 @@
         </nav>
     </div>
 </div>
+
+
 <!--header div-->
 <div class="header">
     <div class="container">
@@ -37,7 +62,7 @@
         <div class="top-nav">
             <ul class="right-icons">
                 <li><span><i class="glyphicon glyphicon-phone"> </i>@Umbraco.Field("contactNumber", recursive: true)</span></li>
-                  
+
                     @{
                         if (Members.IsLoggedIn())
                         {
@@ -94,91 +119,48 @@
                 --->
             </div>
             <div class="clearfix"> </div>
-            <!---pop-up-box---->
 
-           
-            <!---//pop-up-box---->
-     
-             <link href="~/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-          <!--<script src="~/Scripts/jquery.magnific-popup.js" type="text/javascript"></script>-->
-            <script>
-                /*$(document).ready(function () {
-                    $('.popup-with-zoom-anim').magnificPopup({
-                        type: 'inline',
-                        fixedContentPos: false,
-                        fixedBgPos: true,
-                        overflowY: 'auto',
-                        closeBtnInside: true,
-                        preloader: false,
-                        midClick: true,
-                        removalDelay: 300,
-                        mainClass: 'my-mfp-zoom-in'
-                    });
-
-                });*/
-            </script>
 
 
         </div>
         <div class="clearfix"> </div>
 
-      
-    </div>
-   
-    <!--
-    <div id="small-dialog">
-        <!-- class="mfp-hide">
-        <!----- tabs-box --
-        <div class="sap_tabs">
-            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                <ul class="resp-tabs-list">
-                    <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
-                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
-                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
-                    <div class="clearfix"></div>
-                </ul>
-                <div class="resp-tabs-container">
-                    <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
-                        <div class="facts">
-                            <div class="login">
-                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                <input type="submit" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                        <div class="facts">
-                            <div class="login">
-                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                <input type="submit" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-                        <div class="facts">
-                            <div class="login">
-                                <input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">
-                                <input type="submit" value="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!--<script src="~/Scripts/easyResponsiveTabs.js" type="text/javascript"></script>
-            <script type="text/javascript">
-
-                /*$(document).ready(function () {
-                    jQuery.noConflict();
-                    $('#horizontalTab').easyResponsiveTabs({
-                        type: 'default', //Types: default, vertical, accordion
-                        width: 'auto', //auto or any width like 600px
-                        fit: true   // 100% fit in a container
-                    });
-                });*/
-            </script>
-        </div>
     </div>
-    -->
+
+ </div>
+<!--header div-->
+
+<!--Body div-->
+<div class="body-content">
+    <div id="searchWidget">
+        <input type="hidden" id="txtSearchPage" />
+        <input type="hidden" id="txtSearchCriteria" />
+        @{
+            if (Request.QueryString["SearchPage"].IsNullOrWhiteSpace())
+            {
+                //By default show property search
+                Html.RenderAction("GetAllValues", "AdvSearch");
+            }
+            else if (Request.QueryString["SearchPage"].ToString() == "property")
+            {
+                //Check criteria in request string to send to property search page
+                Html.RenderAction("GetAllValues", "AdvSearch");
+            }
+            else if (Request.QueryString["SearchPage"].ToString() == "agent")
+            {
+                //Check criteria in request string to send to Agent search page
+                //Html.RenderAction("GetAllValues", "AgentSearch");
+            }
+            else if (Request.QueryString["SearchPage"].ToString() == "mapsearch")
+            {
+                //Check criteria in request string to send to Map search page
+                //Html.RenderAction("GetAllValues", "AgentSearch");
+            }
+        }
+
+    </div>
 
 </div>
+<!--Body div-->
+

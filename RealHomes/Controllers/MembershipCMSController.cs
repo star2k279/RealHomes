@@ -119,11 +119,11 @@ namespace RealHomes.Controllers
                 var memberGroup = Services.MemberGroupService.GetByName(model.GROUP_ALIAS);
                 var member = Services.MemberService.GetByUsername(newModel.Username);
 
-                /*member.SetValue("", model.type)
-                member.SetValue("", model.ContactNo);
+                member.SetValue(model.TYPE_PROPERTY_NAME, 360);
+                /*member.SetValue("", model.ContactNo);
                 member.SetValue("", model.countryValue);
-                member.SetValue("", model.cityValue);
-                Services.MemberService.Save(member);*/
+                member.SetValue("", model.cityValue);*/
+                Services.MemberService.Save(member); 
 
                 TempData["RegisterResult"] = result.ToString();
 

@@ -26,6 +26,11 @@ namespace RealHomes.Models
         [RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$", ErrorMessage = "Password must be minimum 8 character long and should contain at least one upper case letter, at least one lower case letter and numbers.")]
         public string Password { get; set; }
 
+        public string EMAIL_PROPERTY_NAME { get { return "Email"; } }
+        [Required]
+        [EmailAddress]
+        public string UserEmail { get; set; }
+
         public string TYPE_PROPERTY_NAME { get { return "Type"; } }
         public int Type { get; set; }
 

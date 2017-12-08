@@ -503,6 +503,9 @@
     <Content Include="Views\Partials\Membership\_LoginMember.cshtml" />
     <Content Include="Views\Partials\Membership\_LogoutMember.cshtml" />
     <Content Include="Views\LogoutMember.cshtml" />
+    <Content Include="Views\Partials\SiteLayout\_TopNavigationHome.cshtml" />
+    <Content Include="Views\AgentProfile.cshtml" />
+    <Content Include="Views\RealHomeSiteLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -764,10 +767,6 @@
     <Folder Include="images\RB1000\gallery\" />
     <Folder Include="images\RB1001\gallery\" />
     <Folder Include="images\VI1005\gallery\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\City\" />
-    <Folder Include="Views\Error\" />
-    <Folder Include="Views\Fixtures\" />
     <Folder Include="Views\MakeAnOffer\" />
     <Folder Include="Views\MembershipCMS\" />
   </ItemGroup>

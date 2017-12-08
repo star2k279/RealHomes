@@ -4,7 +4,21 @@
 
 @inherits UmbracoViewPage
 
+<script src="~/Scripts/responsiveslides.js"></script>
+<script>
+        jQuery.noConflict();
+        jQuery(function (){
+           $(function () {
+               $("#slider").responsiveSlides({
+                    auto: true,
+                    speed: 500,
+                    namespace: "callbacks",
+                    pager: true,
+                });
+            })
+        });
 
+</script>
 
 <!--/banner/-->
 <div class="header-right">
@@ -44,7 +58,7 @@
 
     
 
-     @*{Html.RenderPartial("SiteLayout/_SearchWidget"); }*@
+    
 
 </div>
 <!--banner end-->
@@ -79,57 +93,7 @@
                         </div>
                         }
                     }
-                <!--@*
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m2Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m2Icon")"> </i>
-                            <h6>@Umbraco.Field("m2Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m3Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m3Icon")"> </i>
-                            <h6>@Umbraco.Field("m3Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m4Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m4Icon")"> </i>
-                            <h6>@Umbraco.Field("m4Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m5Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m5Icon")"> </i>
-                            <h6>@Umbraco.Field("m5Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m6Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m6Icon")"> </i>
-                            <h6>@Umbraco.Field("m6Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                <div class="bottom-head">
-                    <a href="@Umbraco.Field("m7Link")">
-                        <div class="buy-media">
-                            <i class="@Umbraco.Field("m7Icon")"> </i>
-                            <h6>@Umbraco.Field("m7Name")</h6>
-                        </div>
-                    </a>
-                </div>
-                *@
-                -->
+               
                 <div class="clearfix"> </div>
             </div>
         </div>

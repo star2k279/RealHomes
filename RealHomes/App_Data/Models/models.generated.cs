@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "333230b1acc4bf4f")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "78f376631bafb801")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -2168,6 +2168,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// MemberImage
+		///</summary>
+		[ImplementPropertyType("memberImage")]
+		public IEnumerable<IPublishedContent> MemberImage
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("memberImage"); }
+		}
+
+		///<summary>
 		/// Member Type
 		///</summary>
 		[ImplementPropertyType("Type")]
@@ -2311,7 +2320,52 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// AgentServiceCategory
+		/// AgentImage
+		///</summary>
+		[ImplementPropertyType("agentImage")]
+		public IEnumerable<IPublishedContent> AgentImage
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("agentImage"); }
+		}
+
+		///<summary>
+		/// Job Title
+		///</summary>
+		[ImplementPropertyType("agentJobTitle")]
+		public string AgentJobTitle
+		{
+			get { return this.GetPropertyValue<string>("agentJobTitle"); }
+		}
+
+		///<summary>
+		/// JoiningDate
+		///</summary>
+		[ImplementPropertyType("agentJoiningDate")]
+		public DateTime AgentJoiningDate
+		{
+			get { return this.GetPropertyValue<DateTime>("agentJoiningDate"); }
+		}
+
+		///<summary>
+		/// Mobile No
+		///</summary>
+		[ImplementPropertyType("agentMobileNo")]
+		public string AgentMobileNo
+		{
+			get { return this.GetPropertyValue<string>("agentMobileNo"); }
+		}
+
+		///<summary>
+		/// RERA No.
+		///</summary>
+		[ImplementPropertyType("agentReraNo")]
+		public string AgentReraNo
+		{
+			get { return this.GetPropertyValue<string>("agentReraNo"); }
+		}
+
+		///<summary>
+		/// ServiceCategory
 		///</summary>
 		[ImplementPropertyType("agentServiceCategory")]
 		public string AgentServiceCategory
@@ -2320,7 +2374,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// AgentServiceDomain
+		/// ServiceDomain
 		///</summary>
 		[ImplementPropertyType("agentServiceDomain")]
 		public string AgentServiceDomain
@@ -2329,30 +2383,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// CellNo1
-		///</summary>
-		[ImplementPropertyType("cellNo1")]
-		public string CellNo1
-		{
-			get { return this.GetPropertyValue<string>("cellNo1"); }
-		}
-
-		///<summary>
-		/// CellNo2
-		///</summary>
-		[ImplementPropertyType("cellNo2")]
-		public string CellNo2
-		{
-			get { return this.GetPropertyValue<string>("cellNo2"); }
-		}
-
-		///<summary>
 		/// SocialSecurityNo
 		///</summary>
-		[ImplementPropertyType("socialSecurityNo")]
-		public string SocialSecurityNo
+		[ImplementPropertyType("agentSocialSecurityNo")]
+		public string AgentSocialSecurityNo
 		{
-			get { return this.GetPropertyValue<string>("socialSecurityNo"); }
+			get { return this.GetPropertyValue<string>("agentSocialSecurityNo"); }
 		}
 
 		///<summary>
