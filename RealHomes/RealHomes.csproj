@@ -506,6 +506,7 @@
     <Content Include="Views\Partials\SiteLayout\_TopNavigationHome.cshtml" />
     <Content Include="Views\AgentProfile.cshtml" />
     <Content Include="Views\RealHomeSiteLayout.cshtml" />
+    <Content Include="Views\AgentSearch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
