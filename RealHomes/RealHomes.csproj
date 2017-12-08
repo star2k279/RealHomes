@@ -390,6 +390,7 @@
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Scripts\AdvSearchElements.js" />
+    <Content Include="Scripts\AgentSearchElements.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -484,7 +485,6 @@
     <Content Include="Views\Partials\PropertySurface\_Index.cshtml" />
     <Content Include="Views\Partials\PropertyCMS\_PropertyList.cshtml" />
     <Content Include="Views\Search.cshtml" />
-    <Content Include="Views\AgentLayout.cshtml" />
     <Content Include="Views\Partials\SiteLayout\_SearchWidget.cshtml" />
     <Content Include="Views\Partials\PropertySurface\_CreateProperty.cshtml" />
     <Content Include="Views\CreateProperty.cshtml" />
@@ -504,9 +504,9 @@
     <Content Include="Views\Partials\Membership\_LogoutMember.cshtml" />
     <Content Include="Views\LogoutMember.cshtml" />
     <Content Include="Views\Partials\SiteLayout\_TopNavigationHome.cshtml" />
-    <Content Include="Views\AgentProfile.cshtml" />
     <Content Include="Views\RealHomeSiteLayout.cshtml" />
     <Content Include="Views\AgentSearch.cshtml" />
+    <Content Include="Views\Partials\AdvancedUmbracoSearch\_AdvAgentSearchControl.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -683,6 +683,7 @@
     <Content Include="App_Code\LocationApiController.cs" />
     <Content Include="App_Code\Logging.cs" />
     <Compile Include="Controllers\AdvSearchController.cs" />
+    <Compile Include="Controllers\AgentCMSController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -697,8 +698,12 @@
     <Compile Include="Controllers\VisitEnquiryCMSController.cs" />
     <Compile Include="Helper\PreValueHelper.cs" />
     <Compile Include="Helper\UmbracoUtils.cs" />
+    <Compile Include="Helper\URLHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdvSearchModel.cs" />
+    <Compile Include="Models\AgentCMSModel.cs" />
+    <Compile Include="Models\AgentSearchModel.cs" />
+    <Compile Include="Models\AgentViewCMSModel.cs" />
     <Compile Include="Models\ApplicationErrorModel.cs" />
     <Compile Include="Models\MakeAnOfferModel.cs" />
     <Compile Include="Models\MembershipCMSModel.cs" />
@@ -768,6 +773,7 @@
     <Folder Include="images\RB1000\gallery\" />
     <Folder Include="images\RB1001\gallery\" />
     <Folder Include="images\VI1005\gallery\" />
+    <Folder Include="Views\AgentCMS\" />
     <Folder Include="Views\MakeAnOffer\" />
     <Folder Include="Views\MembershipCMS\" />
   </ItemGroup>

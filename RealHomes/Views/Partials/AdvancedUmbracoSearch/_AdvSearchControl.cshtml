@@ -9,7 +9,7 @@
         <!--First row-->
         <div class="price-grid">
 
-            <div id="txt_container" class="col-sm-6 price-top ">
+            <div id="txt_container" class="col-sm-8 price-top ">
                 <!--  <div ng-controller="RHApi.SearchWidgetApiController">
                      <ul>
                          <li ng-repeat="location in Locations">
@@ -20,7 +20,7 @@
                  -->
 
                 <input type="hidden" id="txtKeyword" value="Enter Location" name="bh" />
-                <input type="text" id="txtKeywordLocation" spellcheck="false" maxlength="100" size="45" value="Enter location" class="new-srch-input input-lg" name="bhl" autocorrect="off" autocapitalize="off" onfocus="autoHide(this);" onblur="autoHide(this);" />
+                <input type="text" id="txtKeywordLocation" spellcheck="false" maxlength="100" size="65" value="Enter location" class="new-srch-input input-lg" name="bhl" autocorrect="off" autocapitalize="off" onfocus="autoHide(this);" onblur="autoHide(this);" />
 
                 <input type="hidden" id="txtAgentId" value="Enter Agent" name="bh" />
                 <input type="text" id="txtKeywordAgent" spellcheck="false" maxlength="100" size="45" value="Search By Agent e.g. Paul Smith" class="new-srch-input input-lg" name="bha" autocapitalize="off" autocorrect="off" onfocus="autoHideAgent(this);" onblur="autoHideAgent(this);" style="display: none" />
@@ -29,7 +29,7 @@
                 <input type="hidden" id="txtRefNo" />
 
             </div>
-            <div id="btnSearch" class="col-sm-6 price-top">
+            <div id="btnSearch" class="col-sm-3 price-top">
                
                     <select id="ddlService" class="in-drop">
                         <option selected="selected" value="1">For Sale</option>
@@ -38,7 +38,7 @@
 
                     </select>
               </div>
-            <div id="btnSearch" class="col-sm-6 price-top">
+            <div id="btnSearch" class="col-sm-1 price-top">
                 <!--<a onclick='javascript.void(0);' id="btnSearchRent" title="For Rent" Value="2">Search</a>-->
                 <button id="btnSearch" value="2" onclick="SearchProperties();">Search</button>
                 <!--<a onclick="javascript.void(0);" id="btnShortStay" title="Short Stays" Value="3">Short Stays</a>-->

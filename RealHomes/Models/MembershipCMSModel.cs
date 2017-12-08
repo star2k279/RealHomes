@@ -44,5 +44,6 @@ namespace RealHomes.Models
         public string CONTACT_PROPERTY_NAME { get { return "memberContactNo"; } }
         public string ContactNo { get; set; }
 
+
     }
 }

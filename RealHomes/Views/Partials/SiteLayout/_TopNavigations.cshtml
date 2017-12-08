@@ -24,8 +24,7 @@
 <link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
 
-<script src="~/Scripts/AdvSearchElements.js">
-</script>
+<script src="~/Scripts/AdvSearchElements.js"></script>
 
 
 <div class="navigation">
@@ -137,12 +136,11 @@
         <input type="hidden" id="txtSearchPage" />
         <input type="hidden" id="txtSearchCriteria" />
         @{
-            if (Request.QueryString["SearchPage"].IsNullOrWhiteSpace())
-            {
-                //By default show property search
-                Html.RenderAction("GetAllValues", "AdvSearch");
-            }
-            else if (Request.QueryString["SearchPage"].ToString() == "property")
+            
+            //By default show property search
+            Html.RenderAction("GetAllValues", "AdvSearch");
+
+            /*if (Request.QueryString["SearchPage"].ToString() == "property")
             {
                 //Check criteria in request string to send to property search page
                 Html.RenderAction("GetAllValues", "AdvSearch");
@@ -155,8 +153,8 @@
             else if (Request.QueryString["SearchPage"].ToString() == "mapsearch")
             {
                 //Check criteria in request string to send to Map search page
-                //Html.RenderAction("GetAllValues", "AgentSearch");
-            }
+                //Html.RenderAction("GetAllValues", "MapSearch");
+            }*/
         }
 
     </div>

@@ -24,6 +24,7 @@ namespace RealHomes.Controllers
     {
        
         private const string PARTIAL_VIEW_SEARCH = "AdvancedUmbracoSearch/_AdvSearchControl.cshtml";
+        private const string PARTIAL_VIEW_AGENTSEARCH = "AdvancedUmbracoSearch/_AdvAgentSearchControl";
         private RealHomesDataTypesCMSModel cmsModel = new RealHomesDataTypesCMSModel();
 
 
@@ -84,6 +85,7 @@ namespace RealHomes.Controllers
             return null;
 
         }
+
         public JsonResult GetLocations(string sPrefix)
         {
             //IEnumerable<LocationModel> locations = (new LocationController()).GetAllLocations();
@@ -112,6 +114,55 @@ namespace RealHomes.Controllers
         private bool ValuesExists()
         {
             return GetAllValues() != null;
+        }
+
+        public JsonResult GetAgentNames(string sPrefix)
+        {
+            List<SelectListItem> agents=new List<SelectListItem>();
+            //Get all the Members of Type agents from CMS 
+            var AgentList = Services.MemberService.GetAllMembers().Where(m => m.ContentTypeAlias == "agent").ToList();
+
+            //Make a list of AgentNAmes and their respective Node Ids.
+            foreach ( var agent in AgentList)
+            {
+                agents.Add(new SelectListItem() {Text = agent.Name, Value = agent.Id.ToString() });
+            }
+            
+            sPrefix = sPrefix.Replace("\"", "");
+            var agentNames = (from N in agents
+                                 where N.Text.ToLower().StartsWith(sPrefix.ToLower())
+                                 select new { id = N.Value, name = N.Text });
+
+            return Json(agentNames, JsonRequestBehavior.AllowGet);
+            
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAgentSearchValues()
+        {
+            try
+            {
+                //var Agents = Services.MemberService.GetAllMembers().Where(m => m.ContentTypeAlias == "agent").ToList();
+
+                AgentSearchModel searchModel = new AgentSearchModel();
+
+
+                searchModel.Services = (new PreValueHelper()).GetPreValuesFromAppSettingName(cmsModel.SERVICE_SETTING_NAME);
+
+                searchModel.Categories = (new PreValueHelper()).GetPreValuesFromAppSettingName(cmsModel.CATEGORY_SETTING_NAME);
+
+                searchModel.Cities = (new PreValueHelper()).GetPreValuesFromAppSettingName(cmsModel.CITY_SETTING_NAME);
+
+                
+
+
+                return PartialView(PARTIAL_VIEW_AGENTSEARCH, await Task.FromResult(searchModel));
+            }
+            catch (Exception ex)
+            {
+                //Log the exception
+                return null;
+            }
         }
     }
 }
