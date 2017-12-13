@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+
+<div id="divAgentDetail" class="container">
+    <!--//Search Area Started-->
+
+
+    <input type="hidden" id="searchcriteria" />
+
+    @{
+        if (Request.QueryString["agentid"] != null)
+        {
+            var agentId = Request.QueryString["agentid"].ToString();
+            Html.RenderAction("Showdetail", "AgentCMS", new {AgentId = agentId });
+
+            //Html.RenderPartial("Propertysurface/_Details");
+        }
+        else
+        {
+            Response.Redirect("~/404");
+        }
+    }
+
+</div>

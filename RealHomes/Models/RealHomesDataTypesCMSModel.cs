@@ -28,8 +28,17 @@ namespace RealHomes.Models
 
         public string MEMBERTYPE_SETTING_NAME { get { return "MemberType"; } }
 
+         //DOC TYPE SETTING NAMES 
+        
+         public string PROPERTYLISTDT_SETTING_NAME { get { return "property-list"; } }
+         public string PROPERTYDT_SETTING_NAME { get { return "properties"; } }
+         public string ENQUIRIESDT_SETTING_NAME { get { return "enquiries"; } }
+         public string OFFERSDT_SETTING_NAME { get { return "offers"; } }
+         public string PROPERTYLIST_SETTING_NAME { get { return "ErrorPageId"; } }
+    
+        //Content Type (Node) Setting Names
 
-
-
+        public string PROPDETAILCT_SETTING_NAME { get { return "PropertyDetailPageID"; } }
+        public string AGENTDETAILCT_SETTING_NAME { get { return "AgentDetailPageID"; } }
     }
 }

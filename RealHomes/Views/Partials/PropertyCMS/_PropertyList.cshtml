@@ -1,7 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.PagedPropertyViews>
-@using System.IO;
+@using System.Web.Configuration;
 @using System.Globalization;
 @using RealHomes;
+@using RealHomes.Models;
 @*using (Ajax.BeginForm("GetProperties", "PropertySurface", new AjaxOptions()
     {
         HttpMethod = "GET",
@@ -14,10 +15,6 @@
     InsertionMode = InsertionMode.Replace
 }))
 {
-   
-    <div id="ResultContainer" class="container">
-       
-        
 
         <div id="divHeading" class="container" style="background-color:cornflowerblue;color:white">
             <div class="col-md-4">
@@ -25,8 +22,10 @@
             </div>
 
         </div>
+
+
         <div id="divsortinglink" class="container" style="background-color:bisque">
-            <div class="col-md-4 ">
+            <div>
                 <span>Sort By: </span>
                 <a href="#">Highest Price</a>
                 <span> | </span>
@@ -36,6 +35,7 @@
             </div>
 
         </div>
+        
         <hr />
 
         <div id="detailResult" class="container">
@@ -111,9 +111,9 @@
                                 <p>@Html.DisplayFor(modelItem => item.UserName)</p>
                                 <p> </p>
                                 @{
-                                    ViewBag.DetailPageId = item.PropertyDetailPageID;
+                                    RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
 
-                                    var pg = Umbraco.Content("1253");
+                                    var pg = Umbraco.Content(WebConfigurationManager.AppSettings[CMSNodesSetting.PROPDETAILCT_SETTING_NAME]);
 
                                     if (pg == null)
                                     {
@@ -150,17 +150,9 @@
             }
         </div>
 
-        <!--Pager Control
+        
 
-        <ul class="pagination">
-            @for (int i = 1; i <= Model.TotalPages; i++)
-            {
-                <li class=""> <a class="page-number" href="javascript:void();" onclick="NextPage(parseInt($(this).html()));">@i</a></li>
-            }
-
-        </ul>-->
-
-        <div>
+        <div id="divPagingLink" class="container">
             @if (Model.TotalPages > 1)
             {
                 <ul class="pagination">
@@ -194,11 +186,6 @@
 
         </div>
 
-    </div>
+    
 
-                                    }
-<script>
-
-
-
-</script>
+}

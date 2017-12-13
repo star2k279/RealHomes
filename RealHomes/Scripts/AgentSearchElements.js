@@ -1,6 +1,11 @@
-﻿
+﻿var agentid = "";
+var category = 0;
+var service = 0;
+var city = 0;
 
-
+var FirstTime = true;
+var pageno = 1;
+var criteria = "";
 
 jQuery(document).ready(function () {
 
@@ -38,9 +43,11 @@ jQuery(document).ready(function () {
             //autocomplete's event that fires after the user select an option from the list
             //ui element has value, label and id properties those were set above when generating the ui-autocomplete suggestion menu
             var selectedId = ui.item.id;
+            alert(ui.item.value);
             if (selectedId == "undefined")
             { $("#txtAgentId").val("Agent"); }
             else { $("#txtAgentId").val(ui.item.value); } //$("#txtKeywordAgent").val(ui.item.id);
+            
         },
         autoFocus: true,
         change: function (event, ui) {
@@ -55,3 +62,76 @@ jQuery(document).ready(function () {
 
 
 });
+function SearchAgents()
+{
+    setSearchValues();
+    GetSearchResults();
+}
+
+function setSearchValues()
+{
+    if (jQuery("#txtKeyword").val() != "Agent") {
+        //set location Id
+        agentid = jQuery("#txtAgent").val();
+        
+    }
+    else
+        agentid = "";
+
+    if (jQuery('#ddlCategory option:selected').val() > 0) {
+        category = jQuery('#ddlCategory option:selected').text();
+    }
+    else
+        category = "";
+
+
+    if (jQuery('#ddlService option:selected').val() > 0) {
+        service = jQuery('#ddlCategory option:selected').text();
+    }
+    else
+        service = "";
+
+    if (jQuery('#ddlCity option:selected').val() > 0) {
+        city = jQuery('#ddlCategory option:selected').text();
+    }
+    else
+        city = "";
+
+    alert('Agent ID: ' +agentid + ', Category ID: ' +category + ', Service ID: ' + service +', City ID: '+city);
+}
+
+
+function GetSearchResults() {
+    
+            //call by location and other options
+        $.ajax({
+            url: '/RHomes/umbraco/surface/AgentCMS/GetAgents',
+            async: false,
+            type: "GET",
+            data: {
+                iPageNo: pageno, sSortName: "", sAgentId : agentid, sCategory: category,
+                iServiceId: service, sCity: city
+                   },
+            dataType: "html",
+            traditional: true,
+            contentType: "application/json",
+            error: function (data) {
+                alert('Error getting data from ajax call');
+            },
+            success: function (data, textStatus, jqXHR) {
+                //alert(criteria + 'success...' + data);
+                console.log(data);
+                $("#ResultContainer").empty().append(data);
+            }
+        });
+}
+
+
+
+
+
+
+function NextPage(Pg) {
+    PageNo = Pg;
+    GetSearchResults();
+}

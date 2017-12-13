@@ -136,6 +136,9 @@
   <data name="CURRENT_USER_OBJECT" xml:space="preserve">
     <value>CurrentUser</value>
   </data>
+  <data name="EXMINE_MEM_SEARCHER_NAME" xml:space="preserve">
+    <value>InternalMemberSearcher</value>
+  </data>
   <data name="EXMINE_SEARCHER_NAME" xml:space="preserve">
     <value>RHSearchSearcher</value>
   </data>

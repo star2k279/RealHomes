@@ -30,44 +30,46 @@
 
 <script src="~/Scripts/AgentSearchElements.js"></script>
 
-<div>
 
-    <div class="container">
-        <!--//Search Area Started-->
-        <div id="searchWidget">
-            <input type="hidden" id="searchcriteria"/>
 
-            @{
+<div class="container">
+    <!--//Search Area Started-->
+    <div id="searchWidget">
+        <input type="hidden" id="searchcriteria"/>
 
-               Html.RenderAction("GetAgentSearchValues", "AdvSearch");
-            }
+        @{
 
-        </div>
-        <!--Search Area Ended-->
-        <div id="dialogContactAgent" style="display: none">
-            <!--Design form here-->
-            <input id="txtAgentCode" type="hidden" value="" /><input id="txtName" type="hidden" value="" />
-            <p><label style="width:200px">Property</label> <label id="lblPropDetail"><b> </b></label></p>
-            <br /><br />
-            <p><label style="width:200px">Name</label><input type="text" id="txtName" /></p>
+            Html.RenderAction("GetAgentSearchValues", "AdvSearch");
+        }
 
-            <p><label style="width:200px">Email</label><input type="text" id="txtEmail" /></p>
+    </div>
+    <!--Search Area Ended-->
 
-            <p><label style="width:200px">Enquiry Detail(Optional)</label><input type="text" id="txtEnqDetail" /></p>
-            <br /><br />
-            <p><label id="lblError" hidden="hidden"></label></p>
-        </div>
-        <!--Property List Started-->
-        <div id="ResultContainer" class="container">
+    <div id="dialogContactAgent" style="display: none">
+        <!--Design form here-->
+        <input id="txtAgentCode" type="hidden" value="" /><input id="txtName" type="hidden" value="" />
+        <p><label style="width:200px">Property</label> <label id="lblPropDetail"><b> </b></label></p>
+        <br /><br />
+        <p><label style="width:200px">Name</label><input type="text" id="txtName" /></p>
 
-            @{//Render Proerties List
+        <p><label style="width:200px">Email</label><input type="text" id="txtEmail" /></p>
 
-                    //Html.RenderAction("GetPropertiesBL", "PropertyCMS",new { iPageno = 1, sSortName = "", sCritria =""});
-                    //Result List
-            }
+        <p><label style="width:200px">Enquiry Detail(Optional)</label><input type="text" id="txtEnqDetail" /></p>
+        <br /><br />
+        <p><label id="lblError" hidden="hidden"></label></p>
+    </div>
+        
+    <!--Property List Started-->
+    <div id="ResultContainer" class="container">
 
-        </div>
+        @{      //Render Proerties List
+
+                //Html.RenderAction("GetPropertiesBL", "PropertyCMS",new { iPageno = 1, sSortName = "", sCritria =""});
+                //Result List
+        }
 
     </div>
 
 </div>
+
+

@@ -115,6 +115,15 @@ namespace RealHomes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InternalMemberSearcher.
+        /// </summary>
+        public static string EXMINE_MEM_SEARCHER_NAME {
+            get {
+                return ResourceManager.GetString("EXMINE_MEM_SEARCHER_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RHSearchSearcher.
         /// </summary>
         public static string EXMINE_SEARCHER_NAME {

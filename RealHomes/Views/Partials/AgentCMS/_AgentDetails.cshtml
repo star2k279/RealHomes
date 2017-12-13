@@ -1,0 +1,138 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<RealHomes.Models.AgentViewCMSModel>
+@using RealHomes;
+@using System.Web.Configuration;
+@using RealHomes.Models;
+@{
+
+}
+
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<script src="~/Scripts/CMSEnquiries.js"></script>
+
+<!--Display Image Gallery and map tabs   Html.RenderAction("GetAllValues", "AdvSearch"); -->
+
+<div id="divGalleryContainer" class="container" style="display:none">
+    <p>Image Gallery</p>
+</div>
+<hr />
+
+<div id="divSummary" class="container">
+    <div class="container">
+
+        <div class="col-md-4">
+
+            <a href="@Umbraco.Content(1095).url" class="mask">
+
+                @{
+                    try
+                    {
+                        //Display Images from CMS content Media library
+
+                        if (Model.Image != null)
+                        {   //Here Imge slider has to be implemented
+                            //foreach (var img in item.Images)
+                            //{
+                            var img = Model.Image;
+                    <img class="img-responsive zoom-img" src="@img.Url" alt="">
+                            //}
+                        }
+
+
+                    }
+                    catch (Exception ex) { }
+                }
+                    
+            </a>
+
+        </div>
+
+        <div class="col-md-4">
+            <p><b>@Html.DisplayFor(modelItem => Model.DisplayName)</b></p>
+            <p>@Html.DisplayFor(modelItem => Model.City) </p>
+            <br />
+            <p><b>RERA Permit No.</b> @Html.DisplayFor(modelItem => Model.ReraNo)</p>
+            <p><b>Mobile No. </b>@Html.DisplayFor(modelItem => Model.MobileNo)</p>
+            <p>
+                <b>Properties Sold</b>
+                <b>Properies Leased</b>
+                <b>RH Experience</b>
+            </p>
+            <p>
+                <b>00</b>
+                <b>00</b>
+                <b>@Model.totalExpYrs</b>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p style="glyph-orientation-horizontal"> Save & Rate</p>
+            <p>******</p>
+            <p> </p>
+            <p>Property Listed By</p>
+            <p><button id="btnAgentProfile">View Profile</button>
+
+            <p> </p>
+            @{
+                        //ViewBag.DetailPageId = item.PropertyDetailPageID;
+                        RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
+
+                        var pg = Umbraco.Content(WebConfigurationManager.AppSettings[CMSNodesSetting.AGENTDETAILCT_SETTING_NAME]);
+
+                        if (pg == null)
+                        {
+                    <p><a href="#">Property Detail</a></p>
+                        }
+                        else
+                        {
+                            string url = pg.Url;
+                            url = url.Substring(0, url.Length - 1) + "?AgentId=" + @Model.AgentId;
+                    <p><a href="@url">Agent Detail</a></p>
+                            }
+            }
+            <p> </p>
+
+            <p>
+                <!--<a href="javascript:void();" onclick="OpenDialog('@*item.ReferenceNo','@item.PropertyTitle'*@);">Arrange for Viewing</a>
+                <button id="btnEnquiry" style="width:170px" onclick="alert('view form to be loaded');">Arrange For Viewing</button>-->
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+
+<div id="divOverView" class="container">
+    <!--display OverView-->
+                    
+        <div class="container">
+            <!--Agent Detail Overview   @*Html.Raw(@Model.Overview)*@ -->
+
+        </div>
+        
+</div>        
+
+
+<hr />
+
+<div id ="divFooterPolicy" class="continer">
+
+    <div><span class="footer-copy-span">&#169; Real Homes Properties 2017. All Rights Reserved</span></div>
+    <div>
+        <span><a class="footer-copy-span" href="~/Privacy">Privacy</a></span>
+        <span>|</span>
+        <span><a class="footer-copy-span" href="~/TermsOfUse">Terms of Use</a> </span>
+
+    </div>
+</div>
+
+<hr />
+
+<div id="divDisclaimer" class="container">
+
+            <div><br />Disclaimer<br />The currency conversion feature is for your reference only, while we have tried to provide the most accurate and timely rates available. We do not guarantee the accuracy, timeliness, reliability, or completeness of this information.</div>
+</div>

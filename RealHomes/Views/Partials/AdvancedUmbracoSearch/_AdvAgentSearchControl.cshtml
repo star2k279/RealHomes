@@ -12,16 +12,16 @@
 
             <div id="txt_container" class="col-sm-8 price-top ">
                
-                <input type="hidden" id="txtAgentId" value="Enter Agent" name="bh" />
+                <input type="hidden" id="txtAgentId" value="Agent" name="rh" />
                 <input type="text" id="txtKeywordAgent" spellcheck="false" maxlength="100" size="70" value="Search By Agent e.g. Paul Smith" class="new-srch-input input-lg" name="bha" autocapitalize="off" autocorrect="off" onfocus="autoHideAgent(this);" onblur="autoHideAgent(this);" />
 
             </div>
 
             <div id="btnSearch" class="col-sm-2 price-top">
-                <!--<a onclick='javascript.void(0);' id="btnSearchRent" title="For Rent" Value="2">Search</a>-->
+               
                 <button id="btnSearch" class="ui-icon-search" value="2" onclick="SearchAgents();"> Search </button>
-                <!--<a onclick="javascript.void(0);" id="btnShortStay" title="Short Stays" Value="3">Short Stays</a>-->
-                <!--<div class="clearfix"> </div>-->
+                
+                
             </div>
             
             <div class="clearfix"> </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="col-sm-3 ">
-                <select id="ddlPropertyType" class="in-drop">
+                <select id="ddlService" class="in-drop">
                     <option selected="selected" value="0">Service</option>
                     @{
                         foreach (var type in Model.Services)
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-sm-3">
-                <select id="ddlPropertyType" class="in-drop">
+                <select id="ddlCity" class="in-drop">
                     <option selected="selected" value="0">City</option>
                     @{
                         foreach (var type in Model.Cities)

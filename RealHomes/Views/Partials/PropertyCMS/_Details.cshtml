@@ -4,173 +4,172 @@
 @{
 
 }
-
 <script src="~/Scripts/jquery-1.12.4.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 <script src="~/Scripts/CMSEnquiries.js"></script>
 
- <div id="detailcontainer" class="container">
-        <!--Display Image Gallery and map tabs-->
 
-         <div id="gallerycontainer" class="container">
-             <p>Image Gallery</p>
-         </div>
-         <hr />
+<!--Display Image Gallery and map tabs-->
 
-         <div id="datacontainer" class="container">
-             <div class="col-md-4">
-                 <!-- @*
-                <p><b>@node.GetPropertyValue(Model.TITLE_PROPERTY_NAME)</b></p>
-                <p>@node.GetPropertyValue(Model.ADDRESS_PROPERTY_NAME) </p>
-                <p><b>Location</b> @node.GetPropertyValue(Model.LOCATION_PROPERTY_NAME)</p>
-                <p><b>Approx.size</b> @node.GetPropertyValue(Model.TOTALAREA_PROPERTY_NAME)  sq.ft.</p>
-                <p><b>Build Up Area</b> @node.GetPropertyValue(Model.BAREA_PROPERTY_NAME) sq.ft.</p>
-                <p><b>Ref No.</b> @node.GetPropertyValue(Model.REFNO_PROPERTY_NAME)</p>
-                <p><b>RERA Permit No.</b> @node.GetPropertyValue(Model.RERANO_PROPERTY_NAME)</p>
-                <p><b>Status</b>@node.GetPropertyValue(Model.STATUS_PROPERTY_NAME)</p>
-                <p>
-                    <b>Car Parking</b> @node.GetPropertyValue(Model.PARKING_PROPERTY_NAME)
-                    @{ if (@node.GetPropertyValue(Model.BED_PROPERTY_NAME) > 0)
-                        {<b> Bed Rooms</b> @node.GetPropertyValue(Model.BED_PROPERTY_NAME)}
+<div id="divGalleryContainer" class="container">
+<p>Image Gallery</p>
+</div>
+<hr />
 
-                        if (@node.GetPropertyValue(Model.BATHROOM_PROPERTY_NAME) > 0)
-                        {<b> Bath Rooms</b> @node.GetPropertyValue(Model.BATHROOM_PROPERTY_NAME)}
-                    }
-                </p>
-                     *@-->
+<div id="divSummary" class="container">
+<div class="col-md-4">
+    <!-- @*
+<p><b>@node.GetPropertyValue(Model.TITLE_PROPERTY_NAME)</b></p>
+<p>@node.GetPropertyValue(Model.ADDRESS_PROPERTY_NAME) </p>
+<p><b>Location</b> @node.GetPropertyValue(Model.LOCATION_PROPERTY_NAME)</p>
+<p><b>Approx.size</b> @node.GetPropertyValue(Model.TOTALAREA_PROPERTY_NAME)  sq.ft.</p>
+<p><b>Build Up Area</b> @node.GetPropertyValue(Model.BAREA_PROPERTY_NAME) sq.ft.</p>
+<p><b>Ref No.</b> @node.GetPropertyValue(Model.REFNO_PROPERTY_NAME)</p>
+<p><b>RERA Permit No.</b> @node.GetPropertyValue(Model.RERANO_PROPERTY_NAME)</p>
+<p><b>Status</b>@node.GetPropertyValue(Model.STATUS_PROPERTY_NAME)</p>
+<p>
+    <b>Car Parking</b> @node.GetPropertyValue(Model.PARKING_PROPERTY_NAME)
+    @{ if (@node.GetPropertyValue(Model.BED_PROPERTY_NAME) > 0)
+        {<b> Bed Rooms</b> @node.GetPropertyValue(Model.BED_PROPERTY_NAME)}
 
-                 <p><b>@Model.TypeName, @Model.ReferenceNo @Model.LocationName </b></p>
-                 </b></p>
+        if (@node.GetPropertyValue(Model.BATHROOM_PROPERTY_NAME) > 0)
+        {<b> Bath Rooms</b> @node.GetPropertyValue(Model.BATHROOM_PROPERTY_NAME)}
+    }
+</p>
+        *@-->
 
-                 <p>@Model.Address </p>
+    <p><b>@Model.TypeName, @Model.ReferenceNo @Model.LocationName </b></p>
+    </b></p>
 
-                 <p><b>Location</b> @Model.LocationName</p>
-                 <p><b>Approx.size</b> @Model.TotalSize  sq.ft.</p>
-                 <p><b>Build Up Area</b> @Model.BuildUpArea sq.ft.</p>
-                 <p><b>Ref No.</b> @Model.ReferenceNo</p>
-                 <p><b>RERA Permit No.</b> @Model.ReraPermitNo</p>
-                 <p><b>Status</b>@Model.StatusName</p>
-                 <p>
-                     <b>Car Parking</b> @Model.carparking
-                     @{ if (@Model.bedrooms > 0)
-                         {<b> Bed Rooms</b> @Model.bedrooms }
+    <p>@Model.Address </p>
 
-                         if (@Model.baths > 0)
-                         {<b> Bath Rooms</b> @Model.baths}
-                     }
-                 </p>
+    <p><b>Location</b> @Model.LocationName</p>
+    <p><b>Approx.size</b> @Model.TotalSize  sq.ft.</p>
+    <p><b>Build Up Area</b> @Model.BuildUpArea sq.ft.</p>
+    <p><b>Ref No.</b> @Model.ReferenceNo</p>
+    <p><b>RERA Permit No.</b> @Model.ReraPermitNo</p>
+    <p><b>Status</b>@Model.StatusName</p>
+    <p>
+        <b>Car Parking</b> @Model.carparking
+        @{ if (@Model.bedrooms > 0)
+            {<b> Bed Rooms</b> @Model.bedrooms }
 
-             </div>
-             <div class="col-md-4"></div>
-             <div class="col-md-4">
-                 <input id="txtRefNo" type="hidden" value="" /><input id="txtPropDetail" type="hidden" value="" />
-                 <p>Property Listed By</p>
-                 <p> @Model.UserName</p>
-                 <p><br /></p>
-                 <p><br /></p>
-                 <p><br /></p>
-                 <div id="dialogOffer" style="display: none">
-                     <!--Design form here-->
+            if (@Model.baths > 0)
+            {<b> Bath Rooms</b> @Model.baths}
+        }
+    </p>
+
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <input id="txtRefNo" type="hidden" value="" /><input id="txtPropDetail" type="hidden" value="" />
+    <p>Property Listed By</p>
+    <p> @Model.UserName</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <div id="dialogOffer" style="display: none">
+        <!--Design form here-->
                     
-                     <p><label id="lblOfferProp"><b> </b></label></p>
-                     <br /><br />
-                     <p><label style="width:200px">Name</label><input type="text" id="txtPersonName" /></p>
+        <p><label id="lblOfferProp"><b> </b></label></p>
+        <br /><br />
+        <p><label style="width:200px">Name</label><input type="text" id="txtPersonName" /></p>
 
-                     <p><label style="width:200px">Email</label><input type="text" id="txtPersonEmail" /></p>
+        <p><label style="width:200px">Email</label><input type="text" id="txtPersonEmail" /></p>
 
-                     <p><label style="width:200px">Offer Price</label><input type="text" id="txtOfferPrice" placeholder="E.g. 23000000"/></p>
+        <p><label style="width:200px">Offer Price</label><input type="text" id="txtOfferPrice" placeholder="E.g. 23000000"/></p>
 
-                     <p><label style="width:200px">Financing Required</label> 
-                        <input type="radio" name="financing" id="financeYes"value="male"> Yes
-                        <input type="radio" name="financing" id="financeNo" value="female"> No</p>
-                     <br /><br />
-                     <p><label id="lblOfferError" hidden="hidden"></label></p>
-                 </div>
-                 <p> <button id="btnOffer" style="width:170px" onclick="OpenOfferDialog('@Model.ReferenceNo','@Model.PropertyTitle');">Make an Offer</button></p>
-                 <p><br /></p>
+        <p><label style="width:200px">Financing Required</label> 
+        <input type="radio" name="financing" id="financeYes"value="male"> Yes
+        <input type="radio" name="financing" id="financeNo" value="female"> No</p>
+        <br /><br />
+        <p><label id="lblOfferError" hidden="hidden"></label></p>
+    </div>
+    <p> <button id="btnOffer" style="width:170px" onclick="OpenOfferDialog('@Model.ReferenceNo','@Model.PropertyTitle');">Make an Offer</button></p>
+    <p><br /></p>
 
-                 <div id="dialogEnquiry" style="display: none">
-                     <!--Design form here-->
+    <div id="dialogEnquiry" style="display: none">
+        <!--Design form here-->
                      
-                     <p><label id="lblPropDetail"><b> </b></label></p>
-                     <br /><br />
-                     <p><label style="width:200px">Name</label><input type="text" id="txtName"/></p>
+        <p><label id="lblPropDetail"><b> </b></label></p>
+        <br /><br />
+        <p><label style="width:200px">Name</label><input type="text" id="txtName"/></p>
 
-                     <p><label style="width:200px">Email</label><input type="text" id="txtEmail" /></p>
+        <p><label style="width:200px">Email</label><input type="text" id="txtEmail" /></p>
 
-                     <p><label style="width:200px">Enquiry Detail(Optional)</label><input type="text" id="txtEnqDetail" /></p>
-                     <br /><br />
-                     <p><label id="lblError" hidden="hidden"></label></p>
-                 </div>
-                 <p> <button id="btnEnquiry" style="width:170px" onclick="OpenDialog('@Model.ReferenceNo','@Model.PropertyTitle');" >Arrange For Viewing</button></p>
-                 <p><br /></p>
+        <p><label style="width:200px">Enquiry Detail(Optional)</label><input type="text" id="txtEnqDetail" /></p>
+        <br /><br />
+        <p><label id="lblError" hidden="hidden"></label></p>
+    </div>
+    <p> <button id="btnEnquiry" style="width:170px" onclick="OpenDialog('@Model.ReferenceNo','@Model.PropertyTitle');" >Arrange For Viewing</button></p>
+    <p><br /></p>
 
-             </div>
-         </div>
+</div>
+</div>
 
-         <hr />
+<hr />
 
-         <div id="detailcontainer" class="container">
-             <!--display OverView-->
-             <div class="container">
-                 @Html.Raw(@Model.Overview)
-             </div>
+<div id="divOverView" class="container">
+    <!--display OverView-->
+    <p><b>Unit OverView</b></p>
+    <div class="container">
+        @Html.Raw(@Model.Overview)
+    </div>
 
-         </div>
-         <hr />
+</div>
+<hr />
 
-         <div id="otherdiv" class="continer">
-             <div class="col-md-4">
-                 <!-- Fcilities List-->
-                 <p><b>Facilities and Amenities</b></p>
-                 @{
-                    foreach (string fct in Model.Facilities)
-                    {
-             <p>- @fct</p>
-                    }
+<div id="divOthers" class="continer">
+    <div class="col-md-4">
+        <!-- Fcilities List-->
+        <p><b>Facilities and Amenities</b></p>
+        @{
+        foreach (string fct in Model.Facilities)
+        {
+    <p>- @fct</p>
+        }
 
-                 }
+        }
 
-             </div>
+    </div>
 
-             <div class="col-md-4">
-                 <p><b>Fittings and Fixtures</b></p>
-                 @{
-                    foreach (string fix in Model.Fixtures)
-                    {
-             <p>- @fix</p>
-                    }
+    <div class="col-md-4">
+        <p><b>Fittings and Fixtures</b></p>
+        @{
+        foreach (string fix in Model.Fixtures)
+        {
+    <p>- @fix</p>
+        }
 
-                 }
+        }
 
-             </div>
+    </div>
 
-             <div class="col-md-4">
-                 @{
-                     if (Model.NearestMetros != "")
-                     {
-                         <p><b>Nearest Metrostations</b></p>
-                         <p> @Model.NearestMetros</p>
-                     }
+    <div class="col-md-4">
+        @{
+            if (Model.NearestMetros != "")
+            {
+                <p><b>Nearest Metrostations</b></p>
+                <p> @Model.NearestMetros</p>
+            }
 
-                     if (Model.NearestSchools != "")
-                     {
-                         if (Model.NearestMetros != "")
-                         { <hr />}
-                         <p><b>Nearest Schools</b></p>
-                         <p> @Model.NearestSchools</p>
-                     }
-                 }
-             </div>
+            if (Model.NearestSchools != "")
+            {
+                if (Model.NearestMetros != "")
+                { <hr />}
+                <p><b>Nearest Schools</b></p>
+                <p> @Model.NearestSchools</p>
+            }
+        }
+    </div>
 
-         </div>
-     </div>
+</div>
+     
 
-    <hr />
+<hr />
 
-
-        <div id="socialmedia" class="container">
+ <div id="divSocialmedia" class="container">
             <div class="col-md-4">
                 <p><b>Share</b></p>
                 <!--Real Homes social media sharing icons for-->
@@ -181,11 +180,10 @@
             </div>
 
         </div>
-        <hr/>
 
+<hr />
 
-
-        <div id ="footerpolicy" class="continer">
+<div id ="divfooterPolicy" class="continer">
 
             <div><span class="footer-copy-span">&#169; Real Homes Properties 2017. All Rights Reserved</span></div>
             <div>
@@ -195,7 +193,9 @@
 
             </div>
         </div>
-        <div id="footer" class="container">
 
-            <div><br />Disclaimer<br />The currency conversion feature is for your reference only, while we have tried to provide the most accurate and timely rates available. We do not guarantee the accuracy, timeliness, reliability, or completeness of this information.</div>
-        </div>
+
+<div id="divDisclaimer" class="container">
+
+   <div><br />Disclaimer<br />The currency conversion feature is for your reference only, while we have tried to provide the most accurate and timely rates available. We do not guarantee the accuracy, timeliness, reliability, or completeness of this information.</div>
+</div>

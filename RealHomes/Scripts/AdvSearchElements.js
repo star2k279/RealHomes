@@ -19,13 +19,6 @@ var PageNo = 0;
 var searchOption = 0;
 
 var refno;
-var selectedFromAutocom = false;
-var agentID;
-var agentDistrict = "";
-
-var html = "";
-var placeholder = "";
-
 var criteria = "";
 jQuery(document).ready(function () {
 

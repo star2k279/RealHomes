@@ -357,12 +357,6 @@ namespace RealHomes.Controllers
 
         
 
-        // GET: PropertyCMS
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Showdetail(string PropId)
         {
@@ -394,16 +388,16 @@ namespace RealHomes.Controllers
 
             //item.Ownername = node.GetPropertyValue("owner").ToString();
             item.PropertyId = Convert.ToInt64(node.Id);
-            item.PropertyTitle = node.GetPropertyValue(item.TITLE_PROPERTY_NAME).ToString();
-            item.CategoryName = node.GetPropertyValue(item.CATEGRY_PROPERTY_NAME).ToString();
-            item.TypeName = node.GetPropertyValue(item.TYPE_PROPERTY_NAME).ToString();
+            item.PropertyTitle = node.GetPropertyValue(item.TITLE_PROPERTY_NAME)== null ? "" : node.GetPropertyValue(item.TITLE_PROPERTY_NAME).ToString();
+            item.CategoryName = node.GetPropertyValue(item.CATEGRY_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.CATEGRY_PROPERTY_NAME).ToString();
+            item.TypeName = node.GetPropertyValue(item.TYPE_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.TYPE_PROPERTY_NAME).ToString();
             //City and region Mapping
-            item.LocationName = node.GetPropertyValue(item.LOCATION_PROPERTY_NAME).ToString();
-            item.ServiceName = node.GetPropertyValue(item.SERVICE_PROPERTY_NAME).ToString();
-            item.Address = node.GetPropertyValue(item.ADDRESS_PROPERTY_NAME).ToString();
+            item.LocationName = node.GetPropertyValue(item.LOCATION_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.LOCATION_PROPERTY_NAME).ToString();
+            item.ServiceName = node.GetPropertyValue(item.SERVICE_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.SERVICE_PROPERTY_NAME).ToString();
+            item.Address = node.GetPropertyValue(item.ADDRESS_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.ADDRESS_PROPERTY_NAME).ToString();
 
-            item.ReferenceNo = node.GetPropertyValue(item.REFNO_PROPERTY_NAME).ToString();
-            item.MainFeature = node.GetPropertyValue(item.MAINFEATURE_PROPERTY_NAME).ToString();
+            item.ReferenceNo = node.GetPropertyValue(item.REFNO_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.REFNO_PROPERTY_NAME).ToString();
+            item.MainFeature = node.GetPropertyValue(item.MAINFEATURE_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.MAINFEATURE_PROPERTY_NAME).ToString();
             item.TotalSize = Convert.ToInt64(node.GetPropertyValue(item.TOTALAREA_PROPERTY_NAME).ToString() == "" ? 0 : node.GetPropertyValue(item.TOTALAREA_PROPERTY_NAME));
             item.BuildUpArea = Convert.ToInt64(node.GetPropertyValue(item.BAREA_PROPERTY_NAME).ToString() == "" ? 0 : node.GetPropertyValue(item.BAREA_PROPERTY_NAME));
             item.ReraPermitNo = Convert.ToInt64(node.GetPropertyValue(item.RERANO_PROPERTY_NAME).ToString() == "" ? 0 : node.GetPropertyValue(item.RERANO_PROPERTY_NAME));
@@ -416,8 +410,8 @@ namespace RealHomes.Controllers
                         
             
             item.CreatedOn = node.CreateDate;
-            item.StatusName = node.GetPropertyValue(item.STATUS_PROPERTY_NAME).ToString();
-            item.DevHoldName = node.GetPropertyValue(item.DEVHOLD_PROPERTY_NAME).ToString();
+            item.StatusName = node.GetPropertyValue(item.STATUS_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.STATUS_PROPERTY_NAME).ToString();
+            item.DevHoldName = node.GetPropertyValue(item.DEVHOLD_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.DEVHOLD_PROPERTY_NAME).ToString();
 
             if (node.GetPropertyValue(item.IMAGES_PROPERTY_NAME) != null)
             {
@@ -431,205 +425,30 @@ namespace RealHomes.Controllers
             
             //item.RegionName = node.GetPropertyValue("regionName").ToString();
             
-            item.Overview = node.GetPropertyValue(item.UNITOVERVIEW_PROPERTY_NAME).ToString();
-            item.NearestMetros = node.GetPropertyValue(item.NEARESTMETRO_PROPERTY_NAME).ToString();
-            item.NearestSchools = node.GetPropertyValue(item.NEARESTSCHOOLS_PROPERTY_NAME).ToString();
-            item.Facilities = node.GetPropertyValue<IEnumerable<string>>(item.FACILITIES_PROPERTY_NAME);
-            item.Fixtures = node.GetPropertyValue<IEnumerable<string>>(item.FITTING_PROPERTY_NAME);
-            item.Views = node.GetPropertyValue<IEnumerable<string>>(item.VIEWS_PROPERTY_NAME);
-            
+            item.Overview = node.GetPropertyValue(item.UNITOVERVIEW_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.UNITOVERVIEW_PROPERTY_NAME).ToString();
+            item.NearestMetros = node.GetPropertyValue(item.NEARESTMETRO_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.NEARESTMETRO_PROPERTY_NAME).ToString();
+            item.NearestSchools = node.GetPropertyValue(item.NEARESTSCHOOLS_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.NEARESTSCHOOLS_PROPERTY_NAME).ToString();
 
-            item.OwnerId = node.GetPropertyValue(item.OWNERID_PROPERTY_NAME).ToString();
+            if (node.GetPropertyValue<IEnumerable<string>>(item.FACILITIES_PROPERTY_NAME) != null)
+            {
+                item.Facilities = node.GetPropertyValue<IEnumerable<string>>(item.FACILITIES_PROPERTY_NAME);
+            }
+            if (node.GetPropertyValue<IEnumerable<string>>(item.FITTING_PROPERTY_NAME) != null)
+            {
+                item.Fixtures = node.GetPropertyValue<IEnumerable<string>>(item.FITTING_PROPERTY_NAME);
+            }
+            if (node.GetPropertyValue<IEnumerable<string>>(item.VIEWS_PROPERTY_NAME) != null)
+            {
+                item.Views = node.GetPropertyValue<IEnumerable<string>>(item.VIEWS_PROPERTY_NAME);
+            }
+
+            item.OwnerId = node.GetPropertyValue(item.OWNERID_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.OWNERID_PROPERTY_NAME).ToString();
             item.UserName = node.CreatorName;
-            item.PropertyDetailPageID = node.GetPropertyValue(item.DETAILPAGEID_PROPERTY_NAME).ToString();
+            item.PropertyDetailPageID = node.GetPropertyValue(item.DETAILPAGEID_PROPERTY_NAME)==null?"": node.GetPropertyValue(item.DETAILPAGEID_PROPERTY_NAME).ToString();
             
 
             return item;
         }
-        void dummy()
-        {
-            /*
-             * string fct; string uv;
-                    fct = fixtures == null ? "" : string.Join(",", fixtures);
-                    uv = views == null ? "" : string.Join(",", views);
-
-
-                    var searcher = Examine.ExamineManager.Instance.SearchProviderCollection[StringConstants.EXMINE_SEARCHER_NAME];
-                    var searchCriteria = searcher.CreateSearchCriteria(BooleanOperation.And);
-
-                    IBooleanOperation query = null; 
-                    //Built the exmine query
-                    if (iServiceId == 1)
-                    {
-                        query = searchCriteria.Field(srchModel.SERVICE_PROPERTY_NAME, "Sale");
-                        
-                    }
-                    else if (iServiceId == 2)
-                        //service Id 0 means first time search page loading.
-                        query = searchCriteria.Field(srchModel.SERVICE_PROPERTY_NAME, "Rent");
-                    else if (iServiceId == 3)
-                        //service Id 0 means first time search page loading.
-                        query = searchCriteria.Field(srchModel.SERVICE_PROPERTY_NAME, "Short Stay");
-
-                    if (sCategory != "")
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Field(srchModel.CATEGRY_PROPERTY_NAME, sCategory);
-
-                        }
-                        else
-                        {
-                            query = query.And().Field(srchModel.CATEGRY_PROPERTY_NAME, sCategory);
-                        }
-
-                    }
-
-                    if (sLocationName != "")
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Field(srchModel.LOCATION_PROPERTY_NAME, sLocationName);
-
-                        }
-                        else
-                        {
-                            query = query.And().Field(srchModel.LOCATION_PROPERTY_NAME, sLocationName);
-                        }
-                    }
-                    //sType
-
-                    if (sType != "")
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Field(srchModel.TYPE_PROPERTY_NAME, sType);
-
-                        }
-                        else
-                        {
-                            query = query.And().Field(srchModel.TYPE_PROPERTY_NAME, sType);
-                        }
-                    }
-                    //, sDevhold
-                    if (sDevhold != "")
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Field(srchModel.DEVHOLD_PROPERTY_NAME, sDevhold);
-
-                        }
-                        else
-                        {
-                            query = query.And().Field(srchModel.DEVHOLD_PROPERTY_NAME, sDevhold);
-                        }
-                    }
-                    //, iMinbed, iMaxbed, 
-                    if ( (iMinbed > 0 && iMaxbed>0) || (iMinbed <= 0 && iMaxbed > 0))
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Range(srchModel.BED_PROPERTY_NAME, iMinbed, iMaxbed, true, true);
-
-                        }
-                        else
-                        {
-                            query = query.And().Range(srchModel.BED_PROPERTY_NAME, iMinbed, iMaxbed, true, true);
-                        }
-                    }
-                    else if (iMinbed > 0 && iMaxbed <=0)
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Range(srchModel.BED_PROPERTY_NAME, iMinbed, 1000, true, true);
-
-                        }
-                        else
-                        {
-                            query = query.And().Range(srchModel.BED_PROPERTY_NAME, iMinbed, 1000, true, true);
-                        }
-                    }
-                    //iMinPrice, iMaxPrice, 
-                    if ((iMinPrice > 0 && iMaxPrice > 0) || (iMinPrice <= 0 && iMaxPrice > 0))
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Range(srchModel.PRICE_PROPERTY_NAME, iMinPrice, iMaxPrice, true, true);
-
-                        }
-                        else
-                        {
-                            query = query.And().Range(srchModel.PRICE_PROPERTY_NAME, iMinPrice, iMaxPrice, true, true);
-                        }
-                    }
-                    else if (iMinPrice > 0 && iMaxPrice <= 0)
-                    {
-                        if (query == null)
-                        {
-
-                            query = searchCriteria.Range(srchModel.PRICE_PROPERTY_NAME, iMinPrice, 1000, true, true);
-
-                        }
-                        else
-                        {
-                            query = query.And().Range(srchModel.PRICE_PROPERTY_NAME, iMinPrice, 1000, true, true);
-                        }
-                    }
-                    //fixtures
-                    if (fct.Length > 0)
-                    {
-                        int count = 0;
-                        foreach(string value in fct.Split(','))
-                        { 
-                            if (query == null)
-                            {
-                                query = searchCriteria.Field(srchModel.FACILITIES_PROPERTY_NAME, value);
-                            }
-                            else
-                            {
-                                if (count == 0)
-                                    query = query.And().Field(srchModel.FACILITIES_PROPERTY_NAME, value);
-                                else
-                                {
-                                    query = query.Or().Field(srchModel.FACILITIES_PROPERTY_NAME, value);
-                                    count++;
-                                }
-                            }
-                                 
-                        }
-                    }
-                    //views
-                    if (uv.Length > 0)
-                    {
-                        int count = 0;
-                        foreach (string value in uv.Split(','))
-                        {
-                            if (query == null)
-                            {
-                                query = searchCriteria.Field(srchModel.VIEWS_PROPERTY_NAME, value);
-                            }
-                            else
-                            {
-                                if (count == 0)
-                                    query = query.And().Field(srchModel.VIEWS_PROPERTY_NAME, value);
-                                else
-                                {
-                                    query = query.Or().Field(srchModel.VIEWS_PROPERTY_NAME, value);
-                                    count++;
-                                }
-                            }
-
-                        }
-                    }
-
-             */
-        }
+       
     }
 }
