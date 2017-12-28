@@ -1,9 +1,11 @@
-﻿var region = 1;
+﻿
+var country = "uae";
 var city;
+var community;
 var locationName;
 var category;
-var propertyType;
 var serviceid;
+var propertyType;
 var serviceName;
 var developmentHold;
 var Fixtures = [];
@@ -230,7 +232,8 @@ function setSearchValues() {
             else
                 refno = "";
             break;
-
+        case "2":
+            break;
         case "3"://search by agent
             if (jQuery("#txtAgentId").val() != "AgentId" && jQuery("#txtAgentId").val() != "") {
                 //set refno value
@@ -252,7 +255,7 @@ function setSearchValues() {
 //dffhttp://localhost/RHomes/umbraco/surface/Propertysurface/GetProperties?sCriteria=serviceType=%271%27%20AND%20Category=%271%27
 
 function GetSearchResults() {
-    //?sCriteria='+criteria,
+    
     //iServiceId, iLocationID, iCategoryId, iTypeId, idevhold, iminbed, imaxbed, iminbath, imaxbath, fixtures, views
 
     if (searchOption == 1) {
@@ -285,7 +288,7 @@ function GetSearchResults() {
     else if (searchOption == 2) {
         //call by refrence
         $.ajax({
-            url: '/RHomes/umbraco/surface/PropertyCMS/GetPropertiesBL',
+            url: '/RHomes/umbraco/surface/PropertyCMS/GetPropertiesBR',
             async: true,
             type: "GET",
             data: { sCriteria: "" },
@@ -304,7 +307,7 @@ function GetSearchResults() {
     else if (searchOption == 3) {
         //call by Agent criteria 
         $.ajax({
-            url: '/RHomes/umbraco/surface/PropertyCMS/GetPropertiesBL',
+            url: '/RHomes/umbraco/surface/AgentCMS/GetPropertiesBL',
             async: false,
             type: "GET",
             data: { sCriteria: "" },
@@ -327,6 +330,7 @@ function GetSearchResults() {
 
 function doShortStaySearch() {
     alert('search criteria: ' + criteria);
+    //window.location.href = "holidayhomes.RealHomes.com";
 }
 
 function NextPage(Pg) {

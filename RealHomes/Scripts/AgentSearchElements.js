@@ -43,10 +43,10 @@ jQuery(document).ready(function () {
             //autocomplete's event that fires after the user select an option from the list
             //ui element has value, label and id properties those were set above when generating the ui-autocomplete suggestion menu
             var selectedId = ui.item.id;
-            alert(ui.item.value);
+            //alert(ui.item.id);
             if (selectedId == "undefined")
             { $("#txtAgentId").val("Agent"); }
-            else { $("#txtAgentId").val(ui.item.value); } //$("#txtKeywordAgent").val(ui.item.id);
+            else { $("#txtAgentId").val(ui.item.id); } //$("#txtKeywordAgent").val(ui.item.id);
             
         },
         autoFocus: true,
@@ -70,9 +70,9 @@ function SearchAgents()
 
 function setSearchValues()
 {
-    if (jQuery("#txtKeyword").val() != "Agent") {
+    if (jQuery("#txtAgentId").val() != "Agent") {
         //set location Id
-        agentid = jQuery("#txtAgent").val();
+        agentid = jQuery("#txtAgentId").val();
         
     }
     else
@@ -86,18 +86,18 @@ function setSearchValues()
 
 
     if (jQuery('#ddlService option:selected').val() > 0) {
-        service = jQuery('#ddlCategory option:selected').text();
+        service = jQuery('#ddlService option:selected').text();
     }
     else
         service = "";
 
     if (jQuery('#ddlCity option:selected').val() > 0) {
-        city = jQuery('#ddlCategory option:selected').text();
+        city = jQuery('#ddlCity option:selected').text();
     }
     else
         city = "";
 
-    alert('Agent ID: ' +agentid + ', Category ID: ' +category + ', Service ID: ' + service +', City ID: '+city);
+    //alert('Agent ID: ' +agentid + ', Category ID: ' +category + ', Service ID: ' + service +', City ID: '+city);
 }
 
 

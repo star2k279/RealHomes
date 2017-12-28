@@ -83,30 +83,35 @@
 
                             <div class="col-md-4">
                                 <p><b>@Html.DisplayFor(modelItem => item.DisplayName)</b></p>
-                                <p>@Html.DisplayFor(modelItem => item.City) </p>
+                                <p>@Html.DisplayFor(modelItem => item.JobTitle), @Html.DisplayFor(modelItem => item.City) </p>
                                 <br />
                                 <p><b>RERA Permit No.</b> @Html.DisplayFor(modelItem => item.ReraNo)</p>
                                 <p><b>Mobile No. </b>@Html.DisplayFor(modelItem => item.MobileNo)</p>
                                 <p>
-                                   <b>Properties Sold</b> 
-                                   <b>Properies Leased</b> 
-                                    <b>RH Experience</b>                                 
+                                    <b>Properties Sold  </b>@item.PropertiesSold
                                 </p>
                                 <p>
-                                    <b>00</b>
-                                    <b>00</b>
-                                    <b>@item.totalExpYrs</b>
+                                    <b>Properies Leased  </b>@item.PropertiesLeased
                                 </p>
+                                <p>
+                                    <b>Properies Rented  </b>@item.PropertiesLeased
+                                </p>
+                                <p>
+                                    <b>RH Experience  </b> @item.totalExpYrs
+                                </p>
+                               
                             </div>
 
                             <div class="col-md-4">
-                                <p style="glyph-orientation-horizontal"> Save & Rate</p>
+                                <p class="glyph-orientation-horizontal"> Save & Rate</p>
                                 <p>******</p>
-                                <p> </p>
-                                <p>Property Listed By</p>
-                                <p><button id="btnAgentProfile" >View Profile</button>
+                               
+                                <p><br /></p>
+                                <p><br /></p>
+                                <p><br /></p>
+                                <p><a href="#">Contact Me</a></p>
                                 
-                                <p> </p>
+                                <br />
                                 @{
                                     //ViewBag.DetailPageId = item.PropertyDetailPageID;
                                     RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
@@ -115,7 +120,7 @@
 
                                     if (pg == null)
                                     {
-                                        <p><a href="#">Property Detail</a></p>
+                                        <p><a href="#">Agent Detail</a></p>
                                     }
                                     else
                                     {

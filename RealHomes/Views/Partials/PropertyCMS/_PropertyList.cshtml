@@ -46,12 +46,13 @@
                 {
                     foreach (var item in Model.CMSProperties)
                     {
-                       
+                        var detailUrl = @Umbraco.Content(item.PropertyDetailPageID).url;
+                        var fullDetailUrl = @detailUrl.Substring(0, detailUrl.Length - 1) + "?PropId=" + @item.PropertyId;
                         <div class="container">
 
                             <div class="col-md-4">
-
-                                <a href="@Umbraco.Content(1095).url" class="mask">
+                                
+                                <a href="@fullDetailUrl" class="mask">
 
                                     @{ 
                                         try
@@ -111,19 +112,27 @@
                                 <p>@Html.DisplayFor(modelItem => item.UserName)</p>
                                 <p> </p>
                                 @{
-                                    RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
 
-                                    var pg = Umbraco.Content(WebConfigurationManager.AppSettings[CMSNodesSetting.PROPDETAILCT_SETTING_NAME]);
-
-                                    if (pg == null)
+                                    if (fullDetailUrl == null )
                                     {
+                                        RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
+                                        var pg = Umbraco.Content(WebConfigurationManager.AppSettings[CMSNodesSetting.PROPDETAILCT_SETTING_NAME]);
+
+                                        if (pg == null)
+                                        {
                                         <p><a href="#">Property Detail</a></p>
+                                        }
+                                        else
+                                        {
+                                            string url = pg.Url;
+                                            url = url.Substring(0, url.Length - 1) + "?PropId=" + @item.PropertyId;
+                                        <p><a href="@url">Property Detail</a></p>
+                                        }
                                     }
                                     else
                                     {
-                                        string url = pg.Url;
-                                        url = url.Substring(0, url.Length - 1) + "?PropId=" + @item.PropertyId;
-                                        <p><a href="@url">Property Detail</a></p>
+                                        
+                                        <p><a href="@fullDetailUrl">Property Detail</a></p>
                                     }
                                 }
                                 <p> </p>

@@ -1,0 +1,13 @@
+Google Project Id: realhomes-189506
+
+ClientID: RealhomeUser
+
+ClientId: Json Format: 983949294013-48dgui1796uavd78anhdaljl9s1kp2f6.apps.googleusercontent.com
+
+Client Seret: 5lZq443s931lD27TZtShkoR6
+
+
+
+Facebook Id: 406205619811250
+Secret Key: f8b3cdda832feead7eefc90af8a6204b
+

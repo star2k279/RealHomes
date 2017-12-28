@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "63d5d49a27857f1e")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "54796184a33859a1")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -1998,6 +1998,373 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
+	/// <summary>RegisterExternalLogin</summary>
+	[PublishedContentModel("registerExternalLogin")]
+	public partial class RegisterExternalLogin : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "registerExternalLogin";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public RegisterExternalLogin(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<RegisterExternalLogin, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	// Mixin content Type 2486 with alias "navigationbase"
+	/// <summary>Navigation Base Properties</summary>
+	public partial interface INavigationbase : IPublishedContent
+	{
+		/// <summary>Description</summary>
+		string BlogDescription { get; }
+
+		/// <summary>Hide in Navigation</summary>
+		bool BlogHideInNavigation { get; }
+
+		/// <summary>Keywords</summary>
+		IEnumerable<string> BlogKeywords { get; }
+	}
+
+	/// <summary>Navigation Base Properties</summary>
+	[PublishedContentModel("navigationbase")]
+	public partial class Navigationbase : PublishedContentModel, INavigationbase
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "navigationbase";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Navigationbase(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Navigationbase, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("blogDescription")]
+		public string BlogDescription
+		{
+			get { return GetBlogDescription(this); }
+		}
+
+		/// <summary>Static getter for Description</summary>
+		public static string GetBlogDescription(INavigationbase that) { return that.GetPropertyValue<string>("blogDescription"); }
+
+		///<summary>
+		/// Hide in Navigation
+		///</summary>
+		[ImplementPropertyType("blogHideInNavigation")]
+		public bool BlogHideInNavigation
+		{
+			get { return GetBlogHideInNavigation(this); }
+		}
+
+		/// <summary>Static getter for Hide in Navigation</summary>
+		public static bool GetBlogHideInNavigation(INavigationbase that) { return that.GetPropertyValue<bool>("blogHideInNavigation"); }
+
+		///<summary>
+		/// Keywords
+		///</summary>
+		[ImplementPropertyType("blogKeywords")]
+		public IEnumerable<string> BlogKeywords
+		{
+			get { return GetBlogKeywords(this); }
+		}
+
+		/// <summary>Static getter for Keywords</summary>
+		public static IEnumerable<string> GetBlogKeywords(INavigationbase that) { return that.GetPropertyValue<IEnumerable<string>>("blogKeywords"); }
+	}
+
+	// Mixin content Type 2487 with alias "blogBaseProperties"
+	/// <summary>BlogContentBaseProperties</summary>
+	public partial interface IBlogBaseProperties : IPublishedContent
+	{
+		/// <summary>Content</summary>
+		Newtonsoft.Json.Linq.JToken BlogContent { get; }
+
+		/// <summary>Page Title</summary>
+		string BlogPagetitle { get; }
+	}
+
+	/// <summary>BlogContentBaseProperties</summary>
+	[PublishedContentModel("blogBaseProperties")]
+	public partial class BlogBaseProperties : PublishedContentModel, IBlogBaseProperties
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blogBaseProperties";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BlogBaseProperties(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BlogBaseProperties, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("blogContent")]
+		public Newtonsoft.Json.Linq.JToken BlogContent
+		{
+			get { return GetBlogContent(this); }
+		}
+
+		/// <summary>Static getter for Content</summary>
+		public static Newtonsoft.Json.Linq.JToken GetBlogContent(IBlogBaseProperties that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("blogContent"); }
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[ImplementPropertyType("blogPagetitle")]
+		public string BlogPagetitle
+		{
+			get { return GetBlogPagetitle(this); }
+		}
+
+		/// <summary>Static getter for Page Title</summary>
+		public static string GetBlogPagetitle(IBlogBaseProperties that) { return that.GetPropertyValue<string>("blogPagetitle"); }
+	}
+
+	/// <summary>NewsAndBlog</summary>
+	[PublishedContentModel("newsAndBlog")]
+	public partial class NewsAndBlog : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "newsAndBlog";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public NewsAndBlog(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsAndBlog, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Blog</summary>
+	[PublishedContentModel("blog")]
+	public partial class Blog : NewsAndBlog, IBlogBaseProperties, INavigationbase
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blog";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Blog(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Blog, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Disquss Short Name
+		///</summary>
+		[ImplementPropertyType("disqussShortName")]
+		public string DisqussShortName
+		{
+			get { return this.GetPropertyValue<string>("disqussShortName"); }
+		}
+
+		///<summary>
+		/// NumberOfPostShown
+		///</summary>
+		[ImplementPropertyType("numberOfPostShown")]
+		public Range<decimal> NumberOfPostShown
+		{
+			get { return this.GetPropertyValue<Range<decimal>>("numberOfPostShown"); }
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("blogContent")]
+		public Newtonsoft.Json.Linq.JToken BlogContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.BlogBaseProperties.GetBlogContent(this); }
+		}
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[ImplementPropertyType("blogPagetitle")]
+		public string BlogPagetitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.BlogBaseProperties.GetBlogPagetitle(this); }
+		}
+
+		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("blogDescription")]
+		public string BlogDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogDescription(this); }
+		}
+
+		///<summary>
+		/// Hide in Navigation
+		///</summary>
+		[ImplementPropertyType("blogHideInNavigation")]
+		public bool BlogHideInNavigation
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogHideInNavigation(this); }
+		}
+
+		///<summary>
+		/// Keywords
+		///</summary>
+		[ImplementPropertyType("blogKeywords")]
+		public IEnumerable<string> BlogKeywords
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogKeywords(this); }
+		}
+	}
+
+	/// <summary>BlogPost</summary>
+	[PublishedContentModel("blogPost")]
+	public partial class BlogPost : NewsAndBlog, INavigationbase
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blogPost";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BlogPost(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BlogPost, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Categories
+		///</summary>
+		[ImplementPropertyType("categories")]
+		public IEnumerable<string> Categories
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("categories"); }
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
+		}
+
+		///<summary>
+		/// Exerpt
+		///</summary>
+		[ImplementPropertyType("exerpt")]
+		public string Exerpt
+		{
+			get { return this.GetPropertyValue<string>("exerpt"); }
+		}
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return this.GetPropertyValue<string>("pageTitle"); }
+		}
+
+		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("blogDescription")]
+		public string BlogDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogDescription(this); }
+		}
+
+		///<summary>
+		/// Hide in Navigation
+		///</summary>
+		[ImplementPropertyType("blogHideInNavigation")]
+		public bool BlogHideInNavigation
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogHideInNavigation(this); }
+		}
+
+		///<summary>
+		/// Keywords
+		///</summary>
+		[ImplementPropertyType("blogKeywords")]
+		public IEnumerable<string> BlogKeywords
+		{
+			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogKeywords(this); }
+		}
+	}
+
 	/// <summary>Folder</summary>
 	[PublishedContentModel("Folder")]
 	public partial class Folder : PublishedContentModel
@@ -2219,6 +2586,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Security Stamp
+		///</summary>
+		[ImplementPropertyType("securityStamp")]
+		public string SecurityStamp
+		{
+			get { return this.GetPropertyValue<string>("securityStamp"); }
+		}
+
+		///<summary>
 		/// Member Type
 		///</summary>
 		[ImplementPropertyType("Type")]
@@ -2398,6 +2774,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Overview
+		///</summary>
+		[ImplementPropertyType("agentOverview")]
+		public IHtmlString AgentOverview
+		{
+			get { return this.GetPropertyValue<IHtmlString>("agentOverview"); }
+		}
+
+		///<summary>
 		/// RERA No.
 		///</summary>
 		[ImplementPropertyType("agentReraNo")]
@@ -2431,6 +2816,33 @@ namespace Umbraco.Web.PublishedContentModels
 		public string AgentSocialSecurityNo
 		{
 			get { return this.GetPropertyValue<string>("agentSocialSecurityNo"); }
+		}
+
+		///<summary>
+		/// Properties Leased
+		///</summary>
+		[ImplementPropertyType("propertiesLeased")]
+		public string PropertiesLeased
+		{
+			get { return this.GetPropertyValue<string>("propertiesLeased"); }
+		}
+
+		///<summary>
+		/// Properties Rented
+		///</summary>
+		[ImplementPropertyType("propertiesRented")]
+		public string PropertiesRented
+		{
+			get { return this.GetPropertyValue<string>("propertiesRented"); }
+		}
+
+		///<summary>
+		/// Properties Sold
+		///</summary>
+		[ImplementPropertyType("propertiesSold")]
+		public string PropertiesSold
+		{
+			get { return this.GetPropertyValue<string>("propertiesSold"); }
 		}
 
 		///<summary>

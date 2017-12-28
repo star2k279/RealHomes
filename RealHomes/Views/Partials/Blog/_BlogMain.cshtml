@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{ 
+    string BlogNodeId = "";
+
+    var BlogNode = Umbraco.TypedContent(BlogNodeId);
+
+    <h2> @BlogNode.GetPropertyValue("blogPageTitle").ToString(); </h2>
+
+    foreach (var node in BlogNode.Children)
+    {
+
+    }
+}

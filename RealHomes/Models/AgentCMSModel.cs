@@ -10,6 +10,9 @@ namespace RealHomes.Models
     {
         public string GROUP_ALIAS { get { return "Agent"; } }
 
+        public string ID_PROPERTY_NAME { get { return "id"; } }
+        public long AgentId { get; set; }
+
         public string NAME_PROPERTY_NAME { get { return "Username"; } }
         [Required]
         public string UserName { get; set; }
@@ -56,6 +59,21 @@ namespace RealHomes.Models
 
         public string RERA_PROPERTY_NAME { get { return "agentReraNo"; } }
         public string ReraNo { get; set; }
+
+        public string JOB_PROPERTY_NAME { get { return "agentJobTitle"; } }
+        public string JobTitle { get; set; }
+
+        public string SOLD_PROPERTY_NAME { get { return "propertiesSold"; } }
+        public int PropertiesSold { get; set; }
+
+        public string LEASED_PROPERTY_NAME { get { return "propertiesLeased"; } }
+        public int PropertiesLeased { get; set; }
+
+        public string RENTED_PROPERTY_NAME { get { return "propertiesRented"; } }
+        public int PropertiesRented { get; set; }
+
+        public string OVERVIEW_PROPERTY_NAME { get { return "agentOverview"; } }
+        public string Overview { get; set;}
 
         public string IMAGE_PROPERTY_NAME { get { return "agentImage"; } }
         public string Image { get; set; }

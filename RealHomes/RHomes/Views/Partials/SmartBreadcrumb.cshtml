@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html;
+@using Umbraco.Web;
+@using Umbraco.Core.Models;
+@{
+    <nav>
+        <ul class="breadcrumb responsiveWidth">
+            @* List the current page ancestors, order by id to fix layout issue *@
+            @foreach(IPublishedContent objLevel in Model.Content.Ancestors().Where(x => x.IsVisible()).OrderBy(x => x.Level))
+	        {
+		        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <a href="@Umbraco.NiceUrl(objLevel.Id)" itemprop="url">
+                        <span itemprop="title">@objLevel.Name</span>
+                    </a>
+                    &nbsp;&raquo;&nbsp;
+		        </li>
+	        }
+
+	        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                <a href="@Umbraco.NiceUrl(Model.Content.Id)" itemprop="url">
+                    <span itemprop="title">@Model.Content.Name</span>
+                </a>
+	        </li>
+        </ul>
+    </nav>
+}

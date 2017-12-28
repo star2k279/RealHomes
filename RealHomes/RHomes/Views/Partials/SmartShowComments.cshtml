@@ -1,0 +1,89 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SmartBlog.Comment>
+@using System.Web.Mvc.Html;
+@using Umbraco.Web;
+@{
+    // Client validation enabled
+    HtmlHelper.ClientValidationEnabled = true;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+
+    // Master blog settings
+    Boolean blnMasterDisableComments = Boolean.Parse(SmartBlogLibraries.Global.GetConfig().GetElementsByTagName("masterDisableComments")[0].InnerText);
+    Boolean blnDisableFacebookIntegration = Boolean.Parse(SmartBlogLibraries.Global.GetConfig().GetElementsByTagName("disableFacebookIntegration")[0].InnerText);
+
+    // Get the current page
+    IPublishedContent objModel = Umbraco.TypedContent(UmbracoContext.Current.PageId);
+
+    // Tells the controller what page to add a comment under.
+    Model.intId = objModel.Id;
+
+    // Comments
+    IEnumerable<IPublishedContent> colComments = objModel.Descendants("SmartBlogComment");
+
+    // If comments have not been disabled then don't show them
+    if (!blnMasterDisableComments
+        && objModel.GetPropertyValue<Boolean>("disableComments") != true
+        && objModel.AncestorOrSelf("SmartBlogBlog").GetPropertyValue<Boolean>("disableGlobalComments") != true)
+    {
+        <h3>Comments</h3>
+
+        // Div for comments to be loaded into
+        <div id="commentsContainer">
+            @foreach (IPublishedContent objComment in colComments)
+            {
+                <div class="comment" id="c-@objComment.Id">
+                    <div class="commentInner">
+                        <div class="commentName">@objComment.GetPropertyValue("smartBlogName")</div>
+                        <div class="commentComment">@objComment.GetPropertyValue("smartBlogComment")</div>
+                        <div class="commentDate">@objComment.CreateDate</div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <br />
+        <h3>Post a comment</h3>
+
+        // Render comment form
+        using (Html.BeginUmbracoForm("SubmitComment", "SmartSurface", null, new Dictionary<String, Object> { { "id", "commentForm" } }))
+        {
+            @Html.ValidationSummary(false, "Please correct the following:");
+
+            <table class="commentFormTable">
+                <tr>
+                    <td colspan="2">
+                        @Html.TextBoxFor(x => x.strName, new Dictionary<String, Object> { {"placeholder", "Name" } })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.strEmail, new Dictionary<String, Object> { { "placeholder", "Email" } })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.strWebsite, new Dictionary<String, Object> { { "placeholder", "Website" } })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.TextAreaFor(x => x.strComment, new Dictionary<String, Object> { { "placeholder", "Your Comment" } })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.strSecurity, new Dictionary<String, Object> { { "placeholder", "Security Question: What is 2 + 2?" } })
+                    </td>
+                    <td class="buttonsArea">
+                        @Html.HiddenFor(x => x.intId)
+
+                        @if (!blnDisableFacebookIntegration)
+                        {
+                            <input type="button" name="Facebook" value="Autofill with Facebook" id="facebookButton" />
+                        }
+                        <input type="submit" name="Submit" value="Submit" id="submitButton" />
+                    </td>
+                </tr>
+            </table>
+        }
+
+        <div id="fb-root"></div>
+    }
+}

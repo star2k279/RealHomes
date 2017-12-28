@@ -48,6 +48,7 @@
            
             <div class="clearfix"> </div>
         </div>
+        
         <!--Second Row-->
         <div class="price-grid">
             <div class="col-sm-4 price-top">
@@ -141,7 +142,7 @@
                 <ul>
                     <li>
                         <select id="ddlminPrice" class="in-drop">
-                            @{ foreach (var minp in Model.minPrice)
+                            @{foreach (var minp in Model.minPrice)
                                 {
                                     if (minp.Text.Substring(minp.Text.Length - 1, 1) == "k")
                                         {<option value='@minp.Text.Replace("k", "000")'>@minp.Text</option>}
@@ -204,7 +205,6 @@
         </div>
     
         <!--Fifth row-->
-    
         <hr />
 
         <div class="price-grid">

@@ -8,19 +8,15 @@
     //If sombody already logged in and this page was requested directly.
     if (!Members.IsLoggedIn())
     {
-        
+
     <!--contact-->
      <div class="login-right">
         <div class="container">
                 <h3>Login</h3>
                 <div class="login-top">
-                    <!--<ul class="login-icons">
-                        <li><a href="#"><i class="facebook"> </i><span>Facebook</span></a></li>
-                        <li><a href="#" class="twit"><i class="twitter"></i><span>Twitter</span></a></li>
-                        <li><a href="#" class="go"><i class="google"></i><span>Google +</span></a></li>
-                        <li><a href="#" class="in"><i class="linkedin"></i><span>Linkedin</span></a></li>
-                        <div class="clearfix"> </div>
-                    </ul>-->
+                    <section id="socialLoginForm">
+                        @Html.Partial("Membership/_ExternalLoginServiceList", new ExternalLoginServiceListModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
                     <div class="form-info">
                         @{ var backURL = "";
                             if (Request.QueryString["returnURL"] != null)
@@ -61,27 +57,97 @@
                                 <div id="errorDiv" style="@sStyle" class="form-group">
                                     <label id="lblError" class="text-danger">@StringConstants.LOGIN_FAILURE_MSG </label>
                                 </div>
-                            <label class="hvr-sweep-to-right">
-                                <input type="submit" value="Login">
-                            </label>
-                            }
-                            }
-                    </div>
-                    <div class="create">
-                        <h4>New To Real Home?</h4>
-                        <a class="hvr-sweep-to-right" href="~/register">Create an Account</a>
-                        <div class="clearfix"> </div>
-                    </div>
 
+                                <div class="form-group" >
+                                    <label class="hvr-sweep-to-right col-lg-6" >
+                                        <input type="submit"  value="Login" />
+                                    </label>
+                                </div>
+
+                            }
+
+                        }
+
+                    </div>
+                    <div class="clearfix"> </div>
+                    <hr />
+                     <div class="create">
+                        
+                        <h4 > New To Real Home?</h4>
+                        <a  class="hvr-sweep-to-right col-lg-8" href="~/register" style="text-align:center">Create an Account</a>
+                         
+                       
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
             </div>
         </div>
-    }
-    else
-    {
-        Html.RenderAction("RenderLogout", "MembershipCMS");
-        //Response.Redirect("~/Logout");
-    }
-}
 
-<!--//contact-->
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        @*Html.Partial("~/Views/UmbracoIdentityAccount/LoginStatus.cshtml", Model)*@
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        @*Html.Partial("~/Views/UmbracoIdentityAccount/Profile.cshtml", Model)*@
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        @*{Html.RenderAction("RenderLogout", "MembershipCMS");
+                                        }
+
+                                        @*Response.Redirect("~/Logout");*@
+                                    </div>
+                                </div>
+                            }
+}
+                            }
+                           
+
+<!--//contact
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: 'MY_APP_ID',
+            xfbml: true,
+            version: 'v2.5'
+        });
+        // Additional initialization code here
+        FB.Event.subscribe('auth.authResponseChange', function (response) {
+            if (response.status === 'connected') {
+                // the user is logged in and has authenticated your
+                // app, and response.authResponse supplies
+                // the user's ID, a valid access token, a signed
+                // request, and the time the access token
+                // and signed request each expire
+                var uid = response.authResponse.userID;
+                var userAccessToken = response.authResponse.accessToken;
+
+
+                $.post("/umbraco/Surface/BookingAgentSurface/FacebookLogin", { accessToken: userAccessToken });
+
+            } else if (response.status === 'not_authorized') {
+                // the user is logged in to Facebook,
+                // but has not authenticated your app
+            } else {
+                // the user isn't logged in to Facebook.
+            }
+        });
+    };
+
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+    -->

@@ -1,0 +1,159 @@
+/* Main Settings */
+body {margin: 0 auto; padding: 0; width: 900px; color: #000; background-color: #e4e1d2; font-family: arial; font-size: 12px; font-weight: normal;}
+form {display: inline;}
+/* -------------------------------------------------------------- */
+
+/* HTML 5 Reset - Makes older browsers recognise them as block elements. */
+article, aside, figure, footer, header, hgroup, nav, section { display: block; margin: 0; padding: 0; }
+
+/* Template settings */
+.noPrint{}
+.header {float: left; width: 900px; margin: 0; padding: 0;}
+.banner {float: left; width: 900px; height: 100px; margin: 0; padding: 0; font-size: 25pt; line-height: 100px;}
+.content {float: left; width: 900px; margin: 0 0 10px 0; padding: 0; background-color: #fff;}
+.payload {float: left; width: 870px; margin: 15px; padding: 0; vertical-align: top;}
+.smartBlogLeft {float: left; width: 78%;}
+.smartBlogRight {float: right; width: 20%;}
+.footer {float: left; width: 900px; margin: 0; padding: 0; height: 30px; color: #B5B5B5; font-size: 0.8em; text-transform: uppercase;}
+/* -------------------------------------------------------------- */
+
+/* General settings */
+.showTxt {visibility: visible;}
+.hideTxt {visibility: hidden; display: none;}
+
+h1 {color: #000; font-size: 16pt; font-weight: bold; margin: 10px 0 0 0; padding: 0;}
+h2 {color: #ff8d00; font-size: 14pt; font-weight: bold; margin: 0; padding: 0;}
+h3 {color: #000; font-size: 12pt; font-weight: bold; margin: 0; padding: 0;}
+h4 {color: #000; font-size: 10pt; font-weight: bold; margin: 0; padding: 0;}
+h5 {color: #f7A901; font-size: 10pt; font-weight: bold; margin: 0; padding: 0;}
+/* -------------------------------------------------------------- */
+
+/* Search */
+.smartBlogRight > form > #smartSearchInput {width: 70%; margin: 0 5% 20px 0; padding: 0;}
+.smartBlogRight > form > #smartSearchButton {width: 20%; margin: 0 0 20px 0; padding: 0;}
+
+/* General Smart Blog Settings */
+.smartTopBorder {margin-top: 20px;}
+.smartSubTitle {font-size: 16pt; border-bottom: 1px solid #CCC; width: 100%; clear: both; display: block; color: #000;}
+
+/* Posts & Listing */
+#postPageBody {margin: 0 0 20px 0;}
+.postList {margin: 10px 0 10px 0;}
+.post {margin: 0 0 10px 0; padding: 0 0 10px 0; border-bottom: 1px dashed #ccc;}
+.post:last-of-type {border-bottom: none;}
+.post > p {margin: 0 0 15px 0;}
+
+/* Tag Settings */
+.tag-1 {font-size: 1.0em;}
+.tag-2 {font-size: 1.1em;}
+.tag-3 {font-size: 1.3em;}
+.tag-4 {font-size: 1.4em;}
+.tag-5 {font-size: 1.5em;}
+.tag-6 {font-size: 1.6em;}
+.tag-7 {font-size: 1.7em;}
+.tag-8 {font-size: 1.8em;}
+.tag-9 {font-size: 1.9em;}
+
+/* Archive */
+.smartArchive {list-style: none; margin: 0; padding: 0;}
+.smartArchive ul {list-style: none; margin: 0 0 0 15px; padding: 0;}
+.smartArchive li {margin: 0 0 5px 0;}
+
+/* Link settings */
+a {color: #ff8d00; text-decoration: none; font-weight: normal;}
+a:hover {color: #ff8d00; text-decoration: underline; font-weight: normal;}
+a img {border: none;}
+
+.banner > a {color: #000;}
+
+.footer a {color: #B5B5B5; text-decoration: none;}
+.footer a:hover {color: #FF0000; text-decoration: underline;}
+/* -------------------------------------------------------------- */
+
+/* Miscellaneous settings */
+.copyright {color:#5B5B5B; font-size: 0.85em;}
+.pagingBar {width: 694px; background-color: #DDD; padding: 5px 10px 5px 10px;}
+.date {float: right; color: #AAA; font-size: 0.8em;}
+/* -------------------------------------------------------------- */
+
+/* Comment Form */
+.commentFormTable {width: 560px;}
+.commentFormTable input[type="text"] {margin: 5px; padding: 5px 10px; width: 220px; height: 15px; border: none; background-color: #DDD; color: #666; font-style: italic; font-family: Arial;}
+.commentFormTable input[type="submit"] {margin: 0; padding: 5px 10px; background-color: #FCA800; color: #000; border: 0; font-style: italic;}
+.commentFormTable input[type="submit"]:hover {color: #FFF; cursor: pointer;}
+.commentFormTable input[type="button"] {margin: 0; padding: 5px 10px; background-color: #FCA800; color: #000; border: 0; font-style: italic;}
+.commentFormTable input[type="button"]:hover {color: #FFF; cursor: pointer;}
+.commentFormTable label {color: #666;}
+.commentFormTable textArea {border: none; background-color: #DDD; margin: 5px; padding: 5px 10px; width: 500px; height: 30px; color: #666; font-style: italic; font-family: Arial;}
+.commentFormTable td {width: 277px;}
+.commentFormTable .captcha {margin: 0 5px 0 -35px !important; width: 190px !important;}
+.commentFormTable .buttonsArea {text-align: right;}
+
+/* Comment */
+#commentsContainer {position: relative; float: left; width: 890px;}
+.comment {float:left; width: 400px; height: auto; margin: 0 0 20px 0; clear: both;}
+.commentInner {float: left;}
+.commentName {float:left; width: 400px; font-size: 10pt; font-weight: bold; margin: 0 0 5px 0;}
+.commentComment {float:left; width: 400px;}
+.commentDate {float:left; width: 400px; font-size: 8pt;}
+/* -------------------------------------------------------------- */
+
+/* Breadcrumb */
+ul.breadcrumb {display: block; float: left; width: 710px; margin: 0; padding: 0; color: #9FB5CF; font-size: 0.8em;  list-style: none;}
+ul.breadcrumb > li {display: block; float: left;  margin: 0; padding: 10px 0 0 3px;}
+ul.breadcrumb > li > a.bc {color: #9FB5CF; text-decoration: underline;}
+ul.breadcrumb > li > a.bc:hover {color: #FFF; text-decoration: none;}
+ul.breadcrumb > li > span.bchighlight {color: #FFF;  font-weight: bold;}
+/* -------------------------------------------------------------- */
+
+/* Pagination */
+nav.pagination {
+  display: block;
+  float: right;
+  width: auto;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  overflow: hidden; }
+  nav.pagination.top {
+    margin: 10px 0 0 0; }
+  nav.pagination > a, nav.pagination > span {
+    display: block;
+    float: left;
+    margin: 0 1px;
+    padding: 0 7px;
+    font-size: 11px;
+    line-height: 23px;
+    border: 1px solid #ccc;
+    font-weight: bold; }
+  nav.pagination > span {
+    color: #aaa;
+    background-color: #f0f0f0; }
+  nav.pagination > span.pagePrev, nav.pagination > span.pageNext {
+    font-style: italic; }
+  nav.pagination > a.pagePrev, nav.pagination > a.pageNext {
+    font-style: italic; }
+  nav.pagination > span.pageCurrent {
+    background-color: #ff7800;
+    color: #fff;
+    border: 1px solid #dd6800; }
+  nav.pagination > .pageFirst, nav.pagination > .pageLast {
+    font-style: italic; }
+/* -------------------------------------------------------------- */
+
+/* Validation */
+.validation-summary-valid {display: none;}
+.validation-summary-errors {color: #DD0000;}
+.valid {}
+.input-validation-error {color: #DD0000 !important;}
+/* -------------------------------------------------------------- */
+
+/* Clean up */
+.blockClose {margin: 0; padding: 0; height: 0; clear: both;}
+/* -------------------------------------------------------------- */
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -116,12 +116,12 @@ namespace RealHomes.Controllers
                     if (query == null)
                     {
 
-                        query = searchCriteria.Field(srchModel.NAME_PROPERTY_NAME, sAgentId);
-
+                        //query = searchCriteria.Field(srchModel.NAME_PROPERTY_NAME, sAgentId);
+                        query = searchCriteria.Field(srchModel.ID_PROPERTY_NAME, sAgentId);
                     }
                     else
                     {
-                        query = query.And().Field(srchModel.NAME_PROPERTY_NAME, sAgentId);
+                        query = query.And().Field(srchModel.ID_PROPERTY_NAME, sAgentId);
                     }
                 }
                
@@ -253,7 +253,11 @@ namespace RealHomes.Controllers
             SetYearsAndMonths((DateTime.Now - Convert.ToDateTime(item.JoinDate)), ref item);
                 
             item.ReraNo = agent.GetPropertyValue(item.RERA_PROPERTY_NAME) == null ?"" : agent.GetPropertyValue(item.RERA_PROPERTY_NAME).ToString();
-            
+            item.JobTitle = agent.GetPropertyValue(item.JOB_PROPERTY_NAME) == null ? "" : agent.GetPropertyValue(item.JOB_PROPERTY_NAME).ToString();
+            item.PropertiesSold = agent.GetPropertyValue(item.SOLD_PROPERTY_NAME) == null ? 0 : Convert.ToInt32(agent.GetPropertyValue(item.SOLD_PROPERTY_NAME));
+            item.PropertiesLeased = agent.GetPropertyValue(item.LEASED_PROPERTY_NAME) == null ? 0 : Convert.ToInt32(agent.GetPropertyValue(item.LEASED_PROPERTY_NAME));
+            item.PropertiesRented = agent.GetPropertyValue(item.RENTED_PROPERTY_NAME) == null ? 0 : Convert.ToInt32(agent.GetPropertyValue(item.RENTED_PROPERTY_NAME));
+            item.Overview = agent.GetPropertyValue(item.OVERVIEW_PROPERTY_NAME) == null ? "" : agent.GetPropertyValue(item.OVERVIEW_PROPERTY_NAME).ToString();
             if (agent.GetPropertyValue(item.IMAGE_PROPERTY_NAME) != null)
             {
                 item.Image = agent.GetPropertyValue<IPublishedContent>(item.IMAGE_PROPERTY_NAME);

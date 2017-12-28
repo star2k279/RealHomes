@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html;
+@using Umbraco.Web;
+@{
+    // Get this blogs root, does not use an id because there may be more thanone blog
+    IPublishedContent objBlogRoot = Model.Content.AncestorOrSelf("SmartBlogBlog");
+    
+    // Get the posts in this blog
+    IEnumerable<IPublishedContent> colPosts = objBlogRoot.Descendants("SmartBlogPost").OrderBy("updateDate");
+    
+    // Create the tag dictionary
+    Dictionary<String, Int32> colCategories = new Dictionary<String, Int32>();
+
+    // Loop through all the posts then loop through their tags to add to the tag dictionary
+    foreach (IPublishedContent objPost in colPosts)
+    {
+        String[] colCategoryNames;
+        if (!String.IsNullOrEmpty(objPost.GetPropertyValue<String>("smartBlogCategory")))
+        {
+             colCategoryNames = objPost.GetPropertyValue<String>("smartBlogCategory").Split(',');
+        }
+        else
+        {
+             colCategoryNames = new String[0];
+        }
+
+        foreach (String strCategory in colCategoryNames)
+        {
+            if (colCategories.ContainsKey(strCategory))
+            {
+                colCategories[strCategory]++;
+            }
+            else
+            {
+                colCategories.Add(strCategory, 1);
+            }
+        }
+    }
+    
+    <span class="smartSubTitle smartTopBorder">Categories</span><br />
+    
+    // Loop through the tag dictionary
+    foreach (KeyValuePair<string, int> objCategory in colCategories)
+    {
+        //Deal with the tag
+        <a class="smartCategory" href="@Umbraco.NiceUrl(objBlogRoot.Id)?category=@objCategory.Key">@objCategory.Key</a><br />
+    }
+}

@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc;
+@{
+    Layout = "SmartBlogContent.cshtml";
+}
+
+<header>
+	@Html.Partial("SmartBreadcrumb")<br />
+	<h1>@Umbraco.Field("title", altFieldAlias: "pageName")</h1>
+	@Umbraco.Field("summary", insertBefore: "&lt;h2&gt;", insertAfter: "&lt;/h2&gt;")
+</header><br />
+<article>
+	@RenderBody()
+</article>

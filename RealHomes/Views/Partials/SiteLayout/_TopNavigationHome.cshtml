@@ -36,24 +36,33 @@
         <!--//logo-->
         <div class="top-nav">
             <ul class="right-icons">
-                <li><span><i class="glyphicon glyphicon-phone"> </i>@Umbraco.Field("contactNumber", recursive: true)</span></li>
-
+                <!--<i class="glyphicon glyphicon-phone"> </i>-->
+                <li><span>@Umbraco.Field("contactNumber", recursive: true)</span></li>
                 @{
                     if (Members.IsLoggedIn())
                     {
-                        <span> @Session[StringConstants.CURRENT_USER_NAME]  </span>
-                            <span><i class="glyphicon glyphicon-phone"> </i><a href="~/logout"> Logout</a></span>
+                        <!--<span> @Session[StringConstants.CURRENT_USER_NAME]  </span>
+                        <span><i class="glyphicon glyphicon-phone"> </i><a href="~/logout"> Logout</a></span>-->
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown"><span>@Session[StringConstants.CURRENT_USER_NAME]</span></a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="~/logout">Logout</a></li>
+                            </ul>
+                        </li>
                     }
                     else
                     {
-                        <span><i class="glyphicon glyphicon-log-in"> </i><a href="~/login"> Login</a></span>
-                    }
-                    
-                }
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">UAE<span class="caret"></span></a>
+                        <li><span> <a href="~/login"> Login</a></span></li>
+                        <!--<li><span ><i class="glyphicon glyphicon-log-in"> </i><a href="~/login"> Login</a></span></li>-->
+                        }
 
-                    <ul class="dropdown-menu">
+                    }
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" >UAE<span class="caret"></span></a>
+                    
+                    <ul class="dropdown-menu" role="menu">
                         @{
                             IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks", true);
 
@@ -61,7 +70,7 @@
                             {
                                 foreach (RelatedLink mLink in regionLinks)
                                 {
-                                    <li><a href="@mLink.Link">@mLink.Caption</a></li>
+                                    <li role="presentation"><a role="menuitem" href="@mLink.Link">@mLink.Caption</a></li>
                                 }
                             }
                         }

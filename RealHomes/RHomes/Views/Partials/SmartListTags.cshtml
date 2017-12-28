@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Mvc.Html;
+@using Umbraco.Web;
+@using Umbraco.Core.Models;
+@{
+    // Get this blogs root, does not use an id because there may be more thanone blog
+    IPublishedContent objBlogRoot = Model.Content.AncestorOrSelf("SmartBlogBlog");
+    
+    // Get the posts in this blog
+    IEnumerable<IPublishedContent> colPosts = objBlogRoot.Descendants("SmartBlogPost");
+    // Create the tag dictionary
+    Dictionary<String, Int32> colTagList = new Dictionary<String, Int32>();
+    
+    // Loop through all the posts then loop through their tags to add to the tag dictionary
+    foreach (IPublishedContent objPost in colPosts.Where(x => !String.IsNullOrEmpty(x.GetPropertyValue<String>("smartBlogTags"))))
+    {
+        foreach (String strTag in objPost.GetPropertyValue<String>("smartBlogTags").Split(','))
+        {
+            if (!String.IsNullOrEmpty(strTag))
+            {
+                if (colTagList.ContainsKey(strTag))
+                {
+                    colTagList[strTag]++;
+                }
+                else
+                {
+                    colTagList.Add(strTag, 1);
+                }
+            }
+        }
+    }
+    
+    <span class="smartSubTitle">Tags</span><br />
+    
+    // Loop through the tag dictionary showing most used first
+    <div class="smartRightLowSectionContainer">
+        @foreach (KeyValuePair<String, Int32> objTag in colTagList.OrderByDescending(x => x.Value))
+        {
+            //Deal with the tag
+            <a class="smartTag tag-@objTag.Value" href="@Umbraco.NiceUrl(objBlogRoot.Id)?tag=@objTag.Key">
+                @objTag.Key
+            </a><span style="color: #666;">&nbsp;&#40;@objTag.Value&#41;</span><br />
+        }
+    </div>
+}

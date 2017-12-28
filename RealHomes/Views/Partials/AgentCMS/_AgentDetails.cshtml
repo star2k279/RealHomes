@@ -50,53 +50,37 @@
 
         <div class="col-md-4">
             <p><b>@Html.DisplayFor(modelItem => Model.DisplayName)</b></p>
-            <p>@Html.DisplayFor(modelItem => Model.City) </p>
+            <p>@Html.DisplayFor(modelItem => Model.JobTitle), @Html.DisplayFor(modelItem => Model.City) </p>
             <br />
             <p><b>RERA Permit No.</b> @Html.DisplayFor(modelItem => Model.ReraNo)</p>
             <p><b>Mobile No. </b>@Html.DisplayFor(modelItem => Model.MobileNo)</p>
             <p>
-                <b>Properties Sold</b>
-                <b>Properies Leased</b>
-                <b>RH Experience</b>
+                <b>Properties Sold  </b>@Model.PropertiesSold
             </p>
             <p>
-                <b>00</b>
-                <b>00</b>
-                <b>@Model.totalExpYrs</b>
+                <b>Properies Leased  </b>@Model.PropertiesLeased
             </p>
+            <p>
+                <b>Properies Rented  </b>@Model.PropertiesLeased
+            </p>
+            <p>
+                <b>RH Experience  </b> @Model.totalExpYrs
+            </p>
+
         </div>
 
         <div class="col-md-4">
-            <p style="glyph-orientation-horizontal"> Save & Rate</p>
+            <p class="glyph-orientation-horizontal"> Save & Rate</p>
             <p>******</p>
-            <p> </p>
-            <p>Property Listed By</p>
-            <p><button id="btnAgentProfile">View Profile</button>
-
-            <p> </p>
-            @{
-                        //ViewBag.DetailPageId = item.PropertyDetailPageID;
-                        RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
-
-                        var pg = Umbraco.Content(WebConfigurationManager.AppSettings[CMSNodesSetting.AGENTDETAILCT_SETTING_NAME]);
-
-                        if (pg == null)
-                        {
-                    <p><a href="#">Property Detail</a></p>
-                        }
-                        else
-                        {
-                            string url = pg.Url;
-                            url = url.Substring(0, url.Length - 1) + "?AgentId=" + @Model.AgentId;
-                    <p><a href="@url">Agent Detail</a></p>
-                            }
-            }
-            <p> </p>
-
-            <p>
-                <!--<a href="javascript:void();" onclick="OpenDialog('@*item.ReferenceNo','@item.PropertyTitle'*@);">Arrange for Viewing</a>
-                <button id="btnEnquiry" style="width:170px" onclick="alert('view form to be loaded');">Arrange For Viewing</button>-->
-            </p>
+            
+            <p><br /></p>
+            <p><br /></p>
+            <p><br /></p>
+            <p><br /></p>
+            <p><br /></p>
+            <p><br /></p>
+            <p><a href="#">Contact Me</a></p>
+               
 
         </div>
 
@@ -111,7 +95,7 @@
                     
         <div class="container">
             <!--Agent Detail Overview   @*Html.Raw(@Model.Overview)*@ -->
-
+            @Html.Raw(@Model.Overview)
         </div>
         
 </div>        
@@ -132,7 +116,7 @@
 
 <hr />
 
-<div id="divDisclaimer" class="container">
+<div id="Resultcontainer" class="container">
 
-            <div><br />Disclaimer<br />The currency conversion feature is for your reference only, while we have tried to provide the most accurate and timely rates available. We do not guarantee the accuracy, timeliness, reliability, or completeness of this information.</div>
+     
 </div>
