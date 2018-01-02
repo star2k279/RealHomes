@@ -412,7 +412,7 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Scripts\AdvSearchElements.js" />
     <Content Include="Scripts\AgentSearchElements.js" />
-    <Content Include="Scripts\AutoCompleteElements.js" />
+    <Content Include="Scripts\HelperElements.js" />
     <Content Include="Scripts\BlogElements.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />

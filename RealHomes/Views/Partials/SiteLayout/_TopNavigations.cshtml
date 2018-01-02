@@ -4,13 +4,13 @@
 @inherits UmbracoViewPage
 
 <!-- Include Twitter Bootstrap and jQuery:
-<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>-->
 <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
 <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="~/Scripts/header-redesign-inputvalidator0099.js"></script> -->
-<!--
+ 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">    
+<script src="~/Scripts/header-redesign-inputvalidator0099.js"></script>
 <script src="~/Scripts/jquery-1.12.4.js"></script>
 <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
@@ -20,10 +20,10 @@
 <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
 <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
 
-<!-- Include the plugin's CSS and JS: 
+<!-- Include the plugin's CSS and JS: -->
 <link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
 <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
--->
+
 <script src="~/Scripts/AdvSearchElements.js"></script>
 
 
@@ -91,15 +91,15 @@
 
                     <ul class="dropdown-menu">
                         @{
-                            IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks",true);
+                            IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks", true);
 
                             if (regionLinks != null && regionLinks.Count() > 0)
                             {
                                 foreach (RelatedLink mLink in regionLinks)
                                 {
                                 <li><a href="@mLink.Link">@mLink.Caption</a></li>
-                                    }
                                 }
+                            }
                             }
 
                     </ul>
@@ -133,8 +133,8 @@
 <!--Body div-->
 <div class="body-content">
     <div id="searchWidget">
-        <input type="hidden" id="txtSearchPage" />
-        <input type="hidden" id="txtSearchCriteria" />
+      
+        <input type="hidden" id="txtLocationfromHome" />
         @{
 
             //By default show property search
