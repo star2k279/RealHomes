@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogPostCommentsViewCMSModel>
+@using System.Web.Configuration;
+@using RealHomes.Models;
+
+
+<div class="leave">
+    <h5>Leave a Comment</h5>
+    @{using (Html.BeginUmbracoForm<RealHomes.Controllers.BlogCMSController>("SaveBlogPostComment", new { postId = Model.PostId }, FormMethod.Post))
+        {
+            @Html.TextBoxFor(m => Model.Name, new { id = "txtName", htmlAttributes = new { style = "width:300px", placeholder = "Name", @class = "form-control" } })
+            @Html.TextBoxFor(m => Model.Email, new { id = "txtEmail", htmlAttributes = new { style = "width:300px", placeholder = "Email", @class = "form-control" } })
+            @Html.TextBoxFor(m => Model.Subject, new { id = "txtSubject", htmlAttributes = new { style = "width:300px", placeholder = "Subject", @class = "form-control" } })
+            @Html.TextAreaFor(m => Model.Comment, new { id = "txtComment", htmlAttributes = new { style = "width:300px", placeholder = "Comment", @class = "form-control" } })
+            
+
+            <label class="hvr-sweep-to-right">
+                <input type="submit" value="Post Comment">
+            </label>
+            }
+        }
+</div>
+       

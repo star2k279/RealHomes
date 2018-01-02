@@ -12,11 +12,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@Umbraco.Field("pageTitle", altText:"Real Home A Real Estate Category Flat Bootstarp Resposive Website Template")</title>
+    <title>@Umbraco.Field("pageTitle", altText: "Real Homes - One Solutions for all your Property Problems.")</title>
     <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <script src="~/Scripts/jquery.min.js"></script>
+
     <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
 
@@ -38,6 +39,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="~/Scripts/jquery-1.12.4.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     
+    <!----------------------------------------------------------------------->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="~/Scripts/header-redesign-inputvalidator0099.js"></script>
+
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Include the plugin's CSS and JS: -->
+    <link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/bootstrap-multiselect.js"></script>
+
+    <script src="~/Scripts/AutoCompleteElements.js"></script>
+
 </head>
 <body>
     <!--header-->
@@ -45,8 +65,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
       
     <!--content-->
-    @RenderBody();
-
+    <div class="container">
+    @RenderBody()
+    </div>
 
     @{Html.RenderPartial("SiteLayout/_footer");
     }

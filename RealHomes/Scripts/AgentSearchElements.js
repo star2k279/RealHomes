@@ -10,7 +10,9 @@ var criteria = "";
 jQuery(document).ready(function () {
 
     criteria = "";
+    AgentAutoComplete($("#txtKeywordAgent"), $("#txtAgentId"));
     //jQuery.noConflict();
+    /*
     $("#txtKeywordAgent").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -58,7 +60,7 @@ jQuery(document).ready(function () {
         messages: {
             noResults: function () { }, results: function () { }
         }
-    });
+    });*/
 
 
 });

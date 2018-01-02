@@ -1,14 +1,86 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
+@using System.Web.Configuration;
+@using RealHomes.Models;
 
-<div id="main-container">
-    <div id="main" class="wrapper clearfix">
-        <section>
-            @Html.Partial("Blog\\_BlogMain");
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<script type="text/javascript" src="~/Scripts/BlogElements.js"></script>
+
+@{
+    RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
+
+    string BlogNodeId = WebConfigurationManager.AppSettings[CMSNodesSetting.BLOGMAINCT_SETTING_NAME];
+
+    var BlogNode = Umbraco.TypedContent(BlogNodeId);
+    int pageSize = 3;
+    int totalPosts = BlogNode.Children.Any() ? BlogNode.Children.Count() : 0;
+
+    <div id="divBlogMain" class="blog">
+        <!--<div class="container">-->
+            <h3><b> @BlogNode.GetPropertyValue("blogPageTitle").ToString() </b></h3>
+            <!--List of Blog psots -->
+            <div class="col-md-10 container">
+                <div id="ResultContainer"class="blog-list">
+
+
+                   <!--Here the Blog List will be Populated through ajax call.-->
+
+
+                </div>
+
+            </div>
+            <div class="clearfix"/>
+
+            <!--Side bar for categories and date wise Archive-->
+            <div class="col-md-2 blog-sidebar">
+                <div id="CategoryContainer"class="blog-list">
+                    <h4>Categories</h4>
+                    <ul>
+
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Lorem Ipsum is simply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Contrary to popular belief</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>It is a long established</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>There are many variations</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Sed ut perspiciatis unde</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>But I must explain to you</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>At vero eos et accusamus</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>On the other hand</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Lorem Ipsum is simply</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Contrary to popular belief</a></li>
+                    </ul>
+
+                    
+                </div>
+
+                <div id="ArchiveContainer" class="blog-list">
+                    <h4>Archive</h4>
+                    <ul>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>July (15)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Oct (20)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>November (8)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>December (25)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>August (9)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>July (15)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>Oct (20)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>November (8)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>December (25)</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-arrow-right"> </i>August (9)</a></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+
             
-            <!--Insert a Partial View/ Macro to list all the blog posts here  -->
-        </section>  
-    </div> <!-- #main -->
-</div> <!-- #main-container -->
+
+           
+
+        <!--</div>-->
+    </div> <!-- #main-container -->
+    }

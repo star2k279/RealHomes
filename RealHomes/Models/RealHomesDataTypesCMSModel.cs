@@ -23,6 +23,8 @@ namespace RealHomes.Models
         public string MAXPRICE_SETTING_NAME { get { return "MaxPrice"; } }
         public string DEVHOLD_SETTING_NAME { get { return "DevelopmentHold"; } }
         public string STATUS_SETTING_NAME { get { return "AvailabilityStatus"; } }
+        public string BLOGCAT_SETTING_NAME { get { return "BlogCategories"; } }
+
 
         //Membership Data Types
 
@@ -40,5 +42,6 @@ namespace RealHomes.Models
 
         public string PROPDETAILCT_SETTING_NAME { get { return "PropertyDetailPageID"; } }
         public string AGENTDETAILCT_SETTING_NAME { get { return "AgentDetailPageID"; } }
+        public string BLOGMAINCT_SETTING_NAME { get { return "BlogMainNodeID"; } }
     }
 }

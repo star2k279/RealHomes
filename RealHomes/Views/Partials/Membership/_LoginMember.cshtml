@@ -76,7 +76,6 @@
                         <h4 > New To Real Home?</h4>
                         <a  class="hvr-sweep-to-right col-lg-8" href="~/register" style="text-align:center">Create an Account</a>
                          
-                       
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -88,7 +87,11 @@
                             {
                                 <div class="row">
                                     <div class="small-12 columns">
-                                        @*Html.Partial("~/Views/UmbracoIdentityAccount/LoginStatus.cshtml", Model)*@
+
+                                        @*Html.Partial("~/Views/Partials/Membership/_LoginStatus.cshtml")*@
+                                        
+                                        <p>You are currently logged in as @Members.CurrentUserName</p>
+
                                     </div>
                                 </div>
 
@@ -107,7 +110,7 @@
                                 </div>
                             }
 }
-                            }
+                            
                            
 
 <!--//contact

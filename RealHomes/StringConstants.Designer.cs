@@ -70,6 +70,15 @@ namespace RealHomes {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        public static string BLOG_PAGE_SIZE {
+            get {
+                return ResourceManager.GetString("BLOG_PAGE_SIZE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to najm_us_sahar@nanosofttek.com.
         /// </summary>
         public static string COMPANY_EMAIL {

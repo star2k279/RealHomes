@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "54796184a33859a1")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3df1fc115f6d8c3a")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -378,6 +378,78 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactUs, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// addressLine2
+		///</summary>
+		[ImplementPropertyType("addressLine2")]
+		public string AddressLine2
+		{
+			get { return this.GetPropertyValue<string>("addressLine2"); }
+		}
+
+		///<summary>
+		/// addressLine3
+		///</summary>
+		[ImplementPropertyType("addressLine3")]
+		public string AddressLine3
+		{
+			get { return this.GetPropertyValue<string>("addressLine3"); }
+		}
+
+		///<summary>
+		/// adressLine1
+		///</summary>
+		[ImplementPropertyType("adressLine1")]
+		public string AdressLine1
+		{
+			get { return this.GetPropertyValue<string>("adressLine1"); }
+		}
+
+		///<summary>
+		/// companyIntro
+		///</summary>
+		[ImplementPropertyType("companyIntro")]
+		public string CompanyIntro
+		{
+			get { return this.GetPropertyValue<string>("companyIntro"); }
+		}
+
+		///<summary>
+		/// contactLandline
+		///</summary>
+		[ImplementPropertyType("contactLandline")]
+		public string ContactLandline
+		{
+			get { return this.GetPropertyValue<string>("contactLandline"); }
+		}
+
+		///<summary>
+		/// contactMobile
+		///</summary>
+		[ImplementPropertyType("contactMobile")]
+		public string ContactMobile
+		{
+			get { return this.GetPropertyValue<string>("contactMobile"); }
+		}
+
+		///<summary>
+		/// generalEmail
+		///</summary>
+		[ImplementPropertyType("generalEmail")]
+		public string GeneralEmail
+		{
+			get { return this.GetPropertyValue<string>("generalEmail"); }
+		}
+
+		///<summary>
+		/// officeEmail
+		///</summary>
+		[ImplementPropertyType("officeEmail")]
+		public string OfficeEmail
+		{
+			get { return this.GetPropertyValue<string>("officeEmail"); }
 		}
 	}
 
@@ -2286,6 +2358,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("blogPostImage")]
+		public IPublishedContent BlogPostImage
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("blogPostImage"); }
+		}
+
+		///<summary>
 		/// Categories
 		///</summary>
 		[ImplementPropertyType("categories")]
@@ -2295,21 +2376,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Content
-		///</summary>
-		[ImplementPropertyType("content")]
-		public Newtonsoft.Json.Linq.JToken Content
-		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
-		}
-
-		///<summary>
 		/// Exerpt
 		///</summary>
 		[ImplementPropertyType("exerpt")]
 		public string Exerpt
 		{
 			get { return this.GetPropertyValue<string>("exerpt"); }
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("fullPostText")]
+		public Newtonsoft.Json.Linq.JToken FullPostText
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("fullPostText"); }
+		}
+
+		///<summary>
+		/// Labels
+		///</summary>
+		[ImplementPropertyType("labels")]
+		public IEnumerable<string> Labels
+		{
+			get { return this.GetPropertyValue<IEnumerable<string>>("labels"); }
 		}
 
 		///<summary>
@@ -2346,6 +2436,84 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<string> BlogKeywords
 		{
 			get { return Umbraco.Web.PublishedContentModels.Navigationbase.GetBlogKeywords(this); }
+		}
+	}
+
+	/// <summary>AboutRealHomes</summary>
+	[PublishedContentModel("aboutRealHomes")]
+	public partial class AboutRealHomes : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "aboutRealHomes";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public AboutRealHomes(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AboutRealHomes, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>TermsAndConditions</summary>
+	[PublishedContentModel("termsAndConditions")]
+	public partial class TermsAndConditions : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "termsAndConditions";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public TermsAndConditions(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TermsAndConditions, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Privacy</summary>
+	[PublishedContentModel("privacy")]
+	public partial class Privacy : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "privacy";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Privacy(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Privacy, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 	}
 

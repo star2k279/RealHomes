@@ -25,7 +25,10 @@ var criteria = "";
 jQuery(document).ready(function () {
 
     criteria = "";
+
+    LocationAutoComplete($("#txtKeywordLocation"), $("#txtKeyword"));
     //jQuery.noConflict();
+    /*
     $("#txtKeywordLocation").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -72,7 +75,7 @@ jQuery(document).ready(function () {
             noResults: function () { }, results: function () { }
         }
     });
-
+*/
     //call multi select plugin on fixture and views drop downs
     $('#ddlFixtures').multiselect({
         maxHeight: 250,

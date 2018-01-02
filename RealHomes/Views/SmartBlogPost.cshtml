@@ -1,9 +1,0 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@using System.Web.Mvc.Html;
-@using System.Web.Mvc;
-@{
-    Layout = "SmartBlogPage.cshtml";
-}
-
-@Html.Partial("SmartShowPost")
-@Html.Partial("SmartShowComments", new SmartBlog.Comment())

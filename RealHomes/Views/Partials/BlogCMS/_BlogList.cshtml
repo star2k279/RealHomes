@@ -1,0 +1,92 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<PagedBlogPostCMSViewModel>
+@using System.Web.Configuration;
+@using Umbraco.Core.Models;
+
+@using RealHomes.Models;
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    HttpMethod = "Get",
+    UpdateTargetId = "ResultContainer",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+
+
+    //RealHomesDataTypesCMSModel CMSNodesSetting = new RealHomesDataTypesCMSModel();
+
+    //string BlogNodeId = WebConfigurationManager.AppSettings[CMSNodesSetting.BLOGMAINCT_SETTING_NAME];
+
+    //var BlogNode = Umbraco.TypedContent(BlogNodeId);
+
+    if (Model.TotalRecords > 0)
+    {
+        foreach (var node in Model.BlogPostModels)
+
+        {
+            string postUrl = @node.PostUrl + "?postId=" + @node.PostId;
+            IPublishedContent img = @node.Image == null ? null : @node.Image;
+
+            <div id="divPost " class="container col-md-10">
+                
+                <a href="@postUrl">
+                    @if (img != null)
+                    {
+                        <img src="@img.Url" class="img-responsive" alt="" />
+                    }
+                </a>
+                <h4><a href="@postUrl">  @node.PostTitle</a></h4>
+
+                <small class="blogpost-date">@node.CreatedOn.ToShortDateString()  </small>
+                <small class="blogpost-cat">
+                    <b>@Html.Partial("~/Views/Partials/BlogCMS/_LabelLinks.cshtml", node.Labels)</b>
+                </small>
+                              
+                <p>
+                    @node.Exerpt
+                    <a href="@postUrl" class="blogpost"> Read More... </a>
+                </p>
+                <hr />
+             </div>
+             
+        }
+    }
+
+    <div id="divPagingLink" class="container col-md-10 ">
+    @if (Model.TotalPages > 1)
+    {
+        <nav>
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li>
+                    <a href="javascript:void();" onclick="NextPage(1);">First</a>
+                </li>
+                <li>
+                    <a onclick="NextPage(@Model.CurrentPage - 1);">Previous</a>
+                </li>
+            }
+
+            @for (var page = Model.StartPage; page <= Model.EndPage; page++)
+            {
+                <li class="@(page == Model.CurrentPage ? "active" : "")">
+                    <a onclick="NextPage(@page);">@page </a>
+                </li>
+            }
+
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li>
+                    <a onclick="NextPage(@Model.CurrentPage + 1);">Next</a>
+                </li>
+                <li>
+                    <a onclick="NextPage(@Model.TotalPages);">Last</a>
+                </li>
+            }
+        </ul>
+        </nav>
+    }
+
+    </div>
+
+
+ }

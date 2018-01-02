@@ -3,6 +3,23 @@
 @using RealHomes;
 @inherits UmbracoViewPage
 
+
+<!--<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="~/Scripts/header-redesign-inputvalidator0099.js"></script>
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    -->
+
+
 <div class="navigation">
     <div class="container-fluid">
         <nav class="pull">
@@ -27,79 +44,87 @@
 
 
 <!--header div-->
-<div class="header">
-    <div class="container">
-        <!--logo   style="position:fixed;"-->
-        <div class="logo">
-            <h1><a href="~/">@Umbraco.Field("mainHeading", recursive: true)</a></h1>
-        </div>
-        <!--//logo-->
-        <div class="top-nav">
-            <ul class="right-icons">
-                <!--<i class="glyphicon glyphicon-phone"> </i>-->
-                <li><span>@Umbraco.Field("contactNumber", recursive: true)</span></li>
-                @{
-                    if (Members.IsLoggedIn())
-                    {
-                        <!--<span> @Session[StringConstants.CURRENT_USER_NAME]  </span>
-                        <span><i class="glyphicon glyphicon-phone"> </i><a href="~/logout"> Logout</a></span>-->
 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><span>@Session[StringConstants.CURRENT_USER_NAME]</span></a>
+    <div class="header">
+        <div class="container">
+            <!--logo   style="position:fixed;"-->
+            <div class="logo">
+                <h1><a href="~/">@Umbraco.Field("mainHeading", recursive: true)</a></h1>
+            </div>
+            <!--//logo-->
+            <div class="top-nav">
+                <ul class="right-icons">
+                    <!--<i class="glyphicon glyphicon-phone"> </i>-->
+                    <li><span>@Umbraco.Field("contactNumber", recursive: true)</span></li>
+                    @{
+                        if (Members.IsLoggedIn())
+                        {
+                            <!--<span> @Session[StringConstants.CURRENT_USER_NAME]  </span>
+                            <span><i class="glyphicon glyphicon-phone"> </i><a href="~/logout"> Logout</a></span>-->
 
-                            <ul class="dropdown-menu">
-                                <li><a href="~/logout">Logout</a></li>
-                            </ul>
-                        </li>
-                    }
-                    else
-                    {
-                        <li><span> <a href="~/login"> Login</a></span></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown"><span>@Session[StringConstants.CURRENT_USER_NAME]</span></a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="~/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li><span> <a href="~/login"> Login</a></span></li>
                         <!--<li><span ><i class="glyphicon glyphicon-log-in"> </i><a href="~/login"> Login</a></span></li>-->
                         }
 
                     }
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" >UAE<span class="caret"></span></a>
-                    
-                    <ul class="dropdown-menu" role="menu">
-                        @{
-                            IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks", true);
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">UAE<span class="caret"></span></a>
 
-                            if (regionLinks != null && regionLinks.Count() > 0)
-                            {
-                                foreach (RelatedLink mLink in regionLinks)
+                        <ul class="dropdown-menu" role="menu">
+                            @{
+                                IEnumerable<RelatedLink> regionLinks = Umbraco.AssignedContentItem.GetPropertyValue<IEnumerable<RelatedLink>>("regionMenuLinks", true);
+
+                                if (regionLinks != null && regionLinks.Count() > 0)
                                 {
-                                    <li role="presentation"><a role="menuitem" href="@mLink.Link">@mLink.Caption</a></li>
+                                    foreach (RelatedLink mLink in regionLinks)
+                                    {
+                                        <li role="presentation"><a role="menuitem" href="@mLink.Link">@mLink.Caption</a></li>
+                                    }
                                 }
                             }
-                        }
 
-                    </ul>
+                        </ul>
 
-                </li>
+                    </li>
 
-            </ul>
+                    <li>
+                       
+                            <div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+                                <a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+                            </div>
+
+                            
+                    </li>
+                </ul>
+                
+ <!---
+                <div class="nav-icon">
+                    <div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+                        <a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+                    </div>
+                   
+                        <a href="#" class="right_bt" id="activator"><i class="glyphicon glyphicon-menu-hamburger"></i>  </a>
+                   
+                </div> --->
+                <div class="clearfix"> </div>
 
 
-            <div class="nav-icon">
-                <div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
-                    <a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
-                </div>
-                <!---
-                    <a href="#" class="right_bt" id="activator"><i class="glyphicon glyphicon-menu-hamburger"></i>  </a>
-                --->
+
             </div>
             <div class="clearfix"> </div>
 
 
-
         </div>
-        <div class="clearfix"> </div>
-
 
     </div>
-
-</div>
-<!--header div-->
-
+    <!--header div-->

@@ -121,6 +121,9 @@
     <value>CMS</value>
     <comment>CMS, CUSTOMDB</comment>
   </data>
+  <data name="BLOG_PAGE_SIZE" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="COMPANY_EMAIL" xml:space="preserve">
     <value>najm_us_sahar@nanosofttek.com</value>
   </data>

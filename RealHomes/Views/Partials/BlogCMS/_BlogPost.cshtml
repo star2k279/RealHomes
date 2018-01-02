@@ -1,0 +1,124 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogPostCMSViewModel>
+@using System.Web.Configuration;
+@using RealHomes.Models;
+
+
+
+
+        <div class="col-md-10">
+            <div class="blog-top">
+
+                <img src="images/bl.jpg" class="img-responsive" alt="" />
+                <h3>@Model.PostTitle</h3>
+                <h5>Posted By : <a href="#">@Model.CreatedBy</a> | Date : @Model.CreatedOn</h5>
+                <h5>Labels : <a href="#">@Html.Partial("~/Views/Partials/BlogCMS/_LabelLinks.cshtml", Model.Labels) </a></h5>
+                <p>@Model.Exerpt </p>
+                @{
+                    IPublishedContent node = Umbraco.TypedContent(Model.PostId);
+                    if (node != null)
+                    {
+                        //@Html.Raw(Model.FullBodyText)
+                       <p> @Html.GetGridHtml(node, "fullPostText", "bootstrap3-fluid")</p>
+                    }
+                    else
+                    {
+                        <p>@Html.Raw(Model.FullBodyText) </p>
+                    }
+                    node = null;
+                   
+                    }
+
+
+                <div class="links">
+                    <ul class="blog-links">
+                        <li><a href="#"><i class="blog_circle">24 </i><span>Comments</span></a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <!--comment list-->
+            <div class="single-grid">
+                <h5>Our Comment</h5>
+                <!-- Render all the comments for this Particlular post-->
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="images/av.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="images/av.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="images/av.png" alt="" />
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nested media heading</h4>
+                                <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="images/av.png" alt="" />
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nested media heading</h4>
+                                <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="images/av.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="images/av.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Comment form-->
+            <div class="container">
+                @{
+                    BlogPostCommentsViewCMSModel commentModel = new BlogPostCommentsViewCMSModel();
+                    commentModel.PostId = Model.PostId;
+                    @Html.Partial("~/Views/Partials/BlogCMS/_BlogComments.cshtml", commentModel);
+                }
+            </div>
+
+           
+
+    </div>

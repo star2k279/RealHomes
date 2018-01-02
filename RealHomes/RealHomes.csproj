@@ -412,6 +412,8 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Scripts\AdvSearchElements.js" />
     <Content Include="Scripts\AgentSearchElements.js" />
+    <Content Include="Scripts\AutoCompleteElements.js" />
+    <Content Include="Scripts\BlogElements.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -533,29 +535,22 @@
     <Content Include="Views\AgentDetail.cshtml" />
     <Content Include="Views\Partials\PropertySurface\_SearchResults.cshtml" />
     <Content Include="Views\Partials\Membership\_ExternalLoginServiceList.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\_ViewStart11.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ShowRoles111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ResetPasswordConfirmation111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ResetPassword111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\RemoveAccountList111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\Register111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\Profile111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ManagePassword111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\Manage111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\LoginStatus111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\Login111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ForgotPasswordConfirmation111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ForgotPassword111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ExternalLoginsList111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ExternalLoginFailure111.cshtml" />
-    <Content Include="Views\UmbracoIdentityAccount_toberemoved\ExternalLoginConfirmation111.cshtml" />
     <Content Include="Views\AccountLayout.cshtml" />
     <Content Include="Views\Account.cshtml" />
     <Content Include="Views\Partials\Membership\_ExternalLoginConfirmationMember.cshtml" />
     <Content Include="Views\Partials\Membership\_ExternalLoginFailureMember.cshtml" />
     <Content Include="Views\Blog.cshtml" />
     <Content Include="Views\BlogPost.cshtml" />
-    <Content Include="Views\Partials\Blog\_BlogMain.cshtml" />
+    <Content Include="Views\Partials\BlogCMS\_BlogList.cshtml" />
+    <Content Include="Views\Partials\BlogCMS\_LabelLinks.cshtml" />
+    <Content Include="Views\Partials\BlogCMS\_BlogPost.cshtml" />
+    <Content Include="Views\Partials\BlogCMS\_BlogListByCategory.cshtml" />
+    <Content Include="Views\RegisterExternalLogin.cshtml" />
+    <Content Include="Views\Partials\Membership\_LoginStatus.cshtml" />
+    <Content Include="Views\TermsAndConditions.cshtml" />
+    <Content Include="Views\Privacy.cshtml" />
+    <Content Include="Views\AboutRealHomes.cshtml" />
+    <Content Include="Views\Partials\BlogCMS\_BlogComments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -569,7 +564,6 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="blog.html" />
-    <Content Include="blog_single.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -589,7 +583,6 @@
     <Content Include="config\Lang\ru-RU.user.xml" />
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
-    <Content Include="contact.html" />
     <Content Include="css\default.css" />
     <Content Include="css\flexslider.css" />
     <Content Include="css\popuo-box.css" />
@@ -711,11 +704,9 @@
     <Content Include="Scripts\responsiveslides.min.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="mobile_app.html" />
-    <Content Include="privacy.html" />
     <Content Include="register.html" />
     <Content Include="single.html" />
     <Content Include="suggestion.html" />
-    <Content Include="terms.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -733,6 +724,7 @@
     <Compile Include="App_Start\UmbracoStandardOwinStartup.cs" />
     <Compile Include="Controllers\AdvSearchController.cs" />
     <Compile Include="Controllers\AgentCMSController.cs" />
+    <Compile Include="Controllers\BlogCMSController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -755,8 +747,11 @@
     <Compile Include="Models\AgentSearchModel.cs" />
     <Compile Include="Models\AgentViewCMSModel.cs" />
     <Compile Include="Models\ApplicationErrorModel.cs" />
+    <Compile Include="Models\BlogPostCMSViewModel.cs" />
+    <Compile Include="Models\BlogPostCommentsViewCMSModel.cs" />
     <Compile Include="Models\ExternalLoginServiceModels.cs" />
     <Compile Include="Models\MakeAnOfferModel.cs" />
+    <Compile Include="Models\PagedBlogPostCMSViewModel.cs" />
     <Compile Include="Models\UmbracoIdentity\MembershipCMSModel.cs" />
     <Compile Include="Models\UmbracoIdentity\MembershipLoginCMSModel.cs" />
     <Compile Include="Models\PagedAgentCMSView.cs" />
