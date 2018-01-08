@@ -112,14 +112,29 @@ jQuery(document).ready(function () {
 
 
     //Load all properties fir the first time. service id parameter should be zero that indicates "all". 
-    if (GetURLParameter("locationName") != "")
+    if (getUrlParameter("location") != "")
     {
-        //var l = GetURLParameter("locationName")
-        //jQuery('#txtKeywordLocation').val(l);
-        //jQuery('#txtKeyword').val(l);
+        var l = getUrlParameter("location")
+        jQuery('#txtKeywordLocation').val(l);
+        jQuery('#txtKeyword').val(l);
     }
         SearchProperties();
 })
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 
 //This function would be called On the click of Search Buttons "For Sale", "For Rent" and "Short Stays"
 function SearchProperties() {

@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3df1fc115f6d8c3a")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f0021865b09a9d4e")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -2514,6 +2514,68 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Privacy, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>BlogPostComment</summary>
+	[PublishedContentModel("blogPostComment")]
+	public partial class BlogPostComment : NewsAndBlog
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "blogPostComment";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public BlogPostComment(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<BlogPostComment, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("commenterEmail")]
+		public string CommenterEmail
+		{
+			get { return this.GetPropertyValue<string>("commenterEmail"); }
+		}
+
+		///<summary>
+		/// Name
+		///</summary>
+		[ImplementPropertyType("commenterName")]
+		public string CommenterName
+		{
+			get { return this.GetPropertyValue<string>("commenterName"); }
+		}
+
+		///<summary>
+		/// Comment
+		///</summary>
+		[ImplementPropertyType("postComment")]
+		public string PostComment
+		{
+			get { return this.GetPropertyValue<string>("postComment"); }
+		}
+
+		///<summary>
+		/// Subject
+		///</summary>
+		[ImplementPropertyType("postSubject")]
+		public string PostSubject
+		{
+			get { return this.GetPropertyValue<string>("postSubject"); }
 		}
 	}
 
